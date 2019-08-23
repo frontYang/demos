@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- 编码 -->
+  <meta charset="UTF-8">
+
+  <!-- 网页标题 -->
+  <title>Document</title>
+
+  <!-- 关键字 -->
+  <meta name="keywords" content="" />
+
+  <!-- 描述 -->
+  <meta name="description" content="" />
+
+  <!-- 作者 -->
+  <meta name="Author" content="yangzhifang">
+
+  <!-- 指定IE和Chrome使用最新版本渲染当前页面 -->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+
+  <!-- 先发送请求，与服务器确认该资源是否被更改，如果未被更改，则使用缓存。 -->
+  <meta http-equiv="cache-control" content="no-cache">
+
+  <!-- 默认webkit内核渲染 -->
+  <meta name="renderer" content="webkit">
+
+  <meta name="referrer" content="always">
+
+  <!-- PC端页面跳转至对应的移动端网址 -->
+  <meta name="applicable-device" content="pc">
+  <link rel="alternate" media="only screen and(max-width: 640px)" href="/index.wap.html">
+
+  <!-- facebook 图谱 S -->
+  <meta property="og:url" content="分享链接" />
+  <meta property="fb:app_id" content="appid" />  
+  <meta property="og:title" content="分享标题" />
+  <meta property="og:description" content="分享描述" />
+  <meta property="og:image" content="图片600x600" />
+  <!-- facebook 图谱 E -->
+
+  <!-- 样式表 -->
+  <link rel="stylesheet" href="">
+
+</head>
+
+<body>
+  <!-- doc S -->
+  <div class="doc">
+    <!-- 分享 -->
+    <div class="facebook btn-share">facebook分享</div>
+
+    <!-- 登录 -->
+    <fb:login-button scope="public_profile,email" onlogin="FBUtil.checkLoginState();">登录</fb:login-button>
+
+    <!-- 登录状态 -->
+    <div id="status"></div>
+  </div>
+  <!-- doc E -->
+
+  <!-- script -->
+  <script src="index.js"></script>
+  <script>
+      FBUtil.init({
+        appid: '884858771882601',
+        loginIntf: '', // 登录请求接口
+        loginCallback(response) {
+          // 登录成功回调
+          document.getElementById('status').innerHTML =
+            'Thanks for logging in, ' + response.name + '!';
+        }
+      });
+
+      var btnShare = document.querySelector('.btn-share')
+      btnShare.addEventListener('click', function(){
+        FBUtil.share(function(response){
+          // 分享成功回调
+        })
+      })
+  </script>
+</body>
+</html>

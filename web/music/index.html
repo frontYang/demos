@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- 编码 -->
+  <meta charset="UTF-8">
+
+  <!-- 网页标题 -->
+  <title>Document</title>
+
+  <!-- 关键字 -->
+  <meta name="keywords" content="" />
+
+  <!-- 描述 -->
+  <meta name="description" content="" />
+
+  <!-- 作者 -->
+  <meta name="Author" content="yangzhifang">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 指定IE和Chrome使用最新版本渲染当前页面 -->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+
+  <!-- 先发送请求，与服务器确认该资源是否被更改，如果未被更改，则使用缓存。 -->
+  <meta http-equiv="cache-control" content="no-cache">
+
+  <!-- 默认webkit内核渲染 -->
+  <meta name="renderer" content="webkit">
+
+  <meta name="referrer" content="always">
+
+  <!-- PC端页面跳转至对应的移动端网址 -->
+  <!-- <meta name="applicable-device" content="pc">
+  <link rel="alternate" media="only screen and(max-width: 640px)" href="/index.wap.html"> -->
+ 
+  <!-- 样式表 -->
+  <link rel="stylesheet" href="">
+
+    <style>
+    body{
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left:0;
+    }
+    </style>
+</head>
+
+<body>
+  <!-- doc S -->
+  <div class="doc">
+    <div class="music btn-music" id="btnMusic" style="position: relative; z-index: 999;">
+      music
+    </div>
+
+    <audio loop="loop" id="audio" preload="preload" autoplay="autoplay" loop="loop">
+      <source src="https://fqj.springgame.com//reserve/themes/mp3/bgm.mp3"  type="audio/mp3">
+    </audio>
+  </div>
+  <!-- doc E -->
+
+  <!-- script -->
+
+  <!-- 调试工具 S -->
+  <!-- <script src="https://res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/vconsole/3.0.0/vconsole.min.js"></script>
+  <script>new VConsole();</script> -->
+  <!-- 调试工具 E -->
+
+  <script src="index.js"></script>
+  <script>
+    musicUtil.init({
+      toggleId: 'btnMusic', // 控制按钮id
+      audioId: 'audio', // 音频id
+      isPlay: true // 是否默认播放
+    })
+  </script>
+</body>
+</html>

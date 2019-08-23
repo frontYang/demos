@@ -1,0 +1,16 @@
+/*游戏区域*/
+*{margin: 0;padding: 0;}
+ul,li{list-style: none;}
+.play { width: 486px; height: 472px;  margin: 0 auto;}
+.play li { position: relative; float: left; width: 147px; height: 149px; margin: 0 10px 10px 0; /*奖品图片大小*/ }
+.play li div { position: relative; z-index: 1; text-align: center; }
+.play li:nth-child(4) { left: 312px; }
+.play li:nth-child(6) { top: 160px; }
+.play li:nth-child(7) { left: 154px; }
+.play li:nth-child(8) { left: -161px; }
+.play li:nth-child(9) { left: -314px; top: -159px; }
+.play li div img { width: 76px; height: 76px; margin-top: 31px; }
+.play li div p { width: 100%; color: #c14600; font-weight: bold; }
+.play li.select { opacity: 1; background-image: url("//pimages.49yu.com/activity/prereg/award_cur.png"); }
+.bg-award { width: 147px; height: 149px; background-image: url("//pimages.49yu.com/activity/prereg/award.png?20190821"); background-repeat: no-repeat; }
+.btn-lottery { width: 149px; height: 57px; background-image: url("//pimages.49yu.com/activity/prereg/lottery.png?20190821"); background-repeat: no-repeat; }
