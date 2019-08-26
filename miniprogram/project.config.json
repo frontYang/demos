@@ -1,0 +1,108 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": [
+			{
+				"type": "folder",
+				"value": "test"
+			},
+			{
+				"type": "suffix",
+				"value": ".md"
+			},
+			{
+				"type": "folder",
+				"value": "DOC"
+			},
+			{
+				"type": "folder",
+				"value": "img"
+			},
+			{
+				"type": "folder",
+				"value": ".vscode"
+			}
+		]
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"checkInvalidKey": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.7.5",
+	"appid": "wx0c35a31d29d598f7",
+	"projectname": "wechat-package",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "富文本",
+					"pathName": "pages/ui/editor/editor",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "日历",
+					"pathName": "pages/ui/calendar/calendar",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "图标",
+					"pathName": "pages/ui/charts/charts",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "箭头",
+					"pathName": "pages/ui/arrow/arrow",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "获取用户信息",
+					"pathName": "pages/fn/userinfo/userinfo",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}

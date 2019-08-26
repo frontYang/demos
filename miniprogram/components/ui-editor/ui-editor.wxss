@@ -1,0 +1,38 @@
+/* components/ui-editor/ui-editor.wxss */
+@import "../../common/lib/weui.wxss";
+@import "../../common/lib/iconfont.wxss";
+
+.ui-editor-wrapper {
+  padding: 5px;
+}
+
+.iconfont {
+  display: inline-block;
+  padding: 10rpx;
+  width: 44rpx;
+  height: 44rpx;
+  cursor: pointer;
+  font-size: 32rpx;
+  text-align: center;
+}
+
+.toolbar {
+  box-sizing: border-box;
+  border-bottom: 0;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+
+.ql-container {
+  box-sizing: border-box;
+  padding: 24rpx 30rpx;
+  width: 100%;
+  min-height: 45vh;
+  overflow: auto;
+  background: #fff;
+  font-size: 32rpx;
+  line-height: 1.5;
+}
+
+.ql-active {
+  color: #06c;
+}

@@ -13,4 +13,4 @@ ul,li{list-style: none;}
 .play li div p { width: 100%; color: #c14600; font-weight: bold; }
 .play li.select { opacity: 1; background-image: url("//pimages.49yu.com/activity/prereg/award_cur.png"); }
 .bg-award { width: 147px; height: 149px; background-image: url("//pimages.49yu.com/activity/prereg/award.png?20190821"); background-repeat: no-repeat; }
-.btn-lottery { width: 149px; height: 57px; background-image: url("//pimages.49yu.com/activity/prereg/lottery.png?20190821"); background-repeat: no-repeat; }
+.lottery-btn{ width: 149px; height: 57px; background-image: url("//pimages.49yu.com/activity/prereg/lottery.png?20190821"); background-repeat: no-repeat; }

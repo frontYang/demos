@@ -1,0 +1,10 @@
+<!--pages/ui/charts/charts.wxml-->
+<view class="page page-charts">
+  <view class="chart-tb">
+    <f2-canvas class="f2-canvas" id="lineDomWeek" canvas-id="lineWeek"  opts="{{ optsWeek }}"></f2-canvas>
+  </view>
+  <view class="chart-tb">
+    <f2-canvas class="f2-canvas" id="columnDomWeek" canvas-id="columnWeek"  opts="{{ optsWeek1 }}"></f2-canvas>
+  </view>  
+</view>
+  

@@ -1,4 +1,15 @@
-;(function () {  
+(function (window, factory) {
+  if (typeof exports === 'object') {
+
+    module.exports = factory();
+  } else if (typeof define === 'function' && define.amd) {
+
+    define(factory);
+  } else {
+
+    window.musicUtil = factory();
+  }
+})(this, function () {
   var musicUtil = {
     isPlay: true,
     getId(id) {
@@ -6,7 +17,7 @@
     },
 
     // 初始化
-    init(params){
+    init(params) {
       var self = this
       this.audioObj = this.getId(params.audioId)
       this.toggleObj = this.getId(params.toggleId)
@@ -18,12 +29,12 @@
       document.addEventListener('DOMContentLoaded', this.playInWx);
       this.toggle()
     },
-    
+
     // 暂停/播放切换
-    toggle(){
+    toggle() {
       var self = this
       // 移动端可以用touchend
-      this.toggleObj.addEventListener('click', function(e){
+      this.toggleObj.addEventListener('click', function (e) {
         e.stopPropagation()
         self.isPlay = !self.isPlay
         self.musicPlay()
@@ -31,7 +42,7 @@
     },
 
     // 浏览器自动播放
-    playInBrower(){
+    playInBrower() {
       musicUtil.isPlay = true
       musicUtil.musicPlay();
       // 移动端可以用touchend
@@ -39,7 +50,7 @@
     },
 
     // 微信自动播放
-    playInWx(){
+    playInWx() {
       musicUtil.isPlay = true
       musicUtil.musicPlay();
       document.addEventListener("WeixinJSBridgeReady", function () {
@@ -57,7 +68,7 @@
         console.log('播放')
         return
       }
-      
+
       if (!musicUtil.isPlay && !audio.paused) {
         audio.pause();
         this.isPlay = false
@@ -66,5 +77,5 @@
     }
   }
 
-  window.musicUtil = musicUtil  
-})();
+  return musicUtil
+});

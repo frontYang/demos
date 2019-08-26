@@ -1,0 +1,8 @@
+<!--pages/ui/calendar/calendar.wxml-->
+<view class="page page-calendar">
+  <view class="calendar-wrap">
+    <ui-calendar bindSelectEvent="selectDay" id="uiCalendar"></ui-calendar>
+  </view>
+
+    
+</view>

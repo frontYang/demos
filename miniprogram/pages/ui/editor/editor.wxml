@@ -1,0 +1,10 @@
+<!--pages/ui/editor/editor.wxml-->
+<view class="page page-editor">
+  <ui-editor 
+      placeholder="请填写"
+      bindInputEvent="inputEditor"
+      html="{{html}}"
+    >
+    </ui-editor>
+</view>
+  

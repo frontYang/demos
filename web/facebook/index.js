@@ -1,5 +1,16 @@
-(function(){
-  ;(function (d, s, id) {
+(function (window, factory) {
+  if (typeof exports === 'object') {
+
+    module.exports = factory();
+  } else if (typeof define === 'function' && define.amd) {
+
+    define(factory);
+  } else {
+
+    window.FBUtil = factory();
+  }
+})(this, function () {
+  ; (function (d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
     js = d.createElement(s); js.id = id;
@@ -13,7 +24,7 @@
       var self = this
       this.loginIntf = params.loginIntf
 
-      setTimeout(function(){
+      setTimeout(function () {
         FB.init({
           appId: params.appid,
           cookie: true,
@@ -68,5 +79,6 @@
       }
     }
   }
-  window.FBUtil = FBUtil
-})()
+
+  return FBUtil
+});

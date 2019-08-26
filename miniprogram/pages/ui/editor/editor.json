@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "ui-editor": "../../../components/ui-editor/ui-editor"
+  }
+}

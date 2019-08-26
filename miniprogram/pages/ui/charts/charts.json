@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "f2-canvas": "../../../components/f2-canvas/f2-canvas"
+  }
+}

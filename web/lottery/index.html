@@ -43,26 +43,26 @@
   <!-- doc S -->
   <div class="doc">
     <!--九宫格-->
-    <ul class="play clearfix" id="JAwardcontainer">
-      <li class="prize bg-award select">
+    <ul class="play clearfix" id="JawardContainer">
+      <li class="lottery-unit prize bg-award select">
         <div class="">
           <img src="https://iph.href.lu/120x120" alt="">
           <p>一等奖</p>
         </div>
       </li>
-      <li class="prize bg-award">
+      <li class="lottery-unit prize bg-award">
         <div class="">
           <img src="https://iph.href.lu/120x120" alt="">
           <p>二等奖</p>
         </div>
       </li>
-      <li class="prize bg-award">
+      <li class="lottery-unit prize bg-award">
         <div class="">
           <img src="https://iph.href.lu/120x120" alt="">
           <p>三等奖</p>
         </div>
       </li>
-      <li class="bg-award">
+      <li class="lottery-unit prize bg-award">
         <div class="">
           <img src="https://iph.href.lu/120x120" alt="">
           <p>谢谢参与</p>
@@ -70,28 +70,28 @@
       </li>
 
       <li class="btn">
-        <div id="btn" class="btn-lottery"></div>                
+        <div class="lottery-btn"></div>                
       </li>
 
-      <li class="prize bg-award">
+      <li class="lottery-unit prize bg-award">
         <div class="">
           <img src="https://iph.href.lu/120x120" alt="">
           <p>一等奖</p>
         </div>
       </li>
-      <li class="prize bg-award">
+      <li class="lottery-unit prize bg-award">
         <div class="">
           <img src="https://iph.href.lu/120x120" alt="">
           <p>88一等奖</p>
         </div>
       </li>
-      <li class="bg-award">
+      <li class="lottery-unit prize bg-award">
         <div class="">
           <img src="https://iph.href.lu/120x120" alt="">
           <p>一等奖</p>
         </div>
       </li>
-      <li class="prize bg-award">
+      <li class="lottery-unit prize bg-award">
         <div class="">
           <img src="https://iph.href.lu/120x120" alt="">
           <p>一等奖</p>
@@ -102,11 +102,20 @@
   <!-- doc E -->
 
   <!-- script -->
-
-
   <script src="index.js"></script>
   <script>
-    
+    lotteryUtil.init({
+      ele: 'JawardContainer',
+      request(){
+        // 异步请求中奖接口，获取中奖信息
+        var i = 5;
+        lotteryUtil.win(i)
+      },
+      success(index){
+        // 中奖回调位置
+        console.log(index)
+      }
+    })
   </script>
 </body>
 

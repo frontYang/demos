@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "ui-calendar": "../../../components/ui-calendar/ui-calendar"
+  }
+}

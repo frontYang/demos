@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/package/ui/ui",
+    "pages/package/api/api"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "subPackages": [
+    {
+      "root": "pages/ui/",
+      "pages": [
+        "calendar/calendar",
+        "charts/charts",
+        "arrow/arrow",
+        "editor/editor"
+      ]
+    },
+    {
+      "root": "pages/api/",
+      "pages": [
+        "userinfo/userinfo"
+      ]
+    }
+  ],
+  "tabBar": {    
+    "color": "#000000",
+    "selectedColor": "#000000",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/package/ui/ui",
+        "text": "组件"
+      },
+      {
+        "pagePath": "pages/package/api/api",
+        "text": "接口"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
