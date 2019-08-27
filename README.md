@@ -8,7 +8,7 @@
   - [x] [繁/简体切换](web/translate)
   - [x] [九宫格抽奖](web/lottery)
   - [x] [pc微信登录](web/wechat)
-  - [ ]  iframe通信（包括跨域和同域）
+  - [ ]  postMessage
   - [ ]  多选多级联动
   - [ ]  动画跳转至指定位置
   - [ ] 待续...
