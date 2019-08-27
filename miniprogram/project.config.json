@@ -101,6 +101,19 @@
 					"pathName": "pages/fn/userinfo/userinfo",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "上拉加载/下拉刷新",
+					"pathName": "pages/api/load/load",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "日期选择",
+					"pathName": "pages/ui/date/date",
+					"scene": null
 				}
 			]
 		}

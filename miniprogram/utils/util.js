@@ -42,6 +42,15 @@ const newDate = (opts, type) => {
   return new Date(cur)
 }
 
+/* 获取下一天 */
+const getNextDay = (today, num) => {
+  let nowTime = today.getTime()
+  let ms = 24 * 3600 * 1000 * num
+  let next = today.setTime(parseInt(nowTime + ms))
+  return next
+}
+
+
 /**
  * 一维数组转多维
  * @param {Array} 数组 array
@@ -253,5 +262,6 @@ module.exports = {
   getRandomText: getRandomText,
   getNetworkType: getNetworkType,
   domInter: domInter,
-  getStrLen: getStrLen
+  getStrLen: getStrLen,
+  getNextDay: getNextDay
 }

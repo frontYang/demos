@@ -1,0 +1,6 @@
+<!--pages/api/load/load.wxml-->
+<view class="page">
+  <view class="list">
+    <view class="item" wx:for="{{list}}" wx:key="{{index}}">{{item.NAME}}</view>      
+  </view>
+</view>

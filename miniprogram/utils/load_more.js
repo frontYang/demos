@@ -18,9 +18,12 @@
  */
 
 const { INTF } = require('config.js')
-const { api } = require('util.js')
+const api = require('util.js')
+
+
 
 export const loadMore = (_this, callback) => {
+
   // 初始化数据
   _this.setData({
     list: [], // 数据 
@@ -33,9 +36,8 @@ export const loadMore = (_this, callback) => {
   _this.getData = (type) => {
     wx.showLoading({
       title: '加载中'
-    })
-
-    return api._post(INTF[_this.data.intf_name], _this.data.params).then(res => {
+    })    
+    return api._get(INTF[_this.data.intf_name], _this.data.params).then(res => {
       wx.hideLoading()
 
       if (res.code != 0) {

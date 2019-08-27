@@ -16,17 +16,19 @@
         "calendar/calendar",
         "charts/charts",
         "arrow/arrow",
-        "editor/editor"
+        "editor/editor",
+        "date/date"
       ]
     },
     {
       "root": "pages/api/",
       "pages": [
-        "userinfo/userinfo"
+        "userinfo/userinfo",
+        "load/load"
       ]
     }
   ],
-  "tabBar": {    
+  "tabBar": {
     "color": "#000000",
     "selectedColor": "#000000",
     "backgroundColor": "#fff",
@@ -41,5 +43,6 @@
       }
     ]
   },
+  "debug": false,
   "sitemapLocation": "sitemap.json"
 }

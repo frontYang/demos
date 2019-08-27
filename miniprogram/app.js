@@ -4,6 +4,7 @@ const { wxLogin } = require('./utils/sdk.js')
 const api = require('./utils/util.js')
 const canvasApi = require('./utils/canvasApi.js')
 const charts = require('./utils/charts.js')
+const { loadMore } = require('./utils/load_more.js')
 
 App({
   onLaunch(options) {
@@ -21,7 +22,7 @@ App({
     // login
     this.getOpenid(channel).then(openid => {
       this.globalData.openid = openid;
-      wxLogin({
+      /* wxLogin({
         openid: openid, // openid
         appid: 'wxe20823f70a73c961', // appid
         gameversion: '1.3.1', // 版本号
@@ -34,7 +35,7 @@ App({
             icon: 'none'
           })
         }
-      })
+      }) */
     })
 
     this.clearStorage()
@@ -258,7 +259,8 @@ App({
     INTF: INTF,
     api: api,
     canvasApi: canvasApi,
-    charts: charts
+    charts: charts,
+    loadMore: loadMore
   },
 
   /* 用CONFIG.isConsole来控制可否打印 */

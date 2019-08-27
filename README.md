@@ -10,18 +10,19 @@
   - [x] [繁/简体切换](web/translate)
   - [x] [九宫格抽奖](web/lottery)
   - [x] [pc微信登录](web/wechat)
-  - [ ] 待续...  
+  - [ ] 待续...
 - [x] [移动端调试方式](debug/)
   - [x] [vConsole](debug/vConsole)
   - [x] [weinre](debug/weinre)
   - [x] [eruda](debug/eruda)
 - [ ] [微信小程序](miniprogram/)
 	- [x] 日历
-	- [ ] 日期选择
+	- [x] 日期区间选择(年月日时分秒组合)
 	- [x] 富文本
 	- [x] 图表
 	- [x] 相关接口封装
 	- [x] 下拉刷新 && 上拉加载
+  - [ ] 待续...
 - [ ] [VUE](vue/)
 	- [x] 富文本
 	- [x] 表格分页

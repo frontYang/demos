@@ -1,0 +1,17 @@
+<!--pages/ui/date/date.wxml-->
+<view class="page">
+  <view class="time">
+    <ui-datepicker
+      date-time="{{start_date}}"
+      bindchangeEvent="changeDateStart"
+      bindcolumnChangeEvent="changeDateStart"
+    ></ui-datepicker>
+    <view class="icon-text">至</view>
+    <ui-datepicker
+      date-time="{{end_date}}"
+      bindchangeEvent="changeDateEnd"
+      bindcolumnChangeEvent="changeDateEnd"
+    ></ui-datepicker>   
+  </view>
+</view>
+  

@@ -7,16 +7,16 @@
 const MODE = 'dev'
 
 // 测试环境————接口
-const DEV_DOMAIN_INTF = `http://192.168.3.226:81`
+const DEV_DOMAIN_INTF = `http://192.168.3.24:3002`
 
 // 测试环境————图片
-const DEV_URL_IMAGES = `../../img`
+const DEV_URL_IMAGES = ``
 
 // 正式环境————接口
-const PROP_DOMAIN_INTF = `https://program.910app.com`
+const PROP_DOMAIN_INTF = ``
 
 // 正式环境————图片
-const PROP_URL_IMAGES = `https://img.521app.com/habit/images/1.4.9`
+const PROP_URL_IMAGES = ``
 
 
 /* 通用配置 */
@@ -34,10 +34,10 @@ const CONFIG = {
   ald: MODE == 'dev' ? false : true
 }
 
-
 /* 接口 */
 const INTF = {
-  
+  get_open_id: `/get_open_id`,
+  list: `/miniprogram/mock/test.json`
 }
 
 /* toast 提示语 */

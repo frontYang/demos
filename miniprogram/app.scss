@@ -6,7 +6,6 @@
 @include icon-arr-bd();
 @include icon-arr-pd();
 
-
 .container {
   width: 100%;
   height: 100%;
@@ -15,4 +14,17 @@
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
+}
+
+.nav {
+  padding: 0 20rpx;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1px solid #eee;
+  color: #aaa;
+
+  &.done{
+    color:blue;
+  }
 }

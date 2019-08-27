@@ -1,7 +1,8 @@
 <!--pages/package/ui/ui.wxml-->
 <view class="page page-ui">
-  <navigator class="nav" url="../../ui/calendar/calendar">日历</navigator>
-  <navigator class="nav" url="../../ui/charts/charts">图表</navigator>
-  <navigator class="nav" url="../../ui/arrow/arrow">样式箭头</navigator>
-  <navigator class="nav" url="../../ui/editor/editor">富文本</navigator>
+  <navigator class="nav done" url="../../ui/calendar/calendar">日历</navigator>
+  <navigator class="nav done" url="../../ui/charts/charts">图表</navigator>
+  <navigator class="nav done" url="../../ui/arrow/arrow">样式箭头</navigator>
+  <navigator class="nav done" url="../../ui/editor/editor">富文本</navigator>
+  <navigator class="nav done" url="../../ui/date/date">日期区域选择</navigator>
 </view>

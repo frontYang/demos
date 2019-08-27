@@ -1,5 +1,6 @@
 <!--pages/package/fn/fn.wxml-->
 <view class="page page-fn">
-  <navigator class="nav" url="../../api/userinfo/userinfo">获取用户信息</navigator>
+  <navigator class="nav done" url="../../api/userinfo/userinfo">获取用户信息</navigator>
+  <navigator class="nav done" url="../../api/load/load">上拉加载/下拉刷新</navigator>
 </view>
   

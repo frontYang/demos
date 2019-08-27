@@ -1,0 +1,14 @@
+<!--components/ui-datepicker/ui-datepicker.wxml-->
+<view class="ui-datepicker">  
+  <picker 
+    mode="multiSelector" 
+    value="{{dateValue}}" 
+    bindchange="change" 
+    bindcolumnchange="columnChange" 
+    range="{{dateRange}}"
+  >
+    <view class="ui-datepicker-value">
+      {{timeStr}}
+    </view>
+  </picker>
+</view>
