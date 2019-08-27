@@ -15,4 +15,4 @@
   - [x] [vConsole](debug/vConsole)
   - [x] [weinre](debug/weinre)
   - [x] [eruda](debug/eruda)
-- [ ] 微信小程序
+- [ ] [微信小程序](miniprogram/)
