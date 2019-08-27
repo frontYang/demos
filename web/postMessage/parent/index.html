@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- 编码 -->
+  <meta charset="UTF-8">
+
+  <!-- 网页标题 -->
+  <title>Document</title>
+
+  <!-- 关键字 -->
+  <meta name="keywords" content="" />
+
+  <!-- 描述 -->
+  <meta name="description" content="" />
+
+  <!-- 作者 -->
+  <meta name="Author" content="yangzhifang">
+
+  <!-- 指定IE和Chrome使用最新版本渲染当前页面 -->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+
+  <!-- 先发送请求，与服务器确认该资源是否被更改，如果未被更改，则使用缓存。 -->
+  <meta http-equiv="cache-control" content="no-cache">
+
+  <!-- 默认webkit内核渲染 -->
+  <meta name="renderer" content="webkit">
+
+  <meta name="referrer" content="always">
+
+  <!-- 样式表 -->
+  <link rel="stylesheet" href="">
+  <style>
+    iframe{
+      border: 1px solid #ddd;
+    }
+  </style>
+
+</head>
+
+<!-- port:7777 -->
+
+<body>
+  <!-- doc S -->
+  <div class="doc">    
+    <iframe src="http://192.168.3.24:7777/" frameborder="0" id="iframeObj"></iframe>
+    <div>
+      <button id="btn">发送消息给子页面</button>
+    </div>
+  </div>
+  <!-- doc E -->
+
+  <!-- script -->
+  <script src="http://192.168.3.24:3002/web/postMessage/index.js"></script>
+  <script>
+    PDUtil.listen({
+      getCallback(event, data){
+        console.log(window.location.href, '接收消息', data)
+      }
+    })
+    window.addEventListener('load', function(){
+      var btn = document.getElementById('btn')
+      btn.addEventListener('click', function () {
+        var data = 'hello, I am from parent!'
+        PDUtil.post('iframeObj', data)
+        console.log(window.location.href, '发送消息', data)
+      })
+    })    
+  </script>
+</body>
+
+</html>
