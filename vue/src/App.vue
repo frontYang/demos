@@ -9,8 +9,7 @@
 <style lang="scss">
 	body {
 		margin: 0;
-		padding: 0;
-		background-color: #F2F2F2;		
+		padding: 0;	
 	}
 
 	#app {
@@ -104,13 +103,11 @@
 
 <script>
 	// @ is an alias to /src
-
-	import Header from '@/components/Header';
 	
 	export default {
 		name: 'app',
 		components: {
-			Header
+			
 		}
 	}
 </script>

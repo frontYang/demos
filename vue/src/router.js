@@ -10,17 +10,23 @@ Vue.use(Router)
 let Loader = (view) => import(/* webpackChunkName: "aChunkName" */`./views/${view}.vue`);
 
 export default new Router({
+  // mode: 'history',
   routes: [
     {
       path: "/",
       name: "home",
       component: Home,
-      redirect: '/index',
+      // redirect: '/index',
       children: [
         {
           path: "/index",
           name: "index",
           component: Index
+        },
+        {
+          path: "/editor2",
+          name: "editor2",
+          component: () => Loader('Editor2')
         },
         {
           path: "/list",

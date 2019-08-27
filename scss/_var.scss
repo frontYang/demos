@@ -1,0 +1,23 @@
+
+// 基本单位及域名
+$assect_path: '../images/'; // 图片路径
+$px: px; // 页面样式单位
+
+// font
+$baseFontSize: 14px;
+$baseLineHeight: 1.5;
+$baseFontFamily: "Microsoft Yahei,PingFangSC-Regular,arial,sans-serif";
+
+// color
+$linkColor: #333; // 链接颜色
+$primary: #333; // 主色
+$placeholder: #aaa; // 表单placeholder颜色
+
+// z-index
+$zIndexPop: 9999; // 弹窗
+
+// 测试图片变量
+// 图片名称, 图片宽度， 图片高度
+$icons: ('aa.png'1 1),
+('bb.png'2 2),
+('cc.png'3 3);

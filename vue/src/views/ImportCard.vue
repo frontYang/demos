@@ -75,7 +75,6 @@
 </template>
 
 <script>
-	import Header from '../components/Header';
   import Crumbs from '../components/Crumbs';
   import { getBagList, importCard } from '../utils/request';
   import { CONFIG } from '../utils/config';
@@ -100,7 +99,6 @@
 			}
 		},
 		components: {
-      Header,
       Crumbs
 		},
 		methods: {

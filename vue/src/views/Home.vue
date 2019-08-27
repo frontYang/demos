@@ -1,25 +1,29 @@
 <template>
 	<div class="container">
-		<Header></Header>
-		<div class="page page-main">						
-      <router-view/>
+		<div class="page page-main">	
+			<el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" router="router">
+				<el-menu-item index="index">index</el-menu-item>
+				<el-menu-item index="editor2">vue2-editor</el-menu-item>			
+				<el-menu-item index="list">table-pager</el-menu-item>			
+			</el-menu>
+			<router-view/> 
 		</div>
 	</div>
 </template>
 
 <script>
-	import Header from '../components/Header';
 	import Crumbs from '../components/Crumbs';
 
 	export default {
-		name: 'index',
+		name: 'home',
 		data() {
 			return {
-				
+				activeIndex: '0',
+				router: true
 			}
 		},
 		components: {
-			Header,
+			
 		},
 		methods: {
 		},

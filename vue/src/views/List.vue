@@ -1,11 +1,9 @@
 <template>
   <div class="page page-List">
-    <Crumbs label="导入卡包"></Crumbs>
-
     <el-card class="box-card">
       <div class="text item">
-        <div class="tit">我的个人卡包列表</div>
-        <div class="no-data" v-if="tableData.length <= 0">抱歉，在小程序中暂无您的个人卡包，您可以在小程序中创建自己的个人卡包再进行添加操作。</div>
+        <div class="tit">列表</div>
+        <div class="no-data" v-if="tableData.length <= 0">暂无数据</div>
         <el-table
           :data="tableData" v-else>
           <el-table-column
@@ -15,13 +13,13 @@
             </template>
           </el-table-column>
           <el-table-column
-            label="卡包名称">
+            label="名称">
             <template slot-scope="scope">
               <span>{{ scope.row.NAME }}</span>
             </template>
           </el-table-column>
           <el-table-column
-            label="卡片数量">
+            label="数量">
             <template slot-scope="scope">
               <span>{{ scope.row.COUNT }}</span>
             </template>
@@ -33,13 +31,13 @@
                 v-else
                 size="medium"
                 type="text"
-                @click="add(scope.$index, scope.row)">添加卡片</el-button>
+                @click="add(scope.$index, scope.row)">添加</el-button>
             </template>
           </el-table-column>
         </el-table>
         <el-pagination
           v-if="page.totalPage > 1"
-          :page-size="20"
+          :page-size="5"
           :pager-count="page.totalPage"
           layout="prev, pager, next"
           @current-change="pageChange"
@@ -48,97 +46,38 @@
         </el-pagination>
       </div>
     </el-card>
-
-    <el-dialog
-      title="添加卡片"
-      width="90%"
-      :center="true"
-      :visible.sync="dialogVisible" 
-      @close="closeDialog">
-      <div class="dialog">
-        <div class="dialog-th">所属卡包：{{curCardBag.NAME}}</div>
-        <div class="dialog-content">
-          <div class="front">
-            <div class="content-th">正面</div>
-            <Editor ref="front"></Editor>
-          </div>
-          <div class="back">
-            <div class="content-th">反面</div>
-            <Editor ref="back"></Editor>
-          </div>
-        </div>
-      </div>
-      <span slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="submit">提交</el-button>
-      </span>
-    </el-dialog>
   </div>
 </template>
 
 <script>
-	import Header from '../components/Header';
-	import Crumbs from '../components/Crumbs';
-  import Editor from '../components/Editor';
-  import { getBagList, createCard } from '../utils/request';
+  import { getList } from '../utils/request';
 
 	export default {
     name: 'list',
 		data() {
 			return {
-        curCardBag: {}, // 当前选中卡包        
-        dialogVisible: false, 
+        curCardBag: {}, // 当前选中卡包
         page: { 
           cur: 1, // 当前页码
           totalRecord: 0, // 总条数
           totalPage: 0 // 总页数
         },  
 				tableData: [],
-        frontContent: '',
-        backContent: '',
 			}
 		},
 		components: {
-      Header,
-      Crumbs,
-      Editor
+
 		},
 		methods: {
       // 获取卡包数据
       async fetchCard(){
-        let res = await getBagList({
+        let res = await getList({
           page: this.page.cur
         })
         let { list, total_record, total_page} = res.data
         this.tableData = list
-
         this.$set(this.page,'totalRecord', total_record)
         this.$set(this.page,'totalPage', total_page)
-      },
-
-      // 创建卡片
-      async addCard(){
-        let ID = this.curCardBag.ID
-        let { frontContent, backContent } = this
-        let res = await createCard({
-          bag_ids: JSON.stringify([ID]),
-          question: frontContent,
-          answer: backContent
-        })
-
-        if(res.code != 0){
-          this.$message({
-            message: res.message,
-            type: 'error'
-          })  
-          return 
-        }
-
-        this.$message({
-          message: '添加成功',
-          type: 'success'
-        })
-
-        this.curCardBag.COUNT = parseInt(this.curCardBag.COUNT) + 1
       },
 
       // 页码改变
@@ -146,40 +85,6 @@
         this.$set(this.page,'cur', index)
         this.fetchCard()
       },
-
-      // 添加卡片
-			add(index, row){        
-        this.curCardBag = row
-        this.dialogVisible = true
-      },
-
-      // 
-      closeDialog(){ 
-        this.dialogVisible=false     
-        this.$refs.front.content = ''
-        this.$refs.back.content = ''   
-      },
-
-      // 卡片提交
-      submit(){
-        let frontContent = this.$refs.front.content
-        let backContent = this.$refs.back.content
-        let bagId = this.curCardBag.id
-        
-        if(frontContent == '' || backContent == ''){
-          this.$message({
-            message: '请填写卡片内容~',
-            type: 'warning'
-          })
-          return
-        }
-
-        this.frontContent = frontContent
-        this.backContent = backContent
-        this.dialogVisible = false
-
-        this.addCard()
-      }      
 		},
 		computed: {
 		

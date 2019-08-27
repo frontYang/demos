@@ -1,7 +1,10 @@
 <template>
-  <vue-editor 
+  <vue-editor     
     v-model="content"
-    :editorToolbar="customToolbar">
+    useCustomImageHandler
+    @imageAdded="handleImageAdded"
+    :editorToolbar="customToolbar"
+    >
   </vue-editor>
 </template>
 
@@ -13,6 +16,8 @@ export default {
     VueEditor
   },
 
+  props: {
+  },
   data() {
     return {
       content: '',
@@ -30,6 +35,7 @@ export default {
           [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
 
           [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+          ['link', 'image', 'video', 'clean'],          
           [{ 'font': [] }],
           [{ 'align': [] }],
 
@@ -39,9 +45,15 @@ export default {
   },
 
   methods: {
-    save() {
+    handleImageAdded(file, Editor, cursorLocation, resetUploader){
+      var formData = new FormData();
+      formData.append("image", file);
+      // 接口请求后
 
-    }
+      /* let url = result.data.url; // Get url from response
+      Editor.insertEmbed(cursorLocation, "image", url);
+      resetUploader(); */
+    },
   }
 };
 </script>

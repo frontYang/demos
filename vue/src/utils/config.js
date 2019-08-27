@@ -7,5 +7,6 @@ let DOMAIN = ''
 export let CONFIG =  {
   // 接口
   intf: {
+    list: '/api/list'
   }
 }
