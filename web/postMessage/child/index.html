@@ -46,6 +46,7 @@
   <script src="http://192.168.3.24:3002/web/postMessage/index.js"></script>
   <script>
     PDUtil.listen({
+      origin: '*', // 指定通信域名，默认 * 
       getCallback(event, data){
         // 获取数据回调
         console.log(window.location.href, '接收消息', data)

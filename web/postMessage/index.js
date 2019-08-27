@@ -35,7 +35,7 @@
 
   var PDUtil = {
     config: {
-      source: '*',
+      origin: '*',
       getCallback: function(){},
     },
 
@@ -51,18 +51,23 @@
     },
 
     // 发送消息
-    post(id, data, origin){
+    post(id, data){
       var iframe = this.getId(id)
       if (!iframe) return
 
       var contentWindow = iframe.contentWindow 
-      contentWindow.postMessage(data, origin || '*')
+      contentWindow.postMessage(data, this.config.origin || '*')
     },
 
     // 接收消息
     get(event) {
       var self = PDUtil
-      if (event.origin != window.location.origin && event.origin !='') {
+      if (
+          event.origin != window.location.origin && 
+          event.data != '' && 
+          self.config.origin != '*' &&
+          event.origin == self.config.origin
+      ) {
         self.config.getCallback && self.config.getCallback(event, event.data)
       }
     }
