@@ -1,0 +1,70 @@
+@charset "UTF-8";
+.bg-black {
+  background: black;
+}
+
+.bg-green {
+  background: green;
+}
+
+.bg-gray {
+  background: gray;
+  border: 1px solid gainsboro;
+}
+
+.f-flex {
+  display: flex;
+}
+
+/* 在元素外部处理空间分布 */
+.f-flex-space {
+  justify-content: space-between;
+}
+
+/* 让元素自己处理空间分布 */
+.f-flex-auto > * {
+  flex: auto;
+}
+
+/* 拆分导航 */
+.f-flex-right {
+  margin-left: auto;
+}
+
+.f-flex-left {
+  margin-right: auto;
+}
+
+/* 元素居中 */
+.f-flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+/* 绝对底部 */
+.f-flex-footer {
+  flex-direction: column;
+}
+.f-flex-footer .f-flex-footer-content {
+  flex: 1 1 auto;
+}
+
+/* 媒体对象 */
+.f-flex-media {
+  align-items: flex-start;
+}
+.f-flex-media .f-flex-media-content {
+  flex: 1;
+}
+
+/* form */
+.f-flex-ctrl .f-flex-ctrl-input {
+  flex: 1 1 auto;
+}
+
+/* 等高 */
+.f-flex-strength {
+  align-items: stretch;
+}
+
+/*# sourceMappingURL=index.css.map */

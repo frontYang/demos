@@ -8,7 +8,7 @@
   - [x] [繁/简体切换](web/translate)
   - [x] [九宫格抽奖](web/lottery)
   - [x] [pc微信登录](web/wechat)
-  - [x]  postMessage
+  - [x] [postMessage](web/postMessage)
   - [ ]  多选多级联动
   - [ ]  动画跳转至指定位置
   - [ ] 待续...
@@ -38,4 +38,19 @@
     - [x] 文本溢出省略
     - [ ] 待续... 
 - [ ] layui 组件
+  - [ ] 待续... 
+- [ ] [flex](./flex/index.css)
+  - [x] [在元素外部处理空间分布](./flex/space.html)
+  - [x] [让元素自己处理空间分布](./flex/auto.html)
+  - [x] [拆分导航](./flex/split.html)
+  - [x] [元素居中](./flex/center.html)
+  - [x] [绝对底部](./flex/footer.html)
+  - [x] [媒体对象](./flex/media.html)
+  - [x] [form](./flex/ctrl.html)
+  - [x] [等高](./flex/stretch.html)
+  - [ ] 待续... 
+- [ ] grid
+  - [ ] 待续... 
+- [ ] nodejs
+  - [ ] 待续... 
 - [ ] 整理常用cli&上传至npm包
