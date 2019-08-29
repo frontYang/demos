@@ -5,4 +5,5 @@
   <navigator class="nav done" url="../../ui/arrow/arrow">样式箭头</navigator>
   <navigator class="nav done" url="../../ui/editor/editor">富文本</navigator>
   <navigator class="nav done" url="../../ui/date/date">日期区域选择</navigator>
+  <navigator class="nav done" url="../../ui/native/native">原生组件样式修改</navigator>
 </view>

@@ -1,0 +1,129 @@
+/* pages/ui/native/native.wxss */
+.mgt20 {
+  margin-top: 20rpx;
+}
+
+
+/*
+  * switch 
+  * --------------------
+*/
+/* 缩小整体大小 */
+.switch-small switch {
+  transform: scale(.8) translate(-10%, -10%);
+}
+
+/* 放大整体大小 */
+.switch-large switch {
+  transform: scale(1.2) translate(10%, -10%);
+}
+
+/* 改变尺寸 */
+/* 展开背景样式 */
+.switch-size .wx-switch-input {
+  width: 80rpx !important;
+  height: 40rpx !important;
+  background: blue !important;
+}
+
+/* 收起背景样式 */
+.switch-size .wx-switch-input::before {
+  width: 80rpx !important;
+  height: 40rpx !important;
+  background: gray !important;
+}
+
+/* 原点样式 */
+.switch-size .wx-switch-input::after {
+  width: 36rpx !important;
+  height: 36rpx !important;
+  background: pink !important;
+
+}
+
+/*
+  * radio
+  * --------------------
+*/
+
+/* 缩小整体大小 */
+.radio-small radio {
+  transform: scale(.8) translate(-10%, -10%);
+}
+
+/* 放大整体大小 */
+.radio-large radio {
+  transform: scale(1.2) translate(10%, -10%);
+}
+
+/* 改变尺寸 */
+/* 背景框样式 */
+.radio-size .wx-radio-input {
+  width: 80rpx !important;
+  height: 80rpx !important;
+  background: gray !important;
+}
+/* 选中样式 */
+.radio-size .wx-radio-input.wx-radio-input-checked {
+  background: blue !important;
+}
+
+/* 勾选大小 */
+.radio-size .wx-radio-input::before {
+  font-size: 60rpx !important;
+  color: red !important;
+}
+
+/*
+  * checkbox
+  * --------------------
+*/
+
+/* 缩小整体大小 */
+.checkbox-small checkbox {
+  transform: scale(.8) translate(-10%, -10%);
+}
+
+/* 放大整体大小 */
+.checkbox-large checkbox {
+  transform: scale(1.2) translate(10%, -10%);
+}
+
+/* 改变尺寸 */
+/* 背景框样式 */
+.checkbox-size .wx-checkbox-input {
+  width: 80rpx !important;
+  height: 80rpx !important;
+  background: gray !important;
+}
+/* 选中样式 */
+.checkbox-size .wx-checkbox-input.wx-checkbox-input-checked {
+  background: blue !important;
+}
+
+/* 勾选大小 */
+.checkbox-size .wx-checkbox-input::before {
+  font-size: 60rpx !important;
+  color: red !important;
+}
+
+/*
+  * slider
+  * --------------------
+*/
+
+/* 缩小整体大小 */
+.slider-small slider {
+  transform: scale(.8) translate(-10%, -10%);
+}
+
+/* 放大整体大小 */
+.slider-large slider {
+  transform: scale(1.2) translate(10%, -10%);
+}
+
+/* 改变尺寸 */
+/* 背景框样式 */
+.slider-size .wx-slider-input {
+  
+}

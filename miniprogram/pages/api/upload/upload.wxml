@@ -1,0 +1,73 @@
+<!--pages/api/upload/upload.wxml-->
+<view class="page page-upload">
+  <view class="box">
+    <view class="box-th">单张上传</view>
+    <view class="box-tb">
+      <view class="upload-wrap">
+        <view class="btn-upload" bindtap="chooseImg1"></view>
+        <view class="pic-item" wx:for="{{picArr1}}" wx:key="{{index}}">
+          <i class="upload-close" data-index="{{index}}" bindtap="delImg1">X</i>
+          <image src="{{item}}" mode="widthFix"/>
+        </view>
+      </view>        
+      
+      <button class="upload-confirm" size="mini" bindtap="submit1">确认上传</button>    
+    </view>
+  </view>
+
+  <view class="box">
+    <view class="box-th">多张上传</view>
+    <view class="box-tb">
+      <view class="upload-wrap">
+        <view class="btn-upload" bindtap="chooseImg2"></view>
+        <view class="pic-item" wx:for="{{picArr2}}" wx:key="{{index}}">
+          <i class="upload-close" data-index="{{index}}" bindtap="delImg2">X</i>
+          <image src="{{item}}" mode="widthFix"/>
+        </view>
+      </view>      
+      <button class="upload-confirm" size="mini" bindtap="submit2">确认上传</button>    
+    </view>
+  </view>
+
+  <view class="box">
+    <view class="box-th">自动上传</view>
+    <view class="box-tb">
+      <view class="upload-wrap">
+        <view class="btn-upload" bindtap="chooseImg3"></view>
+        <view class="pic-item" wx:for="{{picArr3}}" wx:key="{{index}}">
+          <i class="upload-close" data-index="{{index}}" bindtap="delImg3">X</i>
+          <image src="{{item}}" mode="widthFix"/>
+        </view>
+      </view>      
+    </view>
+  </view>
+
+  <view class="box">
+    <view class="box-th">默认有图片</view>
+    <view class="box-tb">
+      <view class="upload-wrap">
+        <view class="btn-upload" bindtap="chooseImg4"></view>
+        <view class="pic-item" wx:for="{{picArr4}}" wx:key="{{index}}">
+          <i class="upload-close" data-index="{{index}}" bindtap="delImg4">X</i>
+          <image src="{{item}}" mode="widthFix"/>
+        </view>
+      </view>    
+      <button class="upload-confirm" size="mini" bindtap="submit4">确认上传</button>      
+    </view>
+  </view>
+
+  <view class="box">
+    <view class="box-th">图片大图预览</view>
+    <view class="box-tb">
+      <view class="upload-wrap">
+        <view class="btn-upload" bindtap="chooseImg5"></view>
+        <view class="pic-item" wx:for="{{picArr5}}" wx:key="{{index}}">
+          <i class="upload-close" data-index="{{index}}" bindtap="delImg5">X</i>
+          <image src="{{item}}" mode="widthFix" bindtap="previewImg5" data-index="{{index}}"/>
+        </view>
+      </view>
+      <button class="upload-confirm" size="mini" bindtap="submit5">确认上传</button>          
+    </view>
+  </view>
+</view>
+  

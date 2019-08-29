@@ -7,17 +7,16 @@
 const MODE = 'dev'
 
 // 测试环境————接口
-const DEV_DOMAIN_INTF = `http://192.168.3.24:3002`
+const DEV_DOMAIN_INTF = `http://192.168.3.226:81`
 
 // 测试环境————图片
-const DEV_URL_IMAGES = ``
+const DEV_URL_IMAGES = `http://192.168.3.24:2019/habit/images/1.4.9`
 
 // 正式环境————接口
-const PROP_DOMAIN_INTF = ``
+const PROP_DOMAIN_INTF = `https://program.910app.com`
 
 // 正式环境————图片
-const PROP_URL_IMAGES = ``
-
+const PROP_URL_IMAGES = `https://img.521app.com/habit/images/1.4.9`
 
 /* 通用配置 */
 const CONFIG = {
@@ -37,7 +36,9 @@ const CONFIG = {
 /* 接口 */
 const INTF = {
   get_open_id: `/get_open_id`,
-  list: `/miniprogram/mock/test.json`
+  list: `/miniprogram/mock/test.json`,
+  // 上传图片
+  img_upload: `/habit/repertory/img_upload`,
 }
 
 /* toast 提示语 */

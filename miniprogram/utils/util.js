@@ -253,6 +253,7 @@ const getRandomText = () => {
   return RANDOM_TEXT[n]
 }
 
+
 module.exports = {
   _get: _get,
   _post: _post,

@@ -17,14 +17,17 @@
         "charts/charts",
         "arrow/arrow",
         "editor/editor",
-        "date/date"
+        "date/date",
+        "native/native"
       ]
     },
     {
       "root": "pages/api/",
       "pages": [
         "userinfo/userinfo",
-        "load/load"
+        "load/load",
+        "upload/upload",
+        "formid/formid"
       ]
     }
   ],

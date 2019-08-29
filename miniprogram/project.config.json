@@ -113,6 +113,27 @@
 					"id": -1,
 					"name": "日期选择",
 					"pathName": "pages/ui/date/date",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "图片上传",
+					"pathName": "pages/api/upload/upload",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "收集formid",
+					"pathName": "pages/api/formid/formid",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "原生组件样式修改",
+					"pathName": "pages/ui/native/native",
 					"scene": null
 				}
 			]

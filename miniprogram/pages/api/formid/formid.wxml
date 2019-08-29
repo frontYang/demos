@@ -1,0 +1,19 @@
+<!--pages/api/formid/formid.wxml-->
+<view class="form-collect-wrap" hover-class="none" hover-stop-propagation="false">  
+
+  <form 
+    class="form-collect" 
+    report-submit="true" 
+    bindsubmit="collectFormid"
+  >  
+    <view class="">
+      <view>点击此区域触发事件收集formid</view>
+      <view>点击此区域触发事件收集formid</view>
+      <view>点击此区域触发事件收集formid</view>
+      <view>点击此区域触发事件收集formid</view>
+    </view>
+    
+    <button class="form-collect-button" formType="submit"></button>
+  </form>
+</view>
+  

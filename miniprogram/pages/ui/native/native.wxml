@@ -1,0 +1,77 @@
+<!--pages/ui/native/native.wxml-->
+<view class="page">
+  <view class="box">
+    <view class="box-th">switch</view>  
+    <view class="mgt20 switch-default">
+      默认样式：<switch class="" color="" checked="false" type="switch" bindchange=""></switch>
+    </view>
+    <view class="mgt20 switch-small">
+      等比缩小尺寸：<switch class="" color="" checked="false" type="switch" bindchange=""></switch>
+    </view>
+    <view class="mgt20 switch-large">
+      等比放大尺寸：<switch class="" color="" checked="false" type="switch" bindchange=""></switch>
+    </view>
+    <view class="mgt20 switch-size">
+      改变尺寸/颜色：<switch class="" color="" checked="false" type="switch" bindchange=""></switch>
+    </view>
+  </view>
+
+  <view class="box">
+    <view class="box-th">radio</view>  
+    <view class="mgt20 radio-default">
+      默认样式：<radio class="" value="" checked="{{true}}" color=""></radio>
+    </view>
+    <view class="mgt20 radio-small">
+      等比缩小尺寸：<radio class="" value="" checked="{{true}}" color=""></radio>
+    </view>
+    <view class="mgt20 radio-large">
+      等比放大尺寸：<radio class="" value="" checked="{{true}}" color=""></radio>
+    </view>
+    <view class="mgt20 radio-size">
+      改变尺寸/颜色：<radio class="" value="" checked="{{true}}" color=""></radio>
+    </view>
+  </view>
+
+  <view class="box">
+    <view class="box-th">checkbox</view>  
+    <view class="mgt20 checkbox-default">
+      默认样式：<checkbox class="" value="" checked="{{true}}" color=""></checkbox>
+        
+    </view>
+    <view class="mgt20 checkbox-small">
+      等比缩小尺寸：<checkbox class="" value="" checked="{{true}}" color=""></checkbox>
+    </view>
+    <view class="mgt20 checkbox-large">
+      等比放大尺寸：<checkbox class="" value="" checked="{{true}}" color=""></checkbox>
+    </view>
+    <view class="mgt20 checkbox-size">
+      改变尺寸/颜色：<checkbox class="" value="" checked="{{true}}" color=""></checkbox>
+    </view>
+  </view>
+
+  <view class="box">
+    <view class="box-th">slider</view>  
+    <view class="mgt20 slider-default">      
+      默认样式：<slider bindchange="slider4change" min="50" max="100" show-value/>
+    </view>
+    <view class="mgt20 slider-size">
+      改变尺寸/颜色：<slider 
+                      class="" 
+                      min="0" 
+                      max="100" 
+                      step="1" 
+                      value="" 
+                      show-value="false" 
+                      backgroundColor="blue" 
+                      block-size="15" 
+                      block-color="#ddd" 
+                      activeColor="red"
+                      bindchanging="" 
+                      bindchange="slider4change"
+                    >
+    </slider>
+    </view>
+  </view>
+</view>
+  
+  

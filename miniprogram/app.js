@@ -5,6 +5,7 @@ const api = require('./utils/util.js')
 const canvasApi = require('./utils/canvasApi.js')
 const charts = require('./utils/charts.js')
 const { loadMore } = require('./utils/load_more.js')
+const upload = require('./utils/upload.js')
 
 App({
   onLaunch(options) {
@@ -260,7 +261,8 @@ App({
     api: api,
     canvasApi: canvasApi,
     charts: charts,
-    loadMore: loadMore
+    loadMore: loadMore,
+    upload: upload
   },
 
   /* 用CONFIG.isConsole来控制可否打印 */

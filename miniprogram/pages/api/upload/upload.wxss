@@ -1,0 +1,64 @@
+/* pages/api/upload/upload.wxss */
+
+
+.btn-upload {
+  width: 100rpx;
+  height: 100rpx;
+  border: 1px dashed #ddd;
+  position: relative;
+  border-radius: 10rpx;
+}
+
+.btn-upload::before,
+.btn-upload::after {
+  content: '';
+  width: 70%;
+  height: 4rpx;
+  background: #ddd;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.btn-upload::before {
+  transform: translate(-50%, -50%);
+}
+
+.btn-upload::after {
+  transform: translate(-50%, -50%) rotateZ(90deg);
+}
+
+.upload-wrap {
+  display: flex;
+}
+
+.upload-wrap .pic-item {
+  width: 100rpx;
+  height: 100rpx;
+  overflow: hidden;
+  border: 1px solid #fff;
+  position: relative;
+  border-radius: 10rpx;
+}
+
+.upload-wrap .pic-item image {
+  width: 100%;
+}
+
+.upload-wrap .upload-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  background: rgba(0, 0, 0, .5);
+  border-radius: 50%;
+  text-align: center;
+  font-size: 24rpx;
+  color: #fff;
+}
+
+.upload-confirm {
+  margin: 20rpx auto;
+}

@@ -17,15 +17,19 @@
   border-left: 2rpx solid #333;
   border-top: 2rpx solid #333;
 }
+
 .icon-arr-bd.icon-arr-u {
   transform: rotateZ(45deg);
 }
+
 .icon-arr-bd.icon-arr-r {
   transform: rotateZ(135deg);
 }
+
 .icon-arr-bd.icon-arr-d {
   transform: rotateZ(-135deg);
 }
+
 .icon-arr-bd.icon-arr-l {
   transform: rotateZ(-45deg);
 }
@@ -38,15 +42,19 @@
   border-style: solid;
   border-color: transparent;
 }
+
 .icon-arr-pd.icon-arr-u {
   border-bottom-color: #333;
 }
+
 .icon-arr-pd.icon-arr-r {
   border-left-color: #333;
 }
+
 .icon-arr-pd.icon-arr-d {
   border-top-color: #333;
 }
+
 .icon-arr-pd.icon-arr-l {
   border-right-color: #333;
 }
@@ -69,8 +77,19 @@
   border-bottom: 1px solid #eee;
   color: #aaa;
 }
+
 .nav.done {
   color: blue;
+}
+
+.box {
+  border: 1px solid #ddd;
+  padding: 20rpx;
+}
+
+.box-th {
+  line-height: 
+  100rpx;
 }
 
 /*# sourceMappingURL=app.wxss.map */
