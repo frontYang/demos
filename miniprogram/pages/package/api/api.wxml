@@ -3,6 +3,6 @@
   <navigator class="nav done" url="../../api/userinfo/userinfo">获取用户信息</navigator>
   <navigator class="nav done" url="../../api/load/load">上拉加载/下拉刷新</navigator>
   <navigator class="nav done" url="../../api/upload/upload">图片上传(单张/多张)</navigator>
-  <navigator class="nav done" url="../../api/formid/formid">收集formId</navigator>
+  <navigator class="nav done" url="../../api/formid/formid">收集formId(非表单触发)</navigator>
 </view>
   

@@ -5,6 +5,8 @@
 				<el-menu-item index="index">index</el-menu-item>
 				<el-menu-item index="editor2">vue2-editor</el-menu-item>			
 				<el-menu-item index="list">table-pager</el-menu-item>			
+				<el-menu-item index="cascader">级联面板</el-menu-item>			
+				<el-menu-item index="test">级联面板测试</el-menu-item>			
 			</el-menu>
 			<router-view/> 
 		</div>

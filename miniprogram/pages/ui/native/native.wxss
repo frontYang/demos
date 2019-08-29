@@ -106,24 +106,3 @@
   font-size: 60rpx !important;
   color: red !important;
 }
-
-/*
-  * slider
-  * --------------------
-*/
-
-/* 缩小整体大小 */
-.slider-small slider {
-  transform: scale(.8) translate(-10%, -10%);
-}
-
-/* 放大整体大小 */
-.slider-large slider {
-  transform: scale(1.2) translate(10%, -10%);
-}
-
-/* 改变尺寸 */
-/* 背景框样式 */
-.slider-size .wx-slider-input {
-  
-}

@@ -34,6 +34,16 @@ export default new Router({
           component: () => Loader('List')
         },
         {
+          path: "/cascader",
+          name: "cascader",
+          component: () => Loader('Cascader')
+        },
+        {
+          path: "/test",
+          name: "test",
+          component: () => Loader('test')
+        },
+        {
           path: "/importcard",
           name: "importcard",
           component: () => Loader('ImportCard')
