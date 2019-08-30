@@ -39,9 +39,9 @@ export default new Router({
           component: () => Loader('Cascader')
         },
         {
-          path: "/test",
-          name: "test",
-          component: () => Loader('test')
+          path: "/selector",
+          name: "selector",
+          component: () => Loader('Selector')
         },
         {
           path: "/importcard",
