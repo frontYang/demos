@@ -10,7 +10,7 @@
 </template>
 
 <script>
-	import SelectItem from "../components/SelectItem";
+	import SelectItem from "../../components/SelectItem";
 	import { mapState, mapMutations, mapActions } from 'vuex';
 	
 	export default {

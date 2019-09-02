@@ -1,44 +1,69 @@
 <template>
-	<div class="container">
-		<div class="page page-main">	
-			<el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" router="router">
-				<el-menu-item index="index">index</el-menu-item>
-				<el-menu-item index="editor2">vue2-editor</el-menu-item>			
-				<el-menu-item index="list">table-pager</el-menu-item>			
-				<el-menu-item index="cascader">级联面板</el-menu-item>			
-				<el-menu-item index="selector">异步级联多选面板</el-menu-item>			
-			</el-menu>
-			<router-view/> 
-		</div>
+	<div class="page page-main">
+		<!-- 头部 -->
+		<el-container>
+			<el-header>
+				<Header></Header>
+			</el-header>
+		</el-container>
+
+		<!-- 主体 -->
+		<el-container>	
+			<!-- 侧栏 -->
+			<el-aside :width="nav.toggle ? '65px' : '200px'">
+				<Aside></Aside>
+			</el-aside>
+
+			<!-- 内容 -->
+			<el-container>
+				<el-main>
+					<router-view/> 
+				</el-main>
+			</el-container>			
+		</el-container>
 	</div>
 </template>
 
 <script>
-	import Crumbs from '../components/Crumbs';
+	import Crumbs from '../components/Crumbs';	
+	import Header from '../components/Header';
+	import Aside from '../components/Aside';
+	import { mapState, mapMutations, mapActions } from 'vuex';
 
 	export default {
 		name: 'home',
 		data() {
 			return {
-				activeIndex: '0',
-				router: true
+			/* 	isCollapse: false, // 展开收起
+				activeIndex1: '0',
+				activeIndex2: '0',
+				router: true */
 			}
 		},
 		components: {
-			
+			Header,
+			Aside
 		},
 		methods: {
 		},
 		computed: {
-		
+			...mapState([
+				'nav'
+			])
 		},
 		mounted() {
+			// console.log(this.refs)
 		}
 	}
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
+	@import "../assets/styles/_var.scss";
+  .el-header{
+		background: $bgHeaderNav;
 
-	
+		
+	}
+		
 </style>
 

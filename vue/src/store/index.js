@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import login from './modules/login'
 import selector from './modules/selector'
+import nav from './modules/nav'
 
 Vue.use(Vuex)
 
@@ -11,6 +12,7 @@ export default new Vuex.Store({
   modules: {
     login,
     selector,
+    nav,
   },
   strict: debug,
 })

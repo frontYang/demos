@@ -4,6 +4,7 @@ import Router from "vue-router"
 import Login from "./views/Login"
 import Index from "./views/Index"
 import Home from "./views/Home"
+import Table from "./views/Table"
 
 Vue.use(Router)
 
@@ -16,7 +17,7 @@ export default new Router({
       path: "/",
       name: "home",
       component: Home,
-      // redirect: '/index',
+      redirect: '/index',
       children: [
         {
           path: "/index",
@@ -24,14 +25,22 @@ export default new Router({
           component: Index
         },
         {
-          path: "/editor2",
-          name: "editor2",
-          component: () => Loader('Editor2')
-        },
-        {
-          path: "/list",
-          name: "list",
-          component: () => Loader('List')
+          path: "/table",
+          name: "table",
+          component: Table,
+          redirect: '/table/table_pager',
+          children: [
+            {
+              path: "/table/table_pager",
+              name: "table_pager",
+              component: () => Loader('table/TablePager')
+            },
+            {
+              path: "/table/table_tree",
+              name: "table_tree",
+              component: () => Loader('table/TableTree')
+            },
+          ]
         },
         {
           path: "/cascader",
@@ -44,9 +53,9 @@ export default new Router({
           component: () => Loader('Selector')
         },
         {
-          path: "/importcard",
+          path: "/others/importcard",
           name: "importcard",
-          component: () => Loader('ImportCard')
+          component: () => Loader('others/ImportCard')
         },
         {
           path: "/login",

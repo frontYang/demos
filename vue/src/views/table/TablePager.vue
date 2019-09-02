@@ -1,6 +1,5 @@
 <template>
   <div class="page page-List">
-    <el-card class="box-card">
       <div class="text item">
         <div class="tit">列表</div>
         <div class="no-data" v-if="tableData.length <= 0">暂无数据</div>
@@ -45,12 +44,11 @@
           >
         </el-pagination>
       </div>
-    </el-card>
   </div>
 </template>
 
 <script>
-  import { getList } from '../utils/request';
+  import { mapState, mapMutations, mapActions } from 'vuex';
 
 	export default {
     name: 'list',
@@ -67,11 +65,20 @@
 		},
 		components: {
 
-		},
+    },
+    computed: {
+      ...mapState([
+				'nav'
+			])
+    },
 		methods: {
-      // 获取卡包数据
+      ...mapMutations([
+				'setNavCurrent'
+      ]),
+      
+      // 获取数据
       async fetchCard(){
-        let res = await getList({
+        let res = await this.$request.getList({
           page: this.page.cur
         })
         let { list, total_record, total_page} = res.data
@@ -91,6 +98,7 @@
 		},
 		mounted() {
       this.fetchCard()
+      this.setNavCurrent(this.$route.params.id)
 		}
 	}
 </script>

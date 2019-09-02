@@ -7,12 +7,12 @@ import { CONFIG } from '../utils/config';
 let INTF = CONFIG.intf
 
 // 判断登录
-export let checkLogin = () => {
+let checkLogin = () => {
   return https.post(INTF.login_state)
 }
 
 // 获取列表
-export let getList = (opts = {}) => {
+let getList = (opts = {}) => {
   // let userInfo = JSON.parse(sessionStorage.getItem('user_info'))  
   return https.get(INTF.list, {
    /*  openid: userInfo.openid,
@@ -23,6 +23,31 @@ export let getList = (opts = {}) => {
 }
 
 // 退出登录
-export let loginOut = (opts = {}) => {
+let loginOut = (opts = {}) => {
   return https.post(INTF.login_out)
+}
+
+// 获取table树形数据
+const getTableTree = (opts = {}) => {
+  return https.post(INTF.table_tree)
+}
+
+// 获取table树形子数据
+const getTableTreeChild = (opts = { id: 1 }) => {
+  return https.get(INTF.table_tree_child, {
+    id: opts.id
+  })
+}
+
+const getCascader= () => {
+  return https.get(INTF.cascader)
+}
+
+export default {
+  checkLogin,
+  loginOut,
+  getList,
+  getTableTree,
+  getTableTreeChild,
+  getCascader,
 }

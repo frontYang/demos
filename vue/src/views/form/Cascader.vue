@@ -36,7 +36,7 @@
 		},
 		methods: {
       async fetchData(){
-        const res = await this.$https.get('/api/cascader')
+        const res = await this.$request.getCascader()
         console.log(res)
         this.options = res.data.list
       },

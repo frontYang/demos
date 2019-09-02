@@ -29,8 +29,8 @@
 	}
 
 	.page{
-		width: 1120px;
-		margin: 0 auto;
+		// width: 1120px;
+		// margin: 0 auto;
 	}
 
 	.box-card{
@@ -62,7 +62,7 @@
 			position: absolute;
 			top: 50%;
 			left: 50%;
-			max-width: 1120;			
+			max-width: 1120px;			
 			transform: translate3d(-50%, -50%, 0);
 		}
 	}

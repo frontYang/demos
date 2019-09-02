@@ -75,9 +75,9 @@
 </template>
 
 <script>
-  import Crumbs from '../components/Crumbs';
-  import { getBagList, importCard } from '../utils/request';
-  import { CONFIG } from '../utils/config';
+  import Crumbs from '../../components/Crumbs';
+  import { getBagList, importCard } from '../../utils/request';
+  import { CONFIG } from '../../utils/config';
 
 	export default {    
     name: 'importcard',
@@ -217,7 +217,6 @@
   }
   .icon-excel{
     display: inline-block;
-    background: url('../assets/excel.png') no-repeat;
     width: 16px;
     height: 16px;
     vertical-align: middle;

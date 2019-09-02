@@ -5,6 +5,7 @@
  */
 import axios from 'axios'
 import qs from 'qs'
+const domain = '//192.168.3.24:8081'
 
 axios.defaults.timeout = 5000;
 axios.defaults.withCredentials = true;
@@ -14,6 +15,7 @@ axios.defaults.baseURL = ''; //填写域名
 axios.interceptors.request.use(
   config => {
     config.headers = {
+      'token': localStorage.getItem('token'),
       'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8',
       'Access-Control-Allow-Origin': '*'
     }
@@ -85,7 +87,7 @@ axios.interceptors.response.use(response => {
 
 function post(url, params = {}) {
   return new Promise((resolve, reject) => {
-    axios.post(url, qs.stringify(params), { withCredentials: true})
+    axios.post(domain + url, qs.stringify(params), { withCredentials: true})
       .then(response => {
         resolve(response.data);
       }, err => {
@@ -103,7 +105,7 @@ function post(url, params = {}) {
 
 function get(url, params = {}) {
   return new Promise((resolve, reject) => {
-    axios.get(url, {
+    axios.get(domain + url, {
       params: params
     },{withCredentials:true})
       .then(response => {

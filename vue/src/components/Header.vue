@@ -1,51 +1,95 @@
 <template>
-  <div class="header">
-    <div class="header-inner">
-      <div class="userinfo">
-        <el-dropdown v-if="nickName"  @command="handleCommand">
-          <span class="el-dropdown-link">
-            <img :src="avatar" alt="" class="avatar">
-            {{nickName}}                   
-          </span>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item command="1">退出登录</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-        <router-link to="/login" v-else>
-          <i class="icon icon-user"></i>
-          <span>登录</span>
-        </router-link>    
-      </div>
-      <div class="logo">     
-        <router-link to="/">
-          <img src="../assets/icon.png" alt="">
-          <span>记忆共享卡片</span>
-        </router-link>
-      </div>
+    <div class="header">
+      <el-row>
+        <el-col :span="3">
+          <!-- logo+toggle -->
+          <el-menu 
+            class="el-menu-header el-menu-header1" 
+            mode="horizontal" 
+            router="router"
+            v-if="!nav.toggle"
+          >
+            <el-menu-item :style="!nav.toggle ? 'width: 0;' : 'width: 150px;'">
+              <span slot="title">网站标题/logo</span>
+            </el-menu-item>
+          </el-menu>
+        </el-col>
+        <el-col :span="1">
+          <!-- logo+toggle -->
+          <el-menu 
+            class="el-menu-header el-menu-header1" 
+            mode="horizontal" 
+            router="router"
+          >
+            <el-menu-item style="padding:0;">
+              <i :class="nav.toggle ? 'el-icon-menu' : 'el-icon-menu el-icon-menu-collapse'" @click="toggleAside"></i>
+            </el-menu-item>
+          </el-menu>
+        </el-col>
+        <el-col :span="17">
+          <!-- 菜单 -->
+          <el-menu 
+            :default-active="activeIndex" 
+            class="el-menu-header" 
+            mode="horizontal" 
+            router="router"
+          >
+            <el-menu-item v-for="(item, index) in nav.headerNav" :key="item.index" :index="item.index">{{item.label}}</el-menu-item>
+          </el-menu>
+        </el-col>
+        <el-col :span="3">
+          <!-- 信息 -->
+          <el-menu 
+            class="el-menu-header" 
+            mode="horizontal" 
+            router="router"
+          >      
+            <el-menu-item index="msg">消息</el-menu-item>
+            <el-menu-item index="usercenter">用户</el-menu-item>
+          </el-menu>
+        </el-col>
+      </el-row>
     </div>
-  </div>	
 </template>
 
 <script>
 import { loginOut } from '../utils/request';
-import { mapState } from 'vuex';
+import { mapState, mapMutations, mapActions } from 'vuex';
 
 export default {
-  data() {
+  props: {
+    /* isCollapse: {
+      type: Boolean,
+      default: false
+    } */
+  },
+  data() {    
     return {
-      nickName: '',
-      avatar: ''
+      activeIndex: '0',
+      router: true,
+      isCollapse: false
     }
   },
   computed: {
     ...mapState([
-      'login'
+      'login',
+      'nav'
     ])
   },
   components: {
 
   },
   methods: {
+    ...mapMutations([
+      'setToggle'
+    ]),
+
+    // 收起/展开
+    toggleAside(){
+      this.isCollapse = !this.isCollapse
+      this.setToggle(this.isCollapse)
+    },
+
     async loginOut(){
       let res = await loginOut()
       if(res.code != 1){
@@ -55,75 +99,60 @@ export default {
         this.$router.push('/login')
       }
     },
+
     handleCommand(command){
       command == 1 && this.loginOut()
     }
   },
   mounted(){
-    console.log(this.login)
     this.nickName = this.login ? this.login.nickName : null
     this.avatar = this.login ? this.login.avatar : null
   }
 }
 </script>
 
-<style scoped lang="scss">
-	.header{
-		height: 54px;
-		line-height: 54px;
-		background-color: rgba(62, 76, 89, 1);
-    color: #fff;
-    .icon-user{
-      display: inline-block;
-      vertical-align: middle;
-      margin-right: 10px;
-      position: relative;
-      top: -2px;
-      background: url('../assets/zh.png') no-repeat;
-      width: 15px;
-      height: 17px;
-    }  
-		.header-inner{
-			width: 1120px;
-			margin: 0 auto;
-		}
-		.logo{
-      font-size: 18px;
+<style lang="scss">
+  @import "../assets/styles/_var.scss";
 
-      a:active{
-        text-decoration: none;
+  .el-menu-header1{
+    transition: width .3s;
+    
+    li{
+      width: auto !important;
+    }
+    &.el-menu--horizontal {
+      .el-menu-item:not(.is-disabled):focus, 
+      .el-menu-item:not(.is-disabled):hover{
+        width: auto;
+        background-color: initial !important;
+        color: $colorHeaderNav !important;
       }
-      span{
-        color: #fff;
-      }
-			img{
-				vertical-align: middle;
-				margin-right: 10px;
-			}
-		}
-		.userinfo{
-			float: right;
-			font-size: 14px;
-      color: #C1BEBE;
-      cursor: pointer;
-      
-      .el-dropdown-link{
-        color: #fff;
-      }
+    }
+  }
+
+  .header{
+    background-color: $bgHeaderNav !important;
+  }
+
+  .el-menu-header{
+    &.el-menu{
+      background-color: $bgHeaderNav !important;
+    }
+
+    &.el-menu--horizontal>.el-menu-item,
+		.el-icon-menu{
+			color: $colorHeaderNav;
     }
     
-    a{
-      color: #fff;
+    &.el-menu--horizontal>.el-menu-item.is-active{
+      color: $colorHeaderNav;
     }
 
-    .avatar{
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      vertical-align: middle;
-      margin-right: 5px;
-      position: relative;
-      top: -1px;
+    &.el-menu--horizontal>.el-menu-item:not(.is-disabled):focus, 
+    &.el-menu--horizontal>.el-menu-item:not(.is-disabled):hover, 
+    &.el-menu--horizontal>.el-submenu .el-submenu__title:hover{
+      background-color: $bgHeaderNav !important;
+      color: $colorHeaderNav;
     }
-	}
+  }
 </style>

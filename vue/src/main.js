@@ -6,6 +6,7 @@ import store from './store/index'
 import router from './router'
 import https from "./utils/https"
 import utils from "./utils/utils"
+import request from "./utils/request"
 import ElementUI from 'element-ui'
 import './assets/theme/index.css'
 import 'quill/dist/quill.core.css'
@@ -20,6 +21,7 @@ Vue.config.performance = process.env.NODE_ENV !== 'production'
 Vue.config.productionTip = false
 Vue.prototype.$https = https
 Vue.prototype.$utils = utils
+Vue.prototype.$request = request
 
 Vue.use(ElementUI)
 
