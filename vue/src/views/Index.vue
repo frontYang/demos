@@ -3,7 +3,7 @@
 		
 		<!-- <a target="_blank" href="/commFileUpdateUrl/downloadpathId?id=37">下载</a> -->
 		<!-- <a @click="download()">下载</a> -->
-		欢迎！
+		欢迎！{{login.username}}
 	</div>
 </template>
 
@@ -20,13 +20,16 @@
 		components: {
 		
 		},
-		methods: {
-		
-		},
 		computed: {
-
+			...mapState([
+      	'login',
+			])
+		},
+		methods: {
+	
 		},
 		mounted() {
+
 		/* 	this.$https.post('/login', {
 				username: 'wuyuhua',
 				password: 'wuyuhua'

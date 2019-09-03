@@ -17,6 +17,7 @@
 			<!-- 内容 -->
 			<el-container>
 				<el-main>
+					<Crumbs />
 					<router-view/> 
 				</el-main>
 			</el-container>			
@@ -25,9 +26,9 @@
 </template>
 
 <script>
-	import Crumbs from '../components/Crumbs';	
-	import Header from '../components/Header';
-	import Aside from '../components/Aside';
+	import Crumbs from '@/components/Crumbs';	
+	import Header from '@/components/Header';
+	import Aside from '@/components/Aside';
 	import { mapState, mapMutations, mapActions } from 'vuex';
 
 	export default {
@@ -42,17 +43,26 @@
 		},
 		components: {
 			Header,
-			Aside
+			Aside,
+			Crumbs
 		},
 		methods: {
+			...mapMutations([
+				'setNavCurrent'
+			]),
+		},
+		watch: {
+			$route() {
+				this.setNavCurrent(this.$route.params.id || 0)
+			}
 		},
 		computed: {
 			...mapState([
 				'nav'
 			])
 		},
-		mounted() {
-			// console.log(this.refs)
+		created() {
+			this.setNavCurrent(this.$route.params.id || 0)
 		}
 	}
 </script>

@@ -2,23 +2,28 @@
  * 业务请求
  */
 
-import https from '../utils/https';
-import { CONFIG } from '../utils/config';
+import https from '@/utils/https';
+import { CONFIG } from '@/utils/config';
 let INTF = CONFIG.intf
 
 // 判断登录
-let checkLogin = () => {
-  return https.post(INTF.login_state)
+let login = () => {
+  return https.post(INTF.login)
 }
 
 // 获取列表
-let getList = (opts = {}) => {
-  // let userInfo = JSON.parse(sessionStorage.getItem('user_info'))  
+let getList = (opts = { current: 1 }) => {
+  console.log(opts)
+  
   return https.get(INTF.list, {
-   /*  openid: userInfo.openid,
-    type: 1,
-    page: opts.page || 1,
-    size: 20 */
+    current: opts.current
+  })
+}
+
+// 获取搜索数据
+let getSearch = (opts = { id: 1 }) => {
+  return https.get(INTF.search, {
+    id: opts.id
   })
 }
 
@@ -44,10 +49,11 @@ const getCascader= () => {
 }
 
 export default {
-  checkLogin,
+  login,
   loginOut,
   getList,
   getTableTree,
   getTableTreeChild,
   getCascader,
+  getSearch
 }

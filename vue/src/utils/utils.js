@@ -7,6 +7,7 @@ const filterValue = (arr) => {
   return values
 }
 
+
 export default {
   filterValue
 }

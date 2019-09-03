@@ -5,34 +5,60 @@ import Mock from 'mockjs'
 
 const Random = Mock.Random;
 
-// 顶部导航数据
-Mock.mock(/\/api\/list/, (req, res) => {
-  var data = Mock.mock({
-    "total_record|1-10": 10,
-    "total_page|1-10": 2,
-    'list|1-20': [
-      {
-        "ID|+1": 1,
-        "USER_ID": "",
-        "NAME": "111",
-        "DESC": "bygyv",
-        "COUNT": "9",
-        "TYPE": "1",
-        "SHARE": "0",
-        "TARGET_ID": "0",
-        "TARGET_USER": {
-          "NICK_NAME": "xxxxxx"
-        },
-        "ADD_TIME": "2019-07-01 17:49:29"
-      }      
-    ]
+// 登录
+Mock.mock(/\/api\/login$/, (req, res) => {
+  return Mock.mock({
+    "code": 0,
+    "message": "Success",
+    "data": {
+      password: "yangzhifang",
+      token: "d1a71459cada49c6baa57156d468f2b0",
+      username: "yangzhifang"
+    }
   })
+})
 
-  return {
+// 表格数据
+Mock.mock(/\/api\/list/, (req, res) => {
+  var id = req.url.split('?current=')[1] || 1
+    
+  return Mock.mock({
     "code": 0,
     "message": '',
-    "data": data
-  }
+    "data": {
+      "count": 2, // 总页数
+      "total": 20, // 总条数
+      "current|+1": id, // 页码
+      'list|10': [
+        {
+          'id|+1': 1,
+          'date': '2016-05-04',
+          'name': Random.cname('@cname()'),
+          'address': Random.region('@region()')
+        },
+      ]
+    }
+  })
+})
+
+// 搜索
+Mock.mock(/\/api\/search/, (req, res) => {
+  var id = req.url.split('?id=')[1] || 1
+
+  return Mock.mock({
+    "code": 0,
+    "message": '',
+    "data": {
+      'list|10': [
+        {
+          'id|+1': 1,
+          'date': '2016-05-04',
+          'name': Random.cname('@cname()'),
+          'address': Random.region('@region()')
+        },
+      ]
+    }
+  })
 })
 
 // 级联多选面板
@@ -67,7 +93,7 @@ Mock.mock(/\/api\/cascader$/, (req, res) => {
 // 异步级联多选
 Mock.mock(/\/api\/cascader1$/, (req, res) => {
   var data = Mock.mock({
-    'list|1-40': [
+    'list|20': [
       {
         'value|+1': 1,
         'label|1-2': Random.region(),
@@ -86,7 +112,7 @@ Mock.mock(/\/api\/cascader1$/, (req, res) => {
 // 异步级联多选
 Mock.mock(/\/api\/cascader2$/, (req, res) => {
   var data = Mock.mock({
-    'list|1-40': [
+    'list|1-20': [
       {
         'value|+1': 41,
         'label|1-2': Random.region(),
@@ -105,7 +131,7 @@ Mock.mock(/\/api\/cascader2$/, (req, res) => {
 // 异步级联多选
 Mock.mock(/\/api\/cascader3$/, (req, res) => {
   var data = Mock.mock({
-    'list|1-40': [
+    'list|1-20': [
       {
         'value|+1': 82,
         'label|1-2': Random.region(),
@@ -123,8 +149,9 @@ Mock.mock(/\/api\/cascader3$/, (req, res) => {
 
 // table tree
 Mock.mock(/\/api\/table_tree$/, (req, res) => {
+
   var data  = Mock.mock({
-    'list|1-100': [
+    'list|20': [
       {
         'id|+1': 1,
         'date': '2016-05-04',
@@ -142,7 +169,7 @@ Mock.mock(/\/api\/table_tree$/, (req, res) => {
 })
 
 //  table tree 子数据
-Mock.mock(/\/api\/table_tree_child$/, (req, res) => {
+Mock.mock(/\/api\/table_tree_child/, (req, res) => {
   console.log(req, res)
   var id = req.url.split('?id=')[1]
   

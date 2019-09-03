@@ -2,52 +2,18 @@
   <div class="page page-List">
       <div class="text item">
         <div class="tit">列表</div>
-        <div class="no-data" v-if="tableData.length <= 0">暂无数据</div>
-        <el-table
-          :data="tableData" v-else>
-          <el-table-column
-            label="序号">
-            <template slot-scope="scope">
-              <span>{{ scope.$index + 1 }}</span>
-            </template>
-          </el-table-column>
-          <el-table-column
-            label="名称">
-            <template slot-scope="scope">
-              <span>{{ scope.row.NAME }}</span>
-            </template>
-          </el-table-column>
-          <el-table-column
-            label="数量">
-            <template slot-scope="scope">
-              <span>{{ scope.row.COUNT }}</span>
-            </template>
-          </el-table-column>
-          <el-table-column label="操作">
-            <template slot-scope="scope">
-              <span v-if="scope.row.COUNT >= 300" class="txt-disabled">单个卡包卡片数量最多为300</span>
-              <el-button
-                v-else
-                size="medium"
-                type="text"
-                @click="add(scope.$index, scope.row)">添加</el-button>
-            </template>
-          </el-table-column>
-        </el-table>
-        <el-pagination
-          v-if="page.totalPage > 1"
-          :page-size="5"
-          :pager-count="page.totalPage"
-          layout="prev, pager, next"
-          @current-change="pageChange"
-          :total="page.totalRecord"
-          >
-        </el-pagination>
+         <Table 
+          :list="tableData"
+          :rowHeader="rowHeader"
+          :pager="pager"
+          :next="next"
+        ></Table>
       </div>
   </div>
 </template>
 
 <script>
+  import Table from "@/components/Table";
   import { mapState, mapMutations, mapActions } from 'vuex';
 
 	export default {
@@ -55,16 +21,33 @@
 		data() {
 			return {
         curCardBag: {}, // 当前选中卡包
-        page: { 
-          cur: 1, // 当前页码
-          totalRecord: 0, // 总条数
-          totalPage: 0 // 总页数
+        pager: { 
+          current: 1, // 当前页          
+          size: 10, // 每页显示条数 
+          count: 5, // 页码按钮数
+          total: 0, // 总条目数
         },  
-				tableData: [],
+        tableData: [],
+
+        // 表头数据
+        rowHeader: [
+          {
+            label: '日期',
+            prop: 'date',
+          },
+          {
+            label: '名字',
+            prop: 'name',
+          },
+          {
+            label: '地址',
+            prop: 'address',
+          },
+        ]
 			}
 		},
 		components: {
-
+      Table
     },
     computed: {
       ...mapState([
@@ -79,26 +62,24 @@
       // 获取数据
       async fetchCard(){
         let res = await this.$request.getList({
-          page: this.page.cur
-        })
-        let { list, total_record, total_page} = res.data
+          current: this.pager.current
+        })        
+        
+        let { list, total} = res.data
         this.tableData = list
-        this.$set(this.page,'totalRecord', total_record)
-        this.$set(this.page,'totalPage', total_page)
+        
+        this.$set(this.pager,'total', total)
       },
 
-      // 页码改变
-      pageChange(index){
-        this.$set(this.page,'cur', index)
+      next(){
         this.fetchCard()
-      },
+      }
 		},
 		computed: {
 		
 		},
 		mounted() {
       this.fetchCard()
-      this.setNavCurrent(this.$route.params.id)
 		}
 	}
 </script>

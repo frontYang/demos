@@ -9,41 +9,50 @@ let state = {
   // 头部导航
   headerNav: [
     {
+      label: '首页',
+      index: '/index'
+    },
+    {
       label: '表格',
-      index: 'table',
+      index: '/table',
 
       // 对应子导航
       subNav: [
         {
-          label: 'table pager',
-          index: 'table_pager',
+          label: '表格分页',
+          index: '/table/table_pager'
         },
         {
-          label: 'table tree',
-          index: 'table_tree',
+          label: '树形表格',
+          index: '/table/table_tree',
+        },
+        {
+          label: '表格搜索/操作',
+          index: '/table/table_tool',
         },
       ]
     },
     {
       label: '表单',
-      index: 'form',
+      index: '/form',
       subNav: [
         {
-          label: 'vue2-editor',
-          index: 'editor',
+          label: '富文本编辑器',
+          index: '/form/editor',
         },
         {
           label: '异步级联多选面板',
-          index: 'selector',
+          index: '/form/selector',
         },
         {
           label: '级联面板',
-          index: 'cascader',
+          index: '/form/cascader',
         },
       ]
     },
     {
       label: '弹窗',
+      index: '/dialog',
       subNav: []
     },
   ]

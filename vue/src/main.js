@@ -7,6 +7,7 @@ import router from './router'
 import https from "./utils/https"
 import utils from "./utils/utils"
 import request from "./utils/request"
+import validate from "./utils/validate"
 import ElementUI from 'element-ui'
 import './assets/theme/index.css'
 import 'quill/dist/quill.core.css'
@@ -15,48 +16,32 @@ import 'quill/dist/quill.bubble.css'
 // import 'element-ui/lib/theme-chalk/index.css'
 import './mock/index'
 
-
 Vue.config.performance = process.env.NODE_ENV !== 'production'
 
 Vue.config.productionTip = false
 Vue.prototype.$https = https
 Vue.prototype.$utils = utils
 Vue.prototype.$request = request
+Vue.prototype.$validate = validate
 
 Vue.use(ElementUI)
 
 
-/* sessionStorage.setItem('user_info', JSON.stringify({
-  openid: 'oD22m5F6MdO3Kl0qWrRIYKZ2KTgE'
-})) */
-
-
-/* import { checkLogin } from './utils/request';
-
+// 判断登录状态
 router.beforeEach((to, from, next) => {
-  checkLogin().then(res => {
-    if (res.code == -1) {
-      store.commit('loginOut')
-    } else {
-      store.commit('setUser', {
-        nick_name: res.data.nick_name,
-        icon: res.data.icon
-      })
-      sessionStorage.setItem('user_info', JSON.stringify(res.data))
-    }
+  let token = localStorage.getItem('token') || null
+  let username = localStorage.getItem('username') || null  
 
-    if (to.path == '/login') {
-      store.commit('loginOut')
-    }
-    let user_info = sessionStorage.getItem('user_info')
-
-    if (!user_info && (to.path != '/login' && to.path != '/authorize' && to.path != '/index')) {
-      next({ path: '/login' })
-    } else {
-      next()
-    }
-  })
-}) */
+  if (token == null && (to.path != '/login')) {
+    next({ path: '/login' })
+  } else {
+    store.commit('setUser', {
+      username: username
+    })
+    
+    next()
+  }
+})
 
 new Vue({
   store,

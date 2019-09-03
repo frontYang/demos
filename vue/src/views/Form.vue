@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <p>表单相关</p>
+    <p>表单栏目说明:XXXXXXXXXXXXXXXXXXXX</p>
 
     <router-view/> 
   </div>
@@ -15,6 +15,16 @@ export default {
   },
   components: {
 
+  },
+  computed: {
+  },
+
+  methods: {
+  
+  },
+
+  mounted(){
+    
   }
 }
 </script>

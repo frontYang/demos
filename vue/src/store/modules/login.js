@@ -1,6 +1,6 @@
 
 let state = {
-  nickName: null,
+  username: null,
   avatar: null
 }
 
@@ -10,13 +10,13 @@ let getters = {
 
 let mutations = {
   setUser: (state, data) => {
-    state.nickName = data.nick_name
-    state.avatar = data.icon
+    state.username = data.username
+    state.avatar = data.avatar
   },
   loginOut: (state) => {
-    state.nickName = null
+    state.username = null
     state.avatar = null
-    sessionStorage.removeItem('user_info')
+    localStorage.removeItem('token')
   }
 }
 

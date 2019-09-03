@@ -1,42 +1,41 @@
 <template>
-<div>
-  <el-menu 
-    :default-active="activeIndex" 
-    :collapse="nav.toggle"
-    @open="handleOpen" 
-    @close="handleClose"
-    class="el-menu-aside"
-    mode="vertical" 
-    router="router" 
-    v-if="nav.current != -1"
-  >
-    <el-menu-item v-for="item in nav.headerNav[nav.current].subNav" :key="item.index" :index="item.index">
-      <i class="el-icon-document"></i>
-      <span slot="title">{{item.label}}</span>
-    </el-menu-item>
-  </el-menu>
+  <div :class="nav.headerNav[nav.current].subNav ? 'menu-open' : ''">
+    <el-menu
+      :default-active="activeIndex" 
+      :collapse="nav.toggle"
+      @open="handleOpen" 
+      @close="handleClose"
+      class="el-menu-aside"
+      mode="vertical" 
+      router="router" 
+      v-if="nav.current != -1"    
+    >
+      <MenuItem 
+        v-for="item in nav.headerNav[nav.current].subNav" 
+        :key="item.index" 
+        :item="item" 
+        :toggle="nav.toggle"
+      />
+    </el-menu>
   </div>
 </template>
 
 <script>
+import MenuItem from "./MenuItem";
 import { mapState, mapMutations, mapActions } from 'vuex';
 
 export default {
   props: {
-   /*  isCollapse: {
-      type: Boolean,
-      default: false
-    } */
+
   },
   data() {
     return {
       activeIndex: '0',
       router: true,
-      isCollapse: false
     }
   },
   components: {
-
+    MenuItem
   },
   computed: {
     ...mapState([
@@ -57,12 +56,17 @@ export default {
   },
 
   mounted(){
-    
+
   }
 }
 </script>
 
 <style  lang="scss">
+  .menu-open {
+    .el-menu-aside{
+      min-height: 100vh;
+    }
+  }
   .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 200px;
     min-height: 400px;

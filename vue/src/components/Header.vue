@@ -9,7 +9,7 @@
             router="router"
             v-if="!nav.toggle"
           >
-            <el-menu-item :style="!nav.toggle ? 'width: 0;' : 'width: 150px;'">
+            <el-menu-item index="/index" :style="!nav.toggle ? 'width: 0;' : 'width: 150px;'">
               <span slot="title">网站标题/logo</span>
             </el-menu-item>
           </el-menu>
@@ -26,7 +26,7 @@
             </el-menu-item>
           </el-menu>
         </el-col>
-        <el-col :span="17">
+        <el-col :span="16">
           <!-- 菜单 -->
           <el-menu 
             :default-active="activeIndex" 
@@ -34,18 +34,28 @@
             mode="horizontal" 
             router="router"
           >
-            <el-menu-item v-for="(item, index) in nav.headerNav" :key="item.index" :index="item.index">{{item.label}}</el-menu-item>
+            <template v-for="(item, index) in nav.headerNav">
+              <el-menu-item v-if="index == 0" :key="item.index" :index="item.index">{{item.label}}</el-menu-item>
+              <el-menu-item v-else :key="item.index" :index="item.index + '/' + index">{{item.label}}</el-menu-item>
+            </template>
           </el-menu>
         </el-col>
-        <el-col :span="3">
+        <el-col :span="4">
           <!-- 信息 -->
           <el-menu 
             class="el-menu-header" 
             mode="horizontal" 
             router="router"
           >      
-            <el-menu-item index="msg">消息</el-menu-item>
-            <el-menu-item index="usercenter">用户</el-menu-item>
+            <el-menu-item index="/msg">消息</el-menu-item>
+
+            <el-submenu index="/usercenter" v-if="login.username">
+              <template slot="title">{{login.username}}</template>
+              <el-menu-item @click="loginOut">退出</el-menu-item>
+            </el-submenu>
+
+            <el-menu-item v-else index="usercenter">{{login.username}}</el-menu-item>
+            
           </el-menu>
         </el-col>
       </el-row>
@@ -53,7 +63,6 @@
 </template>
 
 <script>
-import { loginOut } from '../utils/request';
 import { mapState, mapMutations, mapActions } from 'vuex';
 
 export default {
@@ -81,7 +90,8 @@ export default {
   },
   methods: {
     ...mapMutations([
-      'setToggle'
+      'setToggle',
+      'setUser'
     ]),
 
     // 收起/展开
@@ -90,23 +100,17 @@ export default {
       this.setToggle(this.isCollapse)
     },
 
-    async loginOut(){
-      let res = await loginOut()
-      if(res.code != 1){
-        sessionStorage.removeItem('user_info')
-        this.nickName = null
-        this.avatar = null
-        this.$router.push('/login')
-      }
+    loginOut(){
+      localStorage.removeItem('token')
+      localStorage.removeItem('username')
+      this.setUser({
+        username: null
+      })
+      this.$router.push('/login')
     },
-
-    handleCommand(command){
-      command == 1 && this.loginOut()
-    }
   },
   mounted(){
-    this.nickName = this.login ? this.login.nickName : null
-    this.avatar = this.login ? this.login.avatar : null
+    
   }
 }
 </script>
@@ -153,6 +157,13 @@ export default {
     &.el-menu--horizontal>.el-submenu .el-submenu__title:hover{
       background-color: $bgHeaderNav !important;
       color: $colorHeaderNav;
+    }
+
+    &.el-menu--horizontal>.el-submenu .el-submenu__title{
+      color: #fff;
+      i{
+        color: #fff;
+      }
     }
   }
 </style>

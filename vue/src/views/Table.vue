@@ -1,13 +1,12 @@
 <template>
   <div class="page">
-    <p>表格相关</p>
+    <p>表格栏目说明:XXXXXXXXXXXXXXXXXXXX</p>
 
     <router-view/> 
   </div>
 </template>
 
 <script>
-import { mapState, mapMutations, mapActions } from 'vuex';
 
 export default {
   data() {
@@ -19,23 +18,18 @@ export default {
 
   },
   computed: {
-    ...mapState([
-      'nav'
-    ])
   },
 
   methods: {
-    ...mapMutations([
-      'setNavCurrent'
-    ]),
+   
   },
 
   mounted(){
-    this.setNavCurrent(this.$route.params.id)
+    
   }
 
 }
 </script>
 
-<style scoped lang="sass">
+<style scoped lang="scss">
 </style>
