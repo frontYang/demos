@@ -64,15 +64,15 @@ Mock.mock(/\/api\/search/, (req, res) => {
 // 级联多选面板
 Mock.mock(/\/api\/cascader$/, (req, res) => {
   var data = Mock.mock({
-    'list|1-40': [
+    'list|1-50': [
       {
         'value|+1': 1,
         'label|1-2': Random.region(),
-        'children|0-20': [
+        'children|0-25': [
           {
             'value|+1': 1,
             'label|1-2': Random.region(),
-            'children|0-20': [
+            'children|0-10': [
               {
                 'value|+1': 1,
                 'label|1-2': Random.region(),

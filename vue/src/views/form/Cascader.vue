@@ -2,15 +2,31 @@
 	<div class="page page-cascader">
 		<el-row>
       <el-col :span="12">
-        <el-cascader-panel ref="cascader" :options="options" :props="props" @expand-change="handleExpandChange" @change="handleChange"></el-cascader-panel>
+        <el-cascader-panel 
+          ref="cascader" 
+          :options="options" 
+          :props="props" 
+          :lazy="true"
+          :lazyLoad="lazyLoad"
+          @expand-change="handleExpandChange" 
+          @change="handleChange"
+        ></el-cascader-panel>
       </el-col>
       <el-col :span="12">
         <el-card class="box-card">
-          <div slot="header" class="box-card-th clearfix" @click="clear">
+          <div 
+            slot="header" 
+            class="box-card-th clearfix" 
+            @click="clear">
             清空选项
           </div>
-          <div v-for="(item, index) in checkList" :key="index" class="text item">
-            <span v-for="(innerItem, innerIndex) in item" :key="innerIndex">{{innerItem}}-</span> <span class="del" @click="del(index)"><i class="el-icon-delete"></i></span>
+          <div 
+            v-for="(item, index) in checkList" 
+            :key="index" 
+            class="text item"
+          >
+            <span v-for="(innerItem, innerIndex) in item" :key="innerIndex">{{innerItem}}-</span> 
+            <span class="del" @click="del(index)"><i class="el-icon-delete"></i></span>
           </div>
         </el-card>
       </el-col>
@@ -25,7 +41,7 @@
 			return {
         props: {
           multiple: true,
-        },
+        },        
         selected: [],
         checkList: [],
         options: [],
@@ -35,6 +51,20 @@
 		
 		},
 		methods: {
+      lazyLoad(node, resolve){
+          console.log(111)
+            const { level } = node;
+            setTimeout(() => {
+              const nodes = Array.from({ length: level + 1 })
+                .map(item => ({
+                  value: ++id,
+                  label: `选项${id}`,
+                  leaf: level >= 2
+                }));
+              // 通过调用resolve将子节点数据返回，通知组件数据加载完成
+              resolve(nodes);
+            }, 1000);
+        },
       async fetchData(){
         const res = await this.$request.getCascader()
         console.log(res)

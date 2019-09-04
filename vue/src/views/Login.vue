@@ -1,15 +1,14 @@
 <template>
-	<div class="page page-login">
-    <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px">
-      <el-form-item label="用户名" prop="username">
-        <el-input v-model="ruleForm.username" placeholder="用户名"></el-input>
+	<div class="page page-login"> 
+    <div class="box-th">系统登录</div>
+    <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="0">
+      <el-form-item label="" prop="username">
+        <el-input v-model="ruleForm.username" placeholder="用户名"/>
       </el-form-item>
-      <el-form-item label="密码" prop="password">
-        <el-input v-model="ruleForm.password" placeholder="密码"></el-input>
+      <el-form-item label="" prop="password">
+        <el-input v-model="ruleForm.password" type="password" placeholder="密码" />
       </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>        
-      </el-form-item>
+      <el-button type="primary" size="large" @click="submitForm('ruleForm')">提交</el-button>
     </el-form>
 	</div>
 </template>
@@ -81,13 +80,33 @@
 	}
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .page-login{
 	background: #fff;
-	text-align: center;
-	padding-top: 62px;
-	margin-top: 25px;
-	padding-bottom: 130px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);  
+  box-sizing: border-box;
+  box-shadow: 0px 0px 2px 2px #eee;
+  padding: 30px 0 60px;
+  width: 50%;
+  min-width: 320px;
+  max-width: 500px;
+  border-radius: 5px;
+  .box-th{
+    font-weight: bold;
+    font-size: 24px;
+    padding-bottom: 26px;
+  }
+  .el-form{
+    width: 85%;    
+    margin: 0 auto;
+  }
+  .el-button{
+    width: 100%;
+  }
 }
 </style>
 

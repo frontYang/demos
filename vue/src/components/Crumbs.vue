@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import { mapState, mapMutations, mapActions } from 'vuex';
 export default {
   props: {
 
@@ -22,6 +23,11 @@ export default {
 
   },
 
+  computed: {
+    ...mapState([
+      'nav'
+    ])
+  },
   watch: {
     $route() {
       this.getBreadCrumb()
@@ -34,7 +40,8 @@ export default {
       if (first && first.name.trim().toLocaleLowerCase() !== 'index'.toLocaleLowerCase()) {
           matched = [{ path: '/index', meta: { title: '首页' }}].concat(matched)
       }
-      this.levelList = matched
+      matched.length > 0 && (matched[matched.length - 2].path = matched[matched.length - 2].path.replace(/\:id/, this.nav.current))
+      this.levelList = [...matched]
     }
   },
   

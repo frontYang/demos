@@ -1,7 +1,13 @@
 <template>
     <div class="header">
-      <el-row>
-        <el-col :span="3">
+      <el-row type="flex">
+        <el-col 
+          :xs="nav.toggle ? 0 : 5" 
+          :sm="nav.toggle ? 0 : 5" 
+          :md="nav.toggle ? 0 : 4" 
+          :lg="nav.toggle ? 0 : 3" 
+          :xl="nav.toggle ? 0 : 2"
+        >
           <!-- logo+toggle -->
           <el-menu 
             class="el-menu-header el-menu-header1" 
@@ -14,7 +20,13 @@
             </el-menu-item>
           </el-menu>
         </el-col>
-        <el-col :span="1">
+        <el-col 
+          :xs="nav.toggle ? 8 : 10" 
+          :sm="1" 
+          :md="1" 
+          :lg="1" 
+          :xl="1"
+        >
           <!-- logo+toggle -->
           <el-menu 
             class="el-menu-header el-menu-header1" 
@@ -25,11 +37,18 @@
               <i :class="nav.toggle ? 'el-icon-menu' : 'el-icon-menu el-icon-menu-collapse'" @click="toggleAside"></i>
             </el-menu-item>
           </el-menu>
-        </el-col>
-        <el-col :span="16">
+        </el-col>        
+        <el-col 
+          :xs="0" 
+          :sm="nav.toggle ? 16 : 11" 
+          :md="nav.toggle ? 17 : 13" 
+          :lg="nav.toggle ? 18 : 15" 
+          :xl="nav.toggle ? 21 : 18" 
+        >
+
           <!-- 菜单 -->
           <el-menu 
-            :default-active="activeIndex" 
+            :default-active="nav.headerNav[nav.current].index  + '/' + nav.current" 
             class="el-menu-header" 
             mode="horizontal" 
             router="router"
@@ -40,7 +59,13 @@
             </template>
           </el-menu>
         </el-col>
-        <el-col :span="4">
+        <el-col 
+          :xs="nav.toggle ? 16 : 20" 
+          :sm="nav.toggle ? 7 : 7" 
+          :md="nav.toggle ? 6 : 6" 
+          :lg="nav.toggle ? 5 : 5" 
+          :xl="nav.toggle ? 3 : 3"
+        >
           <!-- 信息 -->
           <el-menu 
             class="el-menu-header" 
@@ -54,8 +79,7 @@
               <el-menu-item @click="loginOut">退出</el-menu-item>
             </el-submenu>
 
-            <el-menu-item v-else index="usercenter">{{login.username}}</el-menu-item>
-            
+            <el-menu-item v-else index="usercenter">{{login.username}}</el-menu-item>            
           </el-menu>
         </el-col>
       </el-row>
@@ -150,12 +174,13 @@ export default {
     
     &.el-menu--horizontal>.el-menu-item.is-active{
       color: $colorHeaderNav;
-    }
+      background: rgba(255, 255, 255 ,.1);
+    }    
 
     &.el-menu--horizontal>.el-menu-item:not(.is-disabled):focus, 
     &.el-menu--horizontal>.el-menu-item:not(.is-disabled):hover, 
     &.el-menu--horizontal>.el-submenu .el-submenu__title:hover{
-      background-color: $bgHeaderNav !important;
+      background: rgba(255, 255, 255 ,.1);
       color: $colorHeaderNav;
     }
 

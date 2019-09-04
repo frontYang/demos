@@ -13,14 +13,12 @@
 			<el-aside :width="nav.toggle ? '65px' : '200px'">
 				<Aside></Aside>
 			</el-aside>
-
+	
 			<!-- 内容 -->
-			<el-container>
-				<el-main>
-					<Crumbs />
-					<router-view/> 
-				</el-main>
-			</el-container>			
+			<el-main>
+				<Crumbs />
+				<router-view/> 
+			</el-main>	
 		</el-container>
 	</div>
 </template>

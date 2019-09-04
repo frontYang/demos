@@ -10,7 +10,8 @@ let state = {
   headerNav: [
     {
       label: '首页',
-      index: '/index'
+      index: '/index',
+      // subNav: []
     },
     {
       label: '表格',
@@ -54,6 +55,16 @@ let state = {
       label: '弹窗',
       index: '/dialog',
       subNav: []
+    },
+    {
+      label: '其他',
+      index: '/others',
+      subNav: [
+        {
+          label: 'pdf',
+          index: '/others/pdf'
+        }
+      ]
     },
   ]
 }

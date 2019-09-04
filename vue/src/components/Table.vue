@@ -10,13 +10,14 @@
         :key="index"
         type="primary"
         size="medium"
-        @click="item.fn"
+        @click="handleTool(item)"
         :icon="item.icon ? 'el-icon-' + item.type : ''"
       >{{item.label}}</el-button>
     </div>
 
     <!-- 表格内容 --> 
     <el-table 
+      id="table"
       :data="list"
       style="width: 100%"
       :row-key="keyName"
@@ -25,7 +26,15 @@
       lazy
       :load="load"
       :tree-props="{children: 'children', hasChildren: 'hasChildren'}"
+      @selection-change="handleSelectionChange"
     >
+    <!-- 多选框 -->
+    <el-table-column
+      v-if="selection"
+      type="selection"
+    >
+    </el-table-column>
+
       <el-table-column 
         :sortable="true"
         v-for="(col, index) in rowHeader" 
@@ -74,48 +83,13 @@
       :total="pager.total"
       >
     </el-pagination>
-
-
-    <!-- 新增行弹窗 -->
-    <el-dialog title="新增" :visible.sync="dialogFormVisible">
-      <el-form :model="form">
-        <el-form-item 
-          v-for="(item, index) in rowHeader"
-          :key="index"
-          :label="item.label" 
-          :label-width="formLabelWidth">          
-
-          <!-- 文本框 -->
-          <el-date-picker
-            v-if="item.type == 'date'" 
-            v-model="form.date"
-            type="datetime"
-            placeholder="选择日期时间">
-          </el-date-picker>
-
-          <!-- 选择框 -->
-          <el-select 
-            v-else-if="item.type == 'select'" 
-            v-model="form.name" 
-          ></el-select>
-
-          <!-- 文本框 -->
-          <el-input 
-            v-else 
-            v-model="form.name" 
-            autocomplete="off"
-          ></el-input>
-        </el-form-item>
-      </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button @click="dialogFormVisible = false">取 消</el-button>
-        <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
-      </div>
-    </el-dialog>
   </template>
 </div>
 </template>
 <script>  
+import FileSaver from 'file-saver'
+import XLSX from 'xlsx'
+
   export default {
     props: {
       // 表头
@@ -191,20 +165,23 @@
           ]
         },
       },
+
+      // 是否开启多选
+      selection: {
+        type: Boolean,
+        default: false
+      }
     },
     data() {
       return {
-        dialogFormVisible:false,
-        formLabelWidth: '120px',
-        form: {
-          
-        },
+        selected: [],
       }
     },
 
     computed: {
      
     },
+
     methods: {
       // 页码改变
       pageChange(index){
@@ -233,19 +210,75 @@
         this.next(index)
       },
 
-      // 新增行
-      add(){
-        this.dialogFormVisible = true
+      // 多选
+      handleSelectionChange(val) {
+        this.selected = val;
       },
 
+      //导出Excel
+      exportToExcel () {
+        let et = XLSX.utils.table_to_book(document.getElementById('table')); //此处传入table的DOM节点
+        let etout = XLSX.write(et, { 
+          bookType: 'xlsx', 
+          bookSST: true, 
+          type: 'array' 
+        });
+        try {
+          FileSaver.saveAs(new Blob([etout], { 
+            type: 'application/octet-stream' 
+          }), 'trade-publish.xlsx');   //trade-publish.xlsx 为导出的文件名
+        } catch (e) {
+            console.log(e, etout) ;
+        }
+        return etout;
+      },
+      
       // 打印
-      printer(){
-
+      printContent(){
+        let wpt = document.getElementById('table');
+        let newContent = wpt.innerHTML;
+        let oldContent = document.body.innerHTML;
+        
+        document.body.innerHTML = newContent;
+        window.print(); //打印方法
+        location.reload()
+        document.body.innerHTML = oldContent;
       },
 
-      // 导出
-      download(){
+      // 批量删除
+      delete(){    
+        this.selected.forEach((item) => {
+          this.$utils.removeByVal(this.list, 'id', item.id)
+        })
+      },
 
+      // 工具事件绑定
+      handleTool(item){
+        switch (item.type) {
+          case 'printer':
+            // 打印
+            this.printContent()
+            
+            break;
+          case 'plus':
+            // 新增
+            
+            break;
+          case 'download':
+            // 导出
+            this.exportToExcel()
+            break;
+          case 'delete':
+            // 批量删除
+            this.delete()
+            break;
+        
+          default:
+            break;
+        }
+        
+        // 回调
+        item.fn && item.fn()
       },
     },
 
@@ -263,12 +296,24 @@
     }
 
     .tool-right{
-      display: inline-block;
       float: right;
     }
   }
-}
 
+  .el-table{
+    min-width: 320px;
+    overflow: auto;
+  }
+
+  .el-table__row{
+    td {
+      min-width: 100px;
+      .cell{
+        min-width: 100px;
+      }
+    }    
+  }
+}
 </style>
 
 
