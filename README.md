@@ -1,6 +1,7 @@
 - [ ] [模板](template/)
   - [x] [PC](template/pc)
   - [x] [WAP](template/wap)
+  - [ ] [后台系统组件模板](template/vue)
   - [ ] 待续...
 - [ ] [web](web/)
   - [x] [facebook share & login](web/facebook)

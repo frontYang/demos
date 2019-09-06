@@ -1,0 +1,21 @@
+/* 文字外描边 */
+.text-out-bd {
+  -webkit-text-fill-color: #915110;
+  text-shadow: 0 1px red,
+    1px 0 red,
+    -1px 0 red,
+    0 -1px red;
+
+}
+
+/* 文字居中描边 */
+.text-center-bd {
+  -webkit-text-stroke: initial;
+  -webkit-text-fill-color: #915110;
+}
+
+/* 禁止文字选中*/
+.text-selected-disabled {
+  -webkit-user-select: none;
+  user-select: none;
+}
