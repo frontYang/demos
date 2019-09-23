@@ -4,14 +4,14 @@
 ;(function (window, factory) {
   if (typeof exports === 'object') {
 
-    module.exports = factory();
+    module.exports = factory(require('jquery'));
   } else if (typeof define === 'function' && define.amd) {
 
-    define(factory);
+    define(['jquery'], factory);
   } else {
 
-    window.eventUtil = factory();
+    window.timeTable = factory(window.jQuery);
   }
-})(this, function () {
+})(this, function ($) {
   //module ...
 });

@@ -1,0 +1,117 @@
+$bdColor:#ddd;
+
+// 边框箭头 $width: 宽, $height：高, $color：边框颜色, $bd_width: 边框大小
+@mixin icon-arr-bd($width: 8px, $height: 8px, $color: #aaa, $bd_width: 1px) {
+  .icon-arr-bd {
+    width: $width;
+    height: $height;
+    display: inline-block;
+    border-left: $bd_width solid $color;
+    border-top: $bd_width solid $color;
+
+    // 上
+    &.icon-arr-u {
+      transform: rotateZ(45deg);
+    }
+
+    // 右
+    &.icon-arr-r {
+      transform: rotateZ(135deg);
+    }
+
+    // 下
+    &.icon-arr-d {
+      transform: rotateZ(-135deg);
+    }
+
+    // 左
+    &.icon-arr-l {
+      transform: rotateZ(-45deg);
+    }
+  }
+}
+
+
+
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.mul-cascader-panel{
+  /*定义滚动条高宽及背景
+  高宽分别对应横竖滚动条的尺寸*/
+  ::-webkit-scrollbar
+  {
+      width:8px;
+      height:8px;
+      background-color:#F5F5F5;
+  }
+  /*定义滚动条轨道
+  内阴影+圆角*/
+  ::-webkit-scrollbar-track
+  {
+      -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3);
+      border-radius:10px;
+      background-color:#F5F5F5;
+  }
+  /*定义滑块
+  内阴影+圆角*/
+  ::-webkit-scrollbar-thumb
+  {
+      border-radius:10px;
+      -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,.3);
+      background-color:#bbb;
+  }
+
+  display: flex;  
+  border: 1px solid $bdColor;
+  transition: width .2s;
+
+  @include icon-arr-bd();
+
+  .hide{
+    display: none !important;
+  }
+
+  .mul-cascader-panel__item{
+    flex: 1;
+    border-right: 1px solid $bdColor;
+    padding: 10px 0;
+    max-height: 350px;
+    overflow-y: auto;
+  }
+
+  li{
+    cursor: pointer;
+    list-style: none;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    padding: 0 20px;
+    align-items: center;    
+
+    &:hover{
+      background: #f6f8f9;
+    }
+
+    span{
+      padding: 0 10px;
+      flex: 1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .arrow{
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%) rotateZ(135deg) !important;
+      -webkit-transform: translateY(-50%) rotateZ(135deg) !important;
+    }
+  }
+}
