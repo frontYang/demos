@@ -173,7 +173,7 @@
     this.config = Object.assign({
       // li模块  
       tplItem: '<li data-haschild="{{haschild}}" data-index="{{index}}">' +
-                '<input type="checkbox" value="{{value}}" {{checked}}/>' +
+                '<input type="checkbox" value="{{value}}" id="j_input_{{value}}" {{checked}}/>' +
                 '<span>{{label}}</span>' +
                 '<i class="arrow icon-arr-bd icon-arr-r {{hide}}"></i>' + 
               '</li>',
@@ -303,7 +303,7 @@
       var item = params.item; // li结构
       var div = document.createElement('div');
 
-      div.className = 'mul-cascader-panel__item';
+      div.className = 'mul-cascader-panel__item mul-cascader-panel__item' + level;
       div.setAttribute('data-pid', pid);
       div.setAttribute('data-pindex', pindex);
       div.setAttribute('data-level', level);
@@ -322,7 +322,7 @@
       var level = params.level; // 第几层
       var index = params.index; // 索引      
       var haschild = params.haschild; // 索引      
-      var getLevelDiv = this.getLevelDiv(level); 
+      var getLevelDiv = this.getLevelDiv(level); // 获取外层DOM
       var pid = value ? value : '0';  
       var str = '';
 
@@ -343,7 +343,7 @@
         getLevelDiv.setAttribute('data-pid', pid);
         getLevelDiv.setAttribute('data-pindex', index);        
         ul.innerHTML = str;
-        if(haschild) this.rmCls(getLevelDiv, 'hide')
+        if(haschild) this.rmCls(getLevelDiv, 'hide');
       }else {
         // 不存在该层则叠加
         var itemWrap = self.createHtml({
@@ -358,11 +358,13 @@
 
       // 存储数据
       if(!this.config.data[level] || !this.config.data[level][value ? value : 0]){
-        this.config.data[level] = this.config.data[level] || []
-        this.config.data[level][value ? value : 0] = this.objDeepCopy(data)
+        this.config.data[level] = this.config.data[level] || [];
+        for(var i = 0; i < data.length; i++){
+          data[i].parentid = pid;
+        }
+        this.config.data[level][value ? value : 0] = this.objDeepCopy(data);
       }
       
-
       console.log('已加载存储数据', this.config.data)
     },
     
@@ -402,6 +404,8 @@
           default:
             break;
         }
+
+        self.getSelected()
       })
     },
 
@@ -463,7 +467,8 @@
             index: index,
             level: level,
             pid: pid,
-            pindex: pindex
+            pindex: pindex,
+            item: item
           });
           break;
       
@@ -472,7 +477,8 @@
             value: value,
             pid: pid,
             level: level,
-            pindex: pindex
+            pindex: pindex,
+            item: item
           });
           break;
       }
@@ -483,24 +489,83 @@
       console.log("选中数据", this.config.selected);
     },
 
+    checkedDeepSelect(params){
+      var level = params.level; // 选中的第几层
+      var pid = params.pid; // 父层value
+      var value = params.value; // 当前value
+      var wrap = params.wrap; // 当前面板DOM
+      var index = params.index; // 当前面索引
+      var inputObj = this.qsAll('input', wrap);
+      var inputLen = inputObj.length;
+      var checkedNum = 0;
+      
+
+      for(var i = 0; i < inputLen; i++){
+        if(inputObj[i].checked) checkedNum++;
+      }
+
+      switch (level) {
+        case 0:
+          delete this.config.selected[value].child;
+          break;
+      
+        default:
+          if(checkedNum == inputLen){
+            delete this.config.selected[pid].child;
+          }else {
+            this.config.selected[pid].child = this.config.selected[pid].child || []
+            this.config.selected[pid].child.push(this.objDeepCopy(this.config.data[level][pid][index]))
+          }
+          break;
+      }
+
+    },
+
     // 存储选中数据(待完善，需要关联子级和父级....)
     checkedData(params){
-      var value = params.value;      
+      var value = params.value;
       var index = params.index;
       var pid = params.pid;
       var level = params.level;
+      var item = params.item;
+      var pindex = params.pindex;
 
       this.config.data[level][pid][index].checked = true;
+      // this.config.data[level][pid][index].parentid = pid;
 
-      if(pid != 0){
-        // 非顶层，并已经存有数据
-        if(this.config.selected[pid].child){
-          this.config.selected[pid].child.unshift(this.objDeepCopy(this.config.data[level][pid][index]));
-        }
+      this.config.selected[value] = this.objDeepCopy(this.config.data[level][pid][index]);
+
+      while(level > 0){
+        // 更新DOM显示
+        item = this.qs('.mul-cascader-panel__item' + level);
+        var prevItem = this.qs('.mul-cascader-panel__item' + (level - 1))
+        var prevPIndex = prevItem.getAttribute('data-pindex');
+        var prevPId = prevItem.getAttribute('data-pid');
+        var input = this.getId('j_input_'+ pid, item);
         
-      }else {
-        // 顶层
-        this.config.selected[value] = this.objDeepCopy(this.config.data[level][pid][index]);
+        pid = item.getAttribute('data-pid');
+        var inputAll = this.qsAll('input', item);
+        
+        var inputLen = inputAll.length;
+        var checkedNum = 0;
+        for(var i = 0; i < inputLen; i++){
+          if(inputAll[i].checked) checkedNum ++;
+
+          if(checkedNum == inputLen) {
+            // 去掉父级下的元素并选中input
+            input.checked = true;            
+            console.log(this.config.selected)
+            
+            this.config.selected = this.config.selected.filter(function(obj){
+              console.log(obj, pid)
+              return obj.parentid != pid
+            });
+
+            this.config.selected[pid] = this.objDeepCopy(this.config.data[level - 1][prevPId][pindex]);
+            
+          }
+        }
+        level --;
       }
     },
 
@@ -511,60 +576,61 @@
       var level = params.level;
       var pindex = params.pindex;
 
-      if(pid != 0){
-        // 非顶层，并没有存数据
-        if(level > 1){
-          // 超过第二层的数据，需要查找最顶层
-          // 上一层
-          var prevLevel =  level - 1; // 上一层level值
-          var prevData = this.objDeepCopy(this.config.data[prevLevel]); // 上一层所有数据          
-          var prevValue = Object.keys(prevData); // 首层value
-          var topData = prevData[prevValue].filter(function(obj) {
-            return obj.value == pid;
-          });
-          
-          if(!this.config.selected[prevValue].child){
-            var data  = this.objDeepCopy(this.config.data[prevLevel][prevValue]);
-            this.config.selected[prevValue].child = data.concat(this.objDeepCopy(this.config.data[level][pid]));
+      delete this.config.selected[value];
+      
+      while(level >= 0){
+        // 更新DOM显示
+        var item = this.qs('.mul-cascader-panel__item' + level);
+        var input = this.getId('j_input_'+ pid, item);
+        input.checked = false;
+        pid = item.getAttribute('data-pid');
+        var inputAll = this.qsAll('input', item);    
+
+        // 从selected中找到parentid 并删掉selectedkey=parentid的数据
+        if(this.config.selected[pid]) delete this.config.selected[pid];
+
+        // 添加其余选中项到selected
+        for(var i = 0; i < inputAll.length; i++){
+          if(inputAll[i].checked){
+            var arr = this.objDeepCopy(this.config.data[level][pid]);
+            arr = arr.filter(function(obj){
+              return obj.value == inputAll[i].value
+            })
+            this.config.selected[inputAll[i].value] = arr[0];
           }
-
-          // 过滤当前选中的父级数据
-          this.config.selected[prevValue].child = this.config.selected[prevValue].child.filter(function(obj) {
-            return obj.value != topData[0].value;
-          });
-          
-          // 过滤当前选中的数据
-          this.config.selected[prevValue].child = this.config.selected[prevValue].child.filter(function(obj) {
-            return obj.value != value;
-          });
-
-        } else if(!this.config.selected[pid].child) {
-          this.config.selected[pid].child = this.objDeepCopy(this.config.data[level][pid])
-
-          // 过滤当前选中的数据
-          this.config.selected[pid].child = this.config.selected[pid].child.filter(function(obj) {
-            return obj.value != value;
-          });
         }
-      }else if(this.config.selected[value]){
-        // 顶层，直接删除当前索引
-        delete this.config.selected[value];
+        level --;
       }
+    },
+
+    // 渲染已选择数据结构
+    renderSelectedHtml(){
+      var selected = this.config.selected;
+      var str = ''
+      var selectedWrap = this.getId('mulCascaderPanelSelected')
+
+      for(var obj in selected){
+        var item = selected[obj];
+        str += '<li data-value="'+ item.value +'">'+ item.label +' <span>删除</span></li>'
+      }
+
+      selectedWrap.innerHTML =  str;
+
     },
 
     // 处理数据逻辑
     getSelected(){
       var JgetData = this.getId('JgetData');
       var showSelected = this.getId('showSelected');
-      JgetData.addEventListener('click', () => {
-        var str = '';
-        var selected = this.config.selected;
+      var self = this
+      var str = '';
+      var selected = this.config.selected;
 
-        for(var obj in this.config.selected){
-          str += `<div>${obj}: ${JSON.stringify(selected[obj])}</div>`;
-        }
-        showSelected.innerHTML = str;
-      });
+      for(var obj in this.config.selected){
+        str += `<div>${obj}: ${JSON.stringify(selected[obj])}</div>`;
+      }
+      showSelected.innerHTML = str;
+      self.renderSelectedHtml();
     }
   };
 
