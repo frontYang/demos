@@ -2,7 +2,7 @@
  * 工具函数
  */
 import { CONFIG, TOAST } from '@/common/config'
-import wx_util from '@/common/wx_util'
+import mini_util from '@/common/mini_util'
 
 
 const log = (...str) => {
@@ -13,7 +13,7 @@ const log = (...str) => {
  * 判断是否是IOS
  */
 const isIos = () => {
-  const sys = wx_util.getSystemInfo();
+  const sys = mini_util.getSystemInfo();
   return /iphone|ios/i.test(sys.platform);
 }
 

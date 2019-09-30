@@ -2,12 +2,12 @@
  * 页面接口请求
  */
 import http from '@/common/http'
-import wx_util from '@/common/wx_util'
+import mini_util from '@/common/mini_util'
 import { INTF } from '@/common/config'
 
 /* 获取openid */
 const getOpenid = async () => {  
-  const code = await wx_util.login()  
+  const code = await mini_util.login()  
 
   return http.post(INTF.get_open_id, {
     data: {

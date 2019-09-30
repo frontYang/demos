@@ -1,6 +1,6 @@
 <script>
   import util from '@/common/util'
-  import wx_util from '@/common/wx_util'
+  import mini_util from '@/common/mini_util'
   import main from '@/common/main'
   import upload from '@/common/upload'
   import loadMore from '@/common/load_more'
@@ -39,7 +39,7 @@
       INTF,
       util,
       main,
-      wx_util,
+      mini_util,
       upload,
       loadMore,
       charts

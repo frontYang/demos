@@ -13,7 +13,7 @@
 |   |-- main.js(页面接口请求)
 |   |-- upload.js(上传)
 |   |-- util.js(工具函数)
-|   |-- wx_util.js(小程序API二次封装)
+|   |-- mini_util.js(小程序API二次封装)
 |   |-- var.scss
 +-- components
 |   +-- f2-canvas(图表)

@@ -13,7 +13,7 @@
 <script>
 	const app = getApp()
 	const appOptions = app.$vm.$options
-	let { CONFIG, util, main, wx_util, userInfo } = app.globalData
+	let { CONFIG, util, main, mini_util, userInfo } = app.globalData
 
 	export default {
 		data(){
@@ -30,7 +30,7 @@
 		},
 		methods: {
 			async getUserInfo(e){
-				await wx_util.tapGetUserInfo(e, app)
+				await mini_util.tapGetUserInfo(e, app)
 				this.userInfo = app.globalData.userInfo
 			}
 		}
