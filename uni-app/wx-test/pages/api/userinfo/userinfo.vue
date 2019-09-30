@@ -1,8 +1,8 @@
 <template>
 	<view>
-		<view class="userinfo">
-    <button wx:if="!hasUserInfo" open-type="getUserInfo" @getuserinfo="getUserInfoEvent"> 获取头像昵称 </button>
-    <block wx:else>
+		<view class="userinfo">			
+    <button v-if="userInfo == null" open-type="getUserInfo" @getuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block v-else>
       <image bindtap="bindViewTap" class="userinfo-avatar" :src="userInfo.avatarUrl" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
@@ -12,21 +12,26 @@
 
 <script>
 	const app = getApp()
-	let { openid, CONFIG, util, main } = app.globalData
+	const appOptions = app.$vm.$options
+	let { CONFIG, util, main, wx_util, userInfo } = app.globalData
 
 	export default {
 		data(){
 			return {
-				userInfo: {},
-				hasUserInfo: false,
+				userInfo: null,
+				openid: null
 			}
 		},
 		onLoad(){
-			console.log(openid)
+			appOptions.appCb = (() => {
+				this.openid = app.globalData.openid
+				this.userInfo = app.globalData.userInfo
+			})
 		},
 		methods: {
-			getUserInfoEvent(e){
-				console.log(e)
+			async getUserInfo(e){
+				await wx_util.tapGetUserInfo(e, app)
+				this.userInfo = app.globalData.userInfo
 			}
 		}
 	}

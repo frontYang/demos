@@ -22,7 +22,26 @@ const login = () => {
       },
     })
   }) 
- }
+}
+
+/* 按钮获取用户信息 */
+const tapGetUserInfo = (e, app) => {
+  return new Promise((resolve, reject) => {
+    const userInfo = e.detail.userInfo
+    if(userInfo){
+      uni.setStorageSync('user_info', userInfo)
+      app.globalData.userInfo = userInfo
+      resolve()
+    }else {
+      reject()
+    }
+  })
+}
+
+/* 获取用户信息 */
+const getUserInfo = () => {
+
+}
  
 /**
  * 获取元素信息
@@ -83,5 +102,7 @@ const getNetworkType = () => {
 }
 
 export default {
-  login
+  login,
+  tapGetUserInfo,
+  getSystemInfo
 }

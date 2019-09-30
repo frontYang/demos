@@ -1,6 +1,6 @@
 
 /**
- * wx.request 封装
+ * request 封装
  */
 import { CONFIG } from '@/common/config'
 
@@ -15,14 +15,14 @@ class Http {
   get(url, params){
     return this._request(url, {
       method: 'GET',
-      params
+      ...params
     })
   }
   
   post(url, params){
     return this._request(url, {
       method: 'POST',
-      params
+      ...params
     })
   }
   

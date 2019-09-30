@@ -37,7 +37,8 @@
         {
           "path":"load/load",
           "style": {
-            "navigationBarTitleText": "load"
+            "navigationBarTitleText": "load",
+            "enablePullDownRefresh": true
           }
         }
       ]

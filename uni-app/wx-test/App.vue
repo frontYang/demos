@@ -1,30 +1,48 @@
 <script>
-  import util from '@/common/util.js'
-  import wx_util from '@/common/wx_util.js'
-  import main from '@/common/main.js'
+  import util from '@/common/util'
+  import wx_util from '@/common/wx_util'
+  import main from '@/common/main'
+  import upload from '@/common/upload'
+  import loadMore from '@/common/load_more'
+  import charts from '@/common/charts'
   import { CONFIG, INTF } from '@/common/config'
   
 	export default {
-		onLaunch: async function() {
+		onLaunch: function() {
       console.log('App Launch')
-      const openid = await main.getOpenid()
-      console.log(openid)
-
-      // this.$options.globalData.openid = openid
+      this.$options.initApp()
 		},
 		onShow: function() {
 			console.log('App Show')
 		},
 		onHide: function() {
 			console.log('App Hide')
-		},
+    },
+    // 初始化
+    async initApp(){
+      // openid
+      let openid = uni.getStorageSync('openid')
+      if(!openid) openid = await main.getOpenid()
+      this.globalData.openid = openid
+
+      // userinfo
+      let userInfo = uni.getStorageSync('user_info')
+      this.globalData.userInfo = userInfo
+
+      // 异步回调
+      if(this.appCb) this.appCb();
+    },
     globalData: {
       openid: '',
+      userInfo: '',
       CONFIG,
       INTF,
       util,
       main,
-      wx_util
+      wx_util,
+      upload,
+      loadMore,
+      charts
     }
 	}
 </script>

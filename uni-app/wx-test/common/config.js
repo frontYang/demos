@@ -6,7 +6,7 @@
 const DEV = process.env.NODE_ENV === 'development' ? true : false
 
 // 接口域名——开发环境
-const DOMAIN_DEV = 'http://192.168.3.24:7300/mock/5d8b34056805113020730b54/mini_api'
+const DOMAIN_DEV = 'http://192.168.3.24:7300/mock/5d916c07f9d8883740228e14/mini_pg_api'
 
 // 接口域名——生产环境
 const DOMAIN_PROD = ''
@@ -31,7 +31,9 @@ export const CONFIG = {
 
 /* 接口 */
 export const INTF = {
-  get_open_id: `/get_open_id`
+  get_open_id: `/get_open_id`,
+  img_upload: `/img_upload`,
+  list: `/list`,
 }
 
 /* 提示语 */
