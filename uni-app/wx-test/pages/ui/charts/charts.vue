@@ -66,7 +66,7 @@
 		methods: {
 			/* 初始化折线图 */
 			initChart1(chartData) {
-				let weekChart = this.selectComponent('#lineDomWeek')				
+				let weekChart = this.selectComponent('#lineDomWeek')
 				weekChart.$vm.init((...arg) => {
 					charts.initChartLine([...arg, chartData])
 				})
@@ -95,5 +95,4 @@
 		width: 100%;
 		height: 100%;
 	}
-
 </style>

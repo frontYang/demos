@@ -34,7 +34,7 @@
 			this.loadMoreObj.config.success = ((data) => {
 				this.list = data
 			})
-			wx.stopPullDownRefresh()
+			uni.stopPullDownRefresh()
 		},
 		onReachBottom(){
 			this.loadMoreObj.lower()
