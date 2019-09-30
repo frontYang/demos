@@ -19,33 +19,33 @@
 		<view class="box">
 			<view class="box-th">radio</view>  
 			<view class="mgt20 radio-default">
-				默认样式：<radio class="" value="" checked="{{true}}" color=""></radio>
+				默认样式：<radio class="" value="" :checked="true" color=""></radio>
 			</view>
 			<view class="mgt20 radio-small">
-				等比缩小尺寸：<radio class="" value="" checked="{{true}}" color=""></radio>
+				等比缩小尺寸：<radio class="" value="" :checked="true" color=""></radio>
 			</view>
 			<view class="mgt20 radio-large">
-				等比放大尺寸：<radio class="" value="" checked="{{true}}" color=""></radio>
+				等比放大尺寸：<radio class="" value="" :checked="true" color=""></radio>
 			</view>
 			<view class="mgt20 radio-size">
-				改变尺寸/颜色：<radio class="" value="" checked="{{true}}" color=""></radio>
+				改变尺寸/颜色：<radio class="" value="" :checked="true" color=""></radio>
 			</view>
 		</view>
 
 		<view class="box">
 			<view class="box-th">checkbox</view>  
 			<view class="mgt20 checkbox-default">
-				默认样式：<checkbox class="" value="" checked="{{true}}" color=""></checkbox>
+				默认样式：<checkbox class="" value="" :checked="true" color=""></checkbox>
 					
 			</view>
 			<view class="mgt20 checkbox-small">
-				等比缩小尺寸：<checkbox class="" value="" checked="{{true}}" color=""></checkbox>
+				等比缩小尺寸：<checkbox class="" value="" :checked="true" color=""></checkbox>
 			</view>
 			<view class="mgt20 checkbox-large">
-				等比放大尺寸：<checkbox class="" value="" checked="{{true}}" color=""></checkbox>
+				等比放大尺寸：<checkbox class="" value="" :checked="true" color=""></checkbox>
 			</view>
 			<view class="mgt20 checkbox-size">
-				改变尺寸/颜色：<checkbox class="" value="" checked="{{true}}" color=""></checkbox>
+				改变尺寸/颜色：<checkbox class="" value="" :checked="true" color=""></checkbox>
 			</view>
 		</view>
 
