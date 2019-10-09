@@ -31,6 +31,10 @@ let state = {
           label: '表格搜索/操作',
           index: '/table/table_tool',
         },
+        {
+          label: '表格分类',
+          index: '/table/table_class',
+        },
       ]
     },
     {
@@ -63,7 +67,11 @@ let state = {
         {
           label: 'pdf',
           index: '/others/pdf'
-        }
+        },
+        {
+          label: 'swiper',
+          index: '/others/swiper'
+        },
       ]
     },
   ]

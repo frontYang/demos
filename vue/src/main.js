@@ -16,6 +16,9 @@ import 'quill/dist/quill.bubble.css'
 // import 'element-ui/lib/theme-chalk/index.css'
 import './mock/index'
 
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
+
 Vue.config.performance = process.env.NODE_ENV !== 'production'
 
 Vue.config.productionTip = false
@@ -25,6 +28,7 @@ Vue.prototype.$request = request
 Vue.prototype.$validate = validate
 
 Vue.use(ElementUI)
+Vue.use(VueAwesomeSwiper)
 
 
 // 判断登录状态

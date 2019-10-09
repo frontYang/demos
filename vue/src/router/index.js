@@ -66,6 +66,14 @@ export default new Router({
               },
               component: () => Loader('table/TableTool')
             },
+            {
+              path: "/table/table_class/:id",
+              name: "table_class",
+              meta: {
+                title: '表格分类'
+              },
+              component: () => Loader('table/TableClass')
+            },
           ]
         },
         {
@@ -128,7 +136,15 @@ export default new Router({
                 title: 'PDF'
               },
               component: () => Loader('others/Pdf')
-            }
+            },
+            {
+              path: "/others/swiper/:id",
+              name: "swiper",
+              meta: {
+                title: 'swiper'
+              },
+              component: () => Loader('others/Swiper')
+            },
           ]
         },
       ]

@@ -1,0 +1,97 @@
+
+// color
+$primary: #207fd8;
+$red: #871d1d;
+$gray: #525252;
+$gray1: #666768;
+
+// font-size
+$xlg: 50px;
+$lg: 30px;
+$md: 22px;
+$sm: 20px;
+$xsm: 15px;
+
+// 模块高度
+$mod1: 910px;
+$mod2: 540px;
+$mod3: 1015px;
+$mod4: 930px;
+$mod5: 992px;
+$modHeight: ($mod1, $mod2, $mod3, $mod4, $mod5);
+
+
+// layout
+$docWidth: 1300px;
+
+// 新闻内容
+$newsPd: 19px;
+$newsContentW: 1000px;
+$newsPicW: 420px;
+$newsPicH: 230px;
+
+// 游戏特色
+$featuresW: 976px;
+$featuresH: 480px;
+ 
+// 角色宽高
+$classW: 695px;
+$classH: 687px;
+
+// 原画宽高
+$drawingW: 851px;
+$drawingH: 465px;
+
+
+$px:px;
+$assect_path: 'http://pimages.49yu.com/game/tpl10/';
+
+
+// 背景图片方法
+@mixin image($cls, $iconname) {
+  .#{$cls} {
+    display: inline-block;
+  }
+
+  @each $item in $iconname {
+    $var_width: nth($item, 2)+$px; // 宽度
+    $var_height: nth($item, 3)+$px; // 高度
+    $path_name: nth($item, 1); // 图片全名（包括文件类型）
+    $index: str-index($path_name, '.'); // 获取 . 的索引
+    $var_name: $cls + '-' + str-slice($path_name, 0, $index - 1); // 截取图片名称
+
+    .#{$var_name} {
+      width: $var_width;
+      height: $var_height;
+      background-image: url($assect_path + $path_name);
+      background-repeat: no-repeat;
+      background-size: $var_width $var_height;
+    }
+  }
+}
+
+
+$iconname: (
+		'facebook.png' 38 38,
+		'line.png' 38 38,
+		'video.png' 40 40,
+		'music.png' 40 40,
+		'apk.png' 185 55,
+		'google.png' 185 55,
+		'store.png' 185 55,
+		'nav.png' 123 45,
+		'nav-cur.png' 123 45,
+		'nav-v.png' 65 187,
+		'nav-v-cur.png' 65 187,
+		'left.png' 70 74,
+		'down.png' 70 74,
+		'right.png' 70 74,
+		'people.png' 430 698,
+		'12.png' 59 60,
+		'logo.png' 234 42,
+		'share.png' 40 40,
+		'fb_share.png' 40 40,
+		'line_share.png' 40 40,
+	);
+
+	@include image('icon', $iconname);
