@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import MenuItem from "./MenuItem";
+import MenuItem from "@/components/layout/MenuItem";
 import { mapState, mapMutations, mapActions } from 'vuex';
 
 export default {

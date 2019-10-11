@@ -140,7 +140,7 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "../assets/styles/_var.scss";
+  @import "@/assets/styles/_var.scss";
 
   .el-menu-header1{
     transition: width .3s;

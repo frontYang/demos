@@ -24,9 +24,9 @@
 </template>
 
 <script>
-	import Crumbs from '@/components/Crumbs';	
-	import Header from '@/components/Header';
-	import Aside from '@/components/Aside';
+	import Crumbs from '@/components/layout/Crumbs';	
+	import Header from '@/components/layout/Header';
+	import Aside from '@/components/layout/Aside';
 	import { mapState, mapMutations, mapActions } from 'vuex';
 
 	export default {
@@ -66,7 +66,7 @@
 </script>
 
 <style lang="scss" >
-	@import "../assets/styles/_var.scss";
+	@import "@/assets/styles/_var.scss";
   .el-header{
 		background: $bgHeaderNav;
 
