@@ -58,6 +58,5 @@
 .page-selector{
 	display: flex;
 }
-
 </style>
 

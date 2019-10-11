@@ -12,8 +12,8 @@ import validate from "./utils/validate"
 
 // element
 import ElementUI from 'element-ui'
-// import './assets/theme/index.css' // 自定义主题
 import 'element-ui/lib/theme-chalk/index.css' // 默认主题
+// import './assets/theme/index.css' // 自定义主题
 
 // swiper
 import VueAwesomeSwiper from 'vue-awesome-swiper'
@@ -25,8 +25,10 @@ Vue.prototype.$utils = utils
 Vue.prototype.$request = request
 Vue.prototype.$validate = validate
 
-// mock数据
-import './mock/index'
+// 开发环境下才使用mock数据
+if(process.env.NODE_ENV == 'development') {
+  import('./mock/index')
+}
 
 Vue.config.productionTip = false
 
@@ -36,7 +38,7 @@ Vue.use(VueAwesomeSwiper)
 // 判断登录状态
 router.beforeEach((to, from, next) => {
   let token = localStorage.getItem('token') || null
-  let username = localStorage.getItem('username') || null  
+  let username = localStorage.getItem('username') || null 
 
   if (token == null && (to.path != '/login')) {
     next({ path: '/login' })

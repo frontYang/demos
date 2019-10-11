@@ -4,8 +4,9 @@
  * axios 二次封装
  */
 import axios from 'axios'
+import { DOMAIN } from './config'
 import qs from 'qs'
-const domain = '//192.168.3.24:8081'
+const domain = DOMAIN
 
 axios.defaults.timeout = 5000;
 axios.defaults.withCredentials = true;

@@ -1,0 +1,26 @@
+
+$px:px;
+$assect_path: 'http://pimages.49yu.com/game/tpl10/';
+
+// 背景图片方法
+@mixin image($cls, $iconname) {
+  .#{$cls} {
+    display: inline-block;
+  }
+
+  @each $item in $iconname {
+    $var_width: nth($item, 2)+$px; // 宽度
+    $var_height: nth($item, 3)+$px; // 高度
+    $path_name: nth($item, 1); // 图片全名（包括文件类型）
+    $index: str-index($path_name, '.'); // 获取 . 的索引
+    $var_name: $cls + '-' + str-slice($path_name, 0, $index - 1); // 截取图片名称
+
+    .#{$var_name} {
+      width: $var_width;
+      height: $var_height;
+      background-image: url($assect_path + $path_name);
+      background-repeat: no-repeat;
+      background-size: $var_width $var_height;
+    }
+  }
+}

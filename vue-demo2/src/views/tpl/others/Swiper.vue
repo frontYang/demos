@@ -7,8 +7,8 @@
             <img :src="item" alt="">
           </swiper-slide>
         </swiper>
-        <div class="icon icon-left "></div>
-        <div class="icon icon-right "></div>
+        <div class="icon icon-left swiper-button-prev"></div>
+        <div class="icon icon-right swiper-button-next"></div>
       </div>
     </div>
   </div>
@@ -58,7 +58,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@/assets/_var.scss';
+@import '@/assets/styles/_var.scss';
 
 .swiper-coverflow{
   width: 1300px;
@@ -121,7 +121,7 @@ export default {
   }
   .detail-th{        
     span{
-      font-size: $xlg;
+      font-size: 55px;
       padding-right: 20px;
       text-shadow: 0 1px #fff,
                     0 1px #fff,

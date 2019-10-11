@@ -105,7 +105,7 @@
             this.fetchData(index, val)
           }else {
             let allData = [...this.selector.allData]
-            allData[this.index].forEach((item) => item[this.checked] = val)
+            allData[this.index] > 0 && allData[this.index].forEach((item) => item[this.checked] = val)
             this.setAllData({
               list: [...allData]
             })
