@@ -25,8 +25,9 @@ Vue.prototype.$utils = utils
 Vue.prototype.$request = request
 Vue.prototype.$validate = validate
 
-// 开发环境下才使用mock数据
+// 开发环境下
 if(process.env.NODE_ENV == 'development') {
+  // 开启mockjs
   import('./mock/index')
 }
 

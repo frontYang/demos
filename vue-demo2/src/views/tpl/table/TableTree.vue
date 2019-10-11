@@ -3,7 +3,7 @@
   <Table 
     :list="tableData"
     :rowHeader="rowHeader"
-  ></Table>
+  ></Table>  
 </div>
 </template>
 <script>  
