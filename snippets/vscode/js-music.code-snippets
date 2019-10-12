@@ -1,0 +1,113 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	"Print to console": {
+		"scope": "javascript,typescript",
+		"prefix": "js-music",
+		"body": [
+			"(function (window, factory) {",
+			"\tif (typeof exports === 'object') {",
+			"\t\tmodule.exports = factory();",
+			"\t} else if (typeof define === 'function' && define.amd) {",
+			"\t\tdefine(factory);",
+			"\t} else {",
+			"\t\twindow.musicUtil = factory();",
+			"\t}",
+			"})(this, function () {",
+			"\tvar musicUtil = {",
+			"\t\tisPlay: true,",
+			"\t\tgetId(id) {",
+			"\t\t\treturn Object.prototype.toString.call(id) === '[object Object]' ? id : document.getElementById(id)",
+			"\t\t},",
+		"\t",
+			"\t\t// 初始化",
+			"\t\tinit(params) {",
+			"\t\t\tvar self = this",
+			"\t\t\tthis.audioObj = this.getId(params.audioId)",
+			"\t\t\tthis.toggleObj = this.getId(params.toggleId)",
+			"\t\t\tthis.isPlay = params.isPlay",
+		"\t",
+		"\t",
+			"\t\t\t// 移动端可以用touchend",
+			"\t\t\tdocument.body.addEventListener('click', this.playInBrower);",
+			"\t\t\tdocument.addEventListener('DOMContentLoaded', this.playInWx);",
+			"\t\t\tthis.toggle()",
+			"\t\t},",
+		"\t",
+			"\t\t// 暂停/播放切换",
+			"\t\ttoggle() {",
+			"\t\t\tvar self = this",
+			"\t\t\t// 移动端可以用touchend",
+			"\t\t\tthis.toggleObj.addEventListener('click', function (e) {",
+			"\t\t\t\te.stopPropagation()",
+			"\t\t\t\tself.isPlay = !self.isPlay",
+			"\t\t\t\tself.musicPlay()",
+			"\t\t\t})",
+			"\t\t},",
+		"\t",
+			"\t\t// 浏览器自动播放",
+			"\t\tplayInBrower() {",
+			"\t\t\tmusicUtil.isPlay = true",
+			"\t\t\tmusicUtil.musicPlay();",
+			"\t\t\t// 移动端可以用touchend",
+			"\t\t\tdocument.body.removeEventListener('click', this.playInBrower);",
+			"\t\t},",
+		"\t",
+			"\t\t// 微信自动播放",
+			"\t\tplayInWx() {",
+			"\t\t\tmusicUtil.isPlay = true",
+			"\t\t\tmusicUtil.musicPlay();",
+			"\t\t\tdocument.addEventListener('WeixinJSBridgeReady', function () {",
+			"\t\t\t\tmusicUtil.musicPlay();",
+			"\t\t\t}, false);",
+			"\t\t\tdocument.removeEventListener('DOMContentLoaded', this.playInWx);",
+			"\t\t},",
+		"\t",
+			"\t\t// 播放/暂停",
+			"\t\tmusicPlay() {",
+			"\t\t\tvar audio = this.audioObj",
+			"\t\t\tif (musicUtil.isPlay && audio.paused) {",
+			"\t\t\t\taudio.play();",
+			"\t\t\t\tthis.isPlay = true",
+			"\t\t\t\tconsole.log('播放')",
+			"\t\t\t\treturn",
+			"\t\t\t}",
+		"\t",
+			"\t\t\tif (!musicUtil.isPlay && !audio.paused) {",
+			"\t\t\t\taudio.pause();",
+			"\t\t\t\tthis.isPlay = false",
+			"\t\t\t\tconsole.log('暂停')",
+			"\t\t\t}",
+			"\t\t}",
+			"\t}",
+		"\t",
+			"\treturn musicUtil",
+			"});",
+
+			/**
+			使用方式
+			html：
+			<div class="music btn-music" id="btnMusic" style="position: relative; z-index: 999;">
+				music
+			</div>
+
+			<audio loop="loop" id="audio" preload="preload" autoplay="autoplay" loop="loop">
+				<source src="https://fqj.springgame.com//reserve/themes/mp3/bgm.mp3"  type="audio/mp3">
+			</audio>
+		
+			// js
+			musicUtil.init({
+				toggleId: 'btnMusic', // 控制按钮id
+				audioId: 'audio', // 音频id
+				isPlay: true // 是否默认播放
+			})
+			*/
+		],
+		"description": "js库 => 播放音乐"
+	}
+}

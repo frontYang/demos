@@ -1,0 +1,32 @@
+{
+	"Print to console": {
+		"scope": "scss,sass",
+		"prefix": "easy-sass-setting",
+		"body": [
+			"{",
+				"\"easysass.compileAfterSave\": true,",
+				"\"easysass.excludeRegex\": \"^_[a-z]+\",",
+				"\"easysass.formats\": [",
+					"{",
+						"\"format\": \"compressed\", // 压缩后的css", 
+						"\"extension\": \".css\"",
+					"},",
+					"{",
+						"\"format\": \"compact\", // 简洁格式的 css 代码",
+						"\"extension\": \".css\"",
+					"},",
+					"{",
+						"\"format\": \"expanded\", // 没有缩进的、扩展的css代码",
+						"\"extension\": \".css\"",
+					"},",
+					"{",
+						"\"format\": \"nested\", // 嵌套缩进的css代码",
+						"\"extension\": \".css\"",
+					"},",
+				"],",
+				"\"easysass.targetDir\": \"\"",
+			"}"
+		],
+		"description": "easy-sass-setting"
+	}
+}

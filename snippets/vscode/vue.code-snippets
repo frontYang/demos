@@ -1,0 +1,28 @@
+{
+	
+	"Print to console": {		
+		"scope": "vue",
+		"prefix": "tpl-vue",
+		"body": [
+			"<template>",
+			"  <div class=\"page\">\n",
+			"  </div>",
+			"</template>\n",
+			"<script>",
+			"export default {",
+			"  data() {",
+			"    return {\n",
+			"    }",
+			"  },",
+			"  components: {\n",
+			"  }",
+			"  mounted(){},",
+			"}",
+			"</script>\n",
+			"<style scoped lang=\"scss\">",
+			"</style>",
+			"$2"
+		],
+		"description": "vue 模板"
+	}
+}

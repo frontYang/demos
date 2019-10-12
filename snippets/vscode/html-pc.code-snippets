@@ -1,0 +1,52 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	"Print to console": {
+		"scope": "html",
+		"prefix": "tpl-pc",
+		"body": [
+			"<!DOCTYPE html>",
+			"<html lang=\"en\">",
+			"<head>",
+				"\t<!-- 编码 -->",
+				"\t<meta charset=\"UTF-8\">",
+				"\t<!-- 网页标题 -->",
+				"\t<title>Document</title>"		,		
+				"\t<!-- 关键字 -->",
+				"\t<meta name=\"keywords\" content=\"\" />"	,			
+				"\t<!-- 描述 -->",
+				"\t<meta name=\"description\" content=\"\" />",
+				"\t<!-- 作者 -->",
+				"\t<meta name=\"Author\" content=\"yangzhifang\">",
+				"\t<!-- 指定IE和Chrome使用最新版本渲染当前页面 -->",
+				"\t<meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge,chrome=1\">",
+				"\t<!-- 先发送请求，与服务器确认该资源是否被更改，如果未被更改，则使用缓存。 -->",
+				"\t<meta http-equiv=\"cache-control\" content=\"no-cache\">",
+				"\t<!-- 默认webkit内核渲染 -->",
+				"\t<meta name=\"renderer\" content=\"webkit\">"		,		
+				"\t<meta name=\"referrer\" content=\"always\">",
+				"\t<!-- PC端页面跳转至对应的移动端网址 -->",
+				"\t<meta name=\"applicable-device\" content=\"pc\">",
+				"\t<link rel=\"alternate\" media=\"only screen and(max-width: 640px)\" href=\"\">",
+				"\t<!-- 样式表 -->",
+				"\t<link rel=\"stylesheet\" href=\"\">",
+			"</head>",
+			"<body>",
+				"\t<!-- doc S -->",
+				"\t<div class=\"doc\">",
+					"\tpc 模板",
+				"\t</div>",
+				"\t<!-- doc E -->",
+				"\t<!-- script -->",
+				"\t<script></script>",
+			"</body>",
+			"</html>"
+		],
+		"description": "pc 模板"
+	}
+}
