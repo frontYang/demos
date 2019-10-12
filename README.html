@@ -1,358 +1,230 @@
-<!DOCTYPE html><html><head>
-      <title>README</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      
-      <link rel="stylesheet" href="file:///C:\Users\admin\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.4.3\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
-      
-      
-
-      
-      
-      
-      
-      
-      
-
-      <style>
-      /**
- * prism.js Github theme based on GitHub's theme.
- * @author Sam Clarke
- */
-code[class*="language-"],
-pre[class*="language-"] {
-  color: #333;
-  background: none;
-  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  line-height: 1.4;
-
-  -moz-tab-size: 8;
-  -o-tab-size: 8;
-  tab-size: 8;
-
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  hyphens: none;
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>README</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
 }
-
-/* Code blocks */
-pre[class*="language-"] {
-  padding: .8em;
-  overflow: auto;
-  /* border: 1px solid #ddd; */
-  border-radius: 3px;
-  /* background: #fff; */
-  background: #f5f5f5;
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
 }
-
-/* Inline code */
-:not(pre) > code[class*="language-"] {
-  padding: .1em;
-  border-radius: .3em;
-  white-space: normal;
-  background: #f5f5f5;
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
 }
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
 
-.token.comment,
-.token.blockquote {
-  color: #969896;
+
+:root { --side-bar-bg-color: #fafafa; --control-text-color: #777; }
+html { font-size: 16px; }
+body { font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; color: rgb(51, 51, 51); line-height: 1.6; }
+#write { max-width: 860px; margin: 0px auto; padding: 30px 30px 100px; }
+#write > ul:first-child, #write > ol:first-child { margin-top: 30px; }
+a { color: rgb(65, 131, 196); }
+h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1rem; margin-bottom: 1rem; font-weight: bold; line-height: 1.4; cursor: text; }
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor { text-decoration: none; }
+h1 tt, h1 code { font-size: inherit; }
+h2 tt, h2 code { font-size: inherit; }
+h3 tt, h3 code { font-size: inherit; }
+h4 tt, h4 code { font-size: inherit; }
+h5 tt, h5 code { font-size: inherit; }
+h6 tt, h6 code { font-size: inherit; }
+h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
+h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
+h3 { font-size: 1.5em; line-height: 1.43; }
+h4 { font-size: 1.25em; }
+h5 { font-size: 1em; }
+h6 { font-size: 1em; color: rgb(119, 119, 119); }
+p, blockquote, ul, ol, dl, table { margin: 0.8em 0px; }
+li > ol, li > ul { margin: 0px; }
+hr { height: 2px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border: 0px none; overflow: hidden; box-sizing: content-box; }
+li p.first { display: inline-block; }
+ul, ol { padding-left: 30px; }
+ul:first-child, ol:first-child { margin-top: 0px; }
+ul:last-child, ol:last-child { margin-bottom: 0px; }
+blockquote { border-left: 4px solid rgb(223, 226, 229); padding: 0px 15px; color: rgb(119, 119, 119); }
+blockquote blockquote { padding-right: 0px; }
+table { padding: 0px; word-break: initial; }
+table tr { border-top: 1px solid rgb(223, 226, 229); margin: 0px; padding: 0px; }
+table tr:nth-child(2n), thead { background-color: rgb(248, 248, 248); }
+table tr th { font-weight: bold; border-width: 1px 1px 0px; border-top-style: solid; border-right-style: solid; border-left-style: solid; border-top-color: rgb(223, 226, 229); border-right-color: rgb(223, 226, 229); border-left-color: rgb(223, 226, 229); border-image: initial; border-bottom-style: initial; border-bottom-color: initial; margin: 0px; padding: 6px 13px; }
+table tr td { border: 1px solid rgb(223, 226, 229); margin: 0px; padding: 6px 13px; }
+table tr th:first-child, table tr td:first-child { margin-top: 0px; }
+table tr th:last-child, table tr td:last-child { margin-bottom: 0px; }
+.CodeMirror-lines { padding-left: 4px; }
+.code-tooltip { box-shadow: rgba(0, 28, 36, 0.3) 0px 1px 1px 0px; border-top: 1px solid rgb(238, 242, 242); }
+.md-fences, code, tt { border: 1px solid rgb(231, 234, 237); background-color: rgb(248, 248, 248); border-radius: 3px; padding: 2px 4px 0px; font-size: 0.9em; }
+code { background-color: rgb(243, 244, 244); padding: 0px 2px; }
+.md-fences { margin-bottom: 15px; margin-top: 15px; padding-top: 8px; padding-bottom: 6px; }
+.md-task-list-item > input { margin-left: -1.3em; }
+@media print {
+  html { font-size: 13px; }
+  table, pre { break-inside: avoid; }
+  pre { overflow-wrap: break-word; }
 }
+.md-fences { background-color: rgb(248, 248, 248); }
+#write pre.md-meta-block { padding: 1rem; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border: 0px; border-radius: 3px; color: rgb(119, 119, 119); margin-top: 0px !important; }
+.mathjax-block > .code-tooltip { bottom: 0.375rem; }
+.md-mathjax-midline { background: rgb(250, 250, 250); }
+#write > h3.md-focus::before { left: -1.5625rem; top: 0.375rem; }
+#write > h4.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+#write > h5.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+#write > h6.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+.md-image > .md-meta { border-radius: 3px; padding: 2px 0px 0px 4px; font-size: 0.9em; color: inherit; }
+.md-tag { color: rgb(167, 167, 167); opacity: 1; }
+.md-toc { margin-top: 20px; padding-bottom: 20px; }
+.sidebar-tabs { border-bottom: none; }
+#typora-quick-open { border: 1px solid rgb(221, 221, 221); background-color: rgb(248, 248, 248); }
+#typora-quick-open-item { background-color: rgb(250, 250, 250); border-color: rgb(254, 254, 254) rgb(229, 229, 229) rgb(229, 229, 229) rgb(238, 238, 238); border-style: solid; border-width: 1px; }
+.on-focus-mode blockquote { border-left-color: rgba(85, 85, 85, 0.12); }
+header, .context-menu, .megamenu-content, footer { font-family: "Segoe UI", Arial, sans-serif; }
+.file-node-content:hover .file-node-icon, .file-node-content:hover .file-node-open-state { visibility: visible; }
+.mac-seamless-mode #typora-sidebar { background-color: var(--side-bar-bg-color); }
+.md-lang { color: rgb(180, 101, 77); }
+.html-for-mac .context-menu { --item-hover-bg-color: #E6F0FE; }
+#md-notification .btn { border: 0px; }
+.dropdown-menu .divider { border-color: rgb(229, 229, 229); }
+.ty-preferences .window-content { background-color: rgb(250, 250, 250); }
+.ty-preferences .nav-group-item.active { color: white; background: rgb(153, 153, 153); }
 
-.token.cdata {
-  color: #183691;
-}
-
-.token.doctype,
-.token.punctuation,
-.token.variable,
-.token.macro.property {
-  color: #333;
-}
-
-.token.operator,
-.token.important,
-.token.keyword,
-.token.rule,
-.token.builtin {
-  color: #a71d5d;
-}
-
-.token.string,
-.token.url,
-.token.regex,
-.token.attr-value {
-  color: #183691;
-}
-
-.token.property,
-.token.number,
-.token.boolean,
-.token.entity,
-.token.atrule,
-.token.constant,
-.token.symbol,
-.token.command,
-.token.code {
-  color: #0086b3;
-}
-
-.token.tag,
-.token.selector,
-.token.prolog {
-  color: #63a35c;
-}
-
-.token.function,
-.token.namespace,
-.token.pseudo-element,
-.token.class,
-.token.class-name,
-.token.pseudo-class,
-.token.id,
-.token.url-reference .token.variable,
-.token.attr-name {
-  color: #795da3;
-}
-
-.token.entity {
-  cursor: help;
-}
-
-.token.title,
-.token.title .token.punctuation {
-  font-weight: bold;
-  color: #1d3e81;
-}
-
-.token.list {
-  color: #ed6a43;
-}
-
-.token.inserted {
-  background-color: #eaffea;
-  color: #55a532;
-}
-
-.token.deleted {
-  background-color: #ffecec;
-  color: #bd2c00;
-}
-
-.token.bold {
-  font-weight: bold;
-}
-
-.token.italic {
-  font-style: italic;
-}
-
-
-/* JSON */
-.language-json .token.property {
-  color: #183691;
-}
-
-.language-markup .token.tag .token.punctuation {
-  color: #333;
-}
-
-/* CSS */
-code.language-css,
-.language-css .token.function {
-  color: #0086b3;
-}
-
-/* YAML */
-.language-yaml .token.atrule {
-  color: #63a35c;
-}
-
-code.language-yaml {
-  color: #183691;
-}
-
-/* Ruby */
-.language-ruby .token.function {
-  color: #333;
-}
-
-/* Markdown */
-.language-markdown .token.url {
-  color: #795da3;
-}
-
-/* Makefile */
-.language-makefile .token.symbol {
-  color: #795da3;
-}
-
-.language-makefile .token.variable {
-  color: #183691;
-}
-
-.language-makefile .token.builtin {
-  color: #0086b3;
-}
-
-/* Bash */
-.language-bash .token.keyword {
-  color: #0086b3;
-}
-
-/* highlight */
-pre[data-line] {
-  position: relative;
-  padding: 1em 0 1em 3em;
-}
-pre[data-line] .line-highlight-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: transparent;
-  display: block;
-  width: 100%;
-}
-
-pre[data-line] .line-highlight {
-  position: absolute;
-  left: 0;
-  right: 0;
-  padding: inherit 0;
-  margin-top: 1em;
-  background: hsla(24, 20%, 50%,.08);
-  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
-  pointer-events: none;
-  line-height: inherit;
-  white-space: pre;
-}
-
-pre[data-line] .line-highlight:before, 
-pre[data-line] .line-highlight[data-end]:after {
-  content: attr(data-start);
-  position: absolute;
-  top: .4em;
-  left: .6em;
-  min-width: 1em;
-  padding: 0 .5em;
-  background-color: hsla(24, 20%, 50%,.4);
-  color: hsl(24, 20%, 95%);
-  font: bold 65%/1.5 sans-serif;
-  text-align: center;
-  vertical-align: .3em;
-  border-radius: 999px;
-  text-shadow: none;
-  box-shadow: 0 1px white;
-}
-
-pre[data-line] .line-highlight[data-end]:after {
-  content: attr(data-end);
-  top: auto;
-  bottom: .4em;
-}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
-/* Please visit the URL below for more information: */
-/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
-
-      </style>
-    </head>
-    <body for="html-export">
-      <div class="mume markdown-preview  ">
-      <div><ul>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <a href="template/">&#x6A21;&#x677F;</a>
-<ul>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> <a href="template/pc">PC</a></li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> <a href="template/wap">WAP</a></li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> &#x5F85;&#x7EED;...</li>
-</ul>
-</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <a href="web/">web</a>
-<ul>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> <a href="web/facebook">facebook share &amp; login</a></li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> <a href="web/music">music</a></li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> <a href="web/translate">&#x7E41;/&#x7B80;&#x4F53;&#x5207;&#x6362;</a></li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> <a href="web/lottery">&#x4E5D;&#x5BAB;&#x683C;&#x62BD;&#x5956;</a></li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> <a href="web/wechat">pc&#x5FAE;&#x4FE1;&#x767B;&#x5F55;</a></li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> <a href="web/postMessage">postMessage</a></li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox">  &#x591A;&#x9009;&#x591A;&#x7EA7;&#x8054;&#x52A8;</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox">  &#x52A8;&#x753B;&#x8DF3;&#x8F6C;&#x81F3;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> &#x5F85;&#x7EED;...</li>
-</ul>
-</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> <a href="debug/">&#x79FB;&#x52A8;&#x7AEF;&#x8C03;&#x8BD5;&#x65B9;&#x5F0F;</a>
-<ul>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> <a href="debug/vConsole">vConsole</a></li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> <a href="debug/weinre">weinre</a></li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> <a href="debug/eruda">eruda</a></li>
-</ul>
-</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <a href="miniprogram/">&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;</a>
-<ul>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> &#x65E5;&#x5386;</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> &#x65E5;&#x671F;&#x533A;&#x95F4;&#x9009;&#x62E9;(&#x5E74;&#x6708;&#x65E5;&#x65F6;&#x5206;&#x79D2;&#x7EC4;&#x5408;)</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> &#x5BCC;&#x6587;&#x672C;</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> &#x56FE;&#x8868;</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> &#x76F8;&#x5173;&#x63A5;&#x53E3;&#x5C01;&#x88C5;</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> &#x4E0B;&#x62C9;&#x5237;&#x65B0; &amp;&amp; &#x4E0A;&#x62C9;&#x52A0;&#x8F7D;</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> &#x8868;&#x5355;&#x7EC4;&#x4EF6;&#x539F;&#x751F;&#x6837;&#x5F0F;&#x4FEE;&#x6539;</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> &#x5F85;&#x7EED;...</li>
-</ul>
-</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <a href="vue/">VUE</a>
-<ul>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> &#x5BCC;&#x6587;&#x672C;</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> &#x8868;&#x683C;&#x5206;&#x9875;</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> &#x5F85;&#x7EED;...</li>
-</ul>
-</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <a href="scss/">scss</a>
-<ul>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> &#x5E38;&#x7528;&#x51FD;&#x6570;&#x6574;&#x7406;</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> &#x8FB9;&#x6846;&#x7BAD;&#x5934;</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> &#x5B9E;&#x5FC3;&#x7BAD;&#x5934;</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> &#x6E05;&#x9664;&#x6D6E;&#x52A8;</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> &#x8DE8;&#x6D4F;&#x89C8;&#x5668;&#x900F;&#x660E;&#x5EA6;</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> &#x6587;&#x672C;&#x6EA2;&#x51FA;&#x7701;&#x7565;</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> &#x5F85;&#x7EED;...</li>
-</ul>
-</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> layui &#x7EC4;&#x4EF6;
-<ul>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> &#x5F85;&#x7EED;...</li>
-</ul>
-</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> flex
-<ul>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> &#x5F85;&#x7EED;...</li>
-</ul>
-</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> grid
-<ul>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> &#x5F85;&#x7EED;...</li>
-</ul>
-</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> nodejs
-<ul>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> &#x5F85;&#x7EED;...</li>
-</ul>
-</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> &#x6574;&#x7406;&#x5E38;&#x7528;cli&amp;&#x4E0A;&#x4F20;&#x81F3;npm&#x5305;</li>
-</ul>
-</div>
-      </div>
-      
-      
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    </body></html>
+ .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><div class='md-toc' mdtype='toc'><p class="md-toc-content"><span class="md-toc-item md-toc-h2" data-ref="n29741"><a class="md-toc-inner" href="#css">css</a></span><span class="md-toc-item md-toc-h2" data-ref="n29782"><a class="md-toc-inner" href="#javascript">Javascript</a></span><span class="md-toc-item md-toc-h2" data-ref="n29805"><a class="md-toc-inner" href="#mvvm">MVVM</a></span><span class="md-toc-item md-toc-h2" data-ref="n29829"><a class="md-toc-inner" href="#ui">UI </a></span><span class="md-toc-item md-toc-h2" data-ref="n29835"><a class="md-toc-inner" href="#miniprogram">miniprogram</a></span><span class="md-toc-item md-toc-h2" data-ref="n29862"><a class="md-toc-inner" href="#build-tool">Build tool</a></span><span class="md-toc-item md-toc-h2" data-ref="n29870"><a class="md-toc-inner" href="#node">node</a></span><span class="md-toc-item md-toc-h2" data-ref="n29881"><a class="md-toc-inner" href="#jquery">jQuery</a></span><span class="md-toc-item md-toc-h2" data-ref="n29892"><a class="md-toc-inner" href="#tpl">tpl</a></span><span class="md-toc-item md-toc-h2" data-ref="n29914"><a class="md-toc-inner" href="#debug">Debug</a></span></p></div><h2><a name="css" class="md-header-anchor"></a><span>css</span></h2><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><a href='scss/'><span>scss</span></a></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><span>常用函数整理</span><span>	</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>边框箭头</span></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>实心箭头</span></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>清除浮动</span></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>跨浏览器透明度</span></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>文本溢出省略</span></p></li></ul></li></ul></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><a href='./flex/index.css'><span>flex</span></a></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><a href='./flex/space.html'><span>在元素外部处理空间分布</span></a></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><a href='./flex/auto.html'><span>让元素自己处理空间分布</span></a></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><a href='./flex/split.html'><span>拆分导航</span></a></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><a href='./flex/center.html'><span>元素居中</span></a></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><a href='./flex/footer.html'><span>绝对底部</span></a></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><a href='./flex/media.html'><span>媒体对象</span></a></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><a href='./flex/ctrl.html'><span>form</span></a></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><a href='./flex/stretch.html'><span>等高</span></a></p></li></ul></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><span>grid</span></p></li></ul><hr /><p>&nbsp;</p><h2><a name="javascript" class="md-header-anchor"></a><span>Javascript</span></h2><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><a href='web/'><span>web</span></a></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><a href='web/facebook'><span>facebook share &amp; login</span></a></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><a href='web/music'><span>music</span></a></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><a href='web/translate'><span>繁/简体切换</span></a></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><a href='web/lottery'><span>九宫格抽奖</span></a></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><a href='web/wechat'><span>pc微信登录</span></a></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><a href='web/postMessage'><span>postMessage</span></a></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><span>多选多级联动</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><span>动画跳转至指定位置</span></p></li></ul></li></ul><hr /><p>&nbsp;</p><h2><a name="mvvm" class="md-header-anchor"></a><span>MVVM</span></h2><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><span>Vue</span></p><ul><li><p><a href='vue-demo2'><span>Vue-cli项目模板</span></a></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>Login</span></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>富文本</span></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>表格</span></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>PDF</span></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>Swiper</span></p></li></ul></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><span>nuxt</span></p></li></ul></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><span>React</span></p></li></ul><hr /><p>&nbsp;</p><h2><a name="ui" class="md-header-anchor"></a><span>UI </span></h2><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><span>layui</span></p></li></ul><hr /><p>&nbsp;</p><h2><a name="miniprogram" class="md-header-anchor"></a><span>miniprogram</span></h2><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><a href='miniprogram/'><span>微信小程序(原生)</span></a></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>日历</span></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>日期区间选择(年月日时分秒组合)</span></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>富文本</span></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>图表</span></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>相关接口封装</span></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>下拉刷新 &amp;&amp; 上拉加载</span></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>表单组件原生样式修改</span></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>收集表单formid(非表单触发)</span></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>图片上传(单张/多张/预览)</span></p></li></ul></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><a href='uni-app/'><span>uniapp</span></a></p></li></ul><hr /><p>&nbsp;</p><h2><a name="build-tool" class="md-header-anchor"></a><span>Build tool</span></h2><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><a href=''><span>Gulp</span></a></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><a href=''><span>Webpack</span></a></p></li></ul><hr /><p>&nbsp;</p><h2><a name="node" class="md-header-anchor"></a><span>node</span></h2><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><span>nodejs</span></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><span>npm配置详解</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><span>Buffer</span></p></li></ul></li></ul><hr /><p>&nbsp;</p><h2><a name="jquery" class="md-header-anchor"></a><span>jQuery</span></h2><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><span>jquery 案例收集</span></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><a href='./jquery/time/'><span>jQuery仿广点通、京东拖动鼠标批量高级时间段选择器</span></a></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><a href='./jquery/regionPicker/demos/js/jquery.regionPicker/'><span>地区选择插件 For PC端/手机移动端</span></a></p></li></ul></li></ul><hr /><p>&nbsp;</p><h2><a name="tpl" class="md-header-anchor"></a><span>tpl</span></h2><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><a href='template/'><span>模板</span></a></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><a href='template/pc'><span>Pc</span></a></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><a href='template/wap'><span>Wap</span></a></p></li></ul></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><span>snippets</span></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><a href='./snippets/css'><span>css</span></a></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><a href='./snippets/js'><span>js</span></a></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><a href='./snippets/vscode'><span>vscode</span></a></p></li></ul></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><span>整理常用cli&amp;上传至npm包</span></p></li></ul><hr /><p>&nbsp;</p><h2><a name="debug" class="md-header-anchor"></a><span>Debug</span></h2><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><a href='debug/'><span>移动端调试方式</span></a></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><a href='debug/vConsole'><span>vConsole</span></a></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><a href='debug/weinre'><span>weinre</span></a></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><a href='debug/eruda'><span>eruda</span></a><span>	</span></p></li></ul></li></ul><p>&nbsp;</p></div>
+</body>
+</html>

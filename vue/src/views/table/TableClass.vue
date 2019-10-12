@@ -11,7 +11,7 @@
           <tr class="el-table__row" :key="index">
             <td colspan="3"><div class="cell">{{item.type}}</div></td>
           </tr>
-          <tr class="el-table__row" v-for="(innerItem, innerIndex) in item.list" :key="innerIndex">
+          <tr class="el-table__row" v-for="(innerItem, innerIndex) in item.list" :key="`${index}_${innerIndex}`">
             <td><div class="cell">{{ innerItem.date }}</div></td>
             <td><div class="cell">{{ innerItem.name}}</div></td>
             <td><div class="cell">{{ innerItem.address}}</div></td>

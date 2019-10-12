@@ -1,6 +1,11 @@
 <template>
 	<div class="components components-select-item">
-    <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="checkAllChange">全选</el-checkbox>
+    <el-checkbox 
+      :indeterminate="isIndeterminate" 
+      v-model="checkAll" 
+      @change="checkAllChange"
+    >全选</el-checkbox>
+
     <el-checkbox-group v-model="checkedArr" @change="checkGroupChange">
       <div class="item" v-for="(item, index) in list" :key="item[value]">
         <el-checkbox :label="item[value]" :checked="item[checked]" @change="checked => checkItemChange(checked, index)">
@@ -87,12 +92,13 @@
 
       // 全选
 		  checkAllChange(val){
-        this.checkedArr = val ? this.$utils.filterValue(this.list) : [];
+        this.checkedArr = val ? this.$utils.filterValue(this.list, this.value) : [];      
         this.isIndeterminate = false;
       },
 
       // 选择部分
       checkGroupChange(val){
+        console.log(val)
         let checkedCount = val.length;
         this.checkAll = checkedCount === this.list.length;
         this.isIndeterminate = checkedCount > 0 && checkedCount < this.list.length;

@@ -1,0 +1,12 @@
+.mul-panel-selector .hide{
+  display: none!important;
+}
+
+.mul-panel-selector{
+  display: flex;
+}
+
+.mul-panel-selector ul{
+  flex: 1;
+  border: 1px solid #eee;
+}

@@ -40,5 +40,13 @@ export default {
       },
       component: () => Loader('table/TableClass')
     },
+    {
+      path: "/tpl/table/table_test/:id",
+      name: "table_test",
+      meta: {
+        title: '表格测试'
+      },
+      component: () => Loader('table/TableTest')
+    },
   ]
 }
