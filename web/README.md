@@ -1,5 +1,7 @@
 [TOC]
 
+---
+
 # Javascript常用功能模块封装
 
 ## facebook登录&分享
@@ -44,6 +46,8 @@ btnShare.addEventListener('click', function(){
 ```
 
 [案例展示](./facebook/index.html)
+
+---
 
 ## 九宫格抽奖
 
@@ -131,6 +135,8 @@ lotteryUtil.init({
 
 [案例展示](./lottery/index.html)
 
+---
+
 ## 网页音乐播放
 
 使用方式：
@@ -160,6 +166,8 @@ musicUtil.init({
 
 [案例展示](./music/index.html)
 
+---
+
 ## 网页繁简体切换
 
 使用方式：
@@ -188,6 +196,8 @@ twUtil.translateInitilization({
 ```
 
 [案例展示](./translate/index.html)
+
+---
 
 ## 微信PC端扫码登录
 
@@ -223,6 +233,8 @@ var obj = new WxLogin({
 ```
 
 [案例展示](./wechat/index.html)
+
+---
 
 ## 多选级联列表(异步数据)
 

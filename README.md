@@ -1,8 +1,11 @@
 ---
 author：yangzhifang
+update: 2019/10/14
 ---
 
 [TOC]
+
+---
 
 ## css
 
@@ -48,12 +51,12 @@ author：yangzhifang
 ## MVVM
 
 - [ ] Vue
-  - [Vue-cli项目模板](vue-demo2/)
-    - [x] [Login](vue-demo2/)
-    - [x] [富文本](vue-demo2/)
-    - [x] [表格](vue-demo2/)
-    - [x] [PDF](vue-demo2/)
-    - [x] [Swiper](vue-demo2/)
+  - [Vue-cli项目模板](vue-demo/)
+    - [x] [Login](vue-demo/)
+    - [x] [富文本](vue-demo/)
+    - [x] [表格](vue-demo/)
+    - [x] [PDF](vue-demo/)
+    - [x] [Swiper](vue-demo/)
   - [ ] nuxt
 - [ ] React
 

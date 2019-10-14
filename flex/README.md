@@ -17,6 +17,8 @@
 ```
 [示例预览](./space.html)
 
+---
+
 ## 让元素自己处理空间分布
 ```css
 .f-flex{
@@ -29,6 +31,8 @@
 ```
 [示例预览](./auto.html)
 
+---
+
 ## 拆分导航
 ```css
 .f-flex-right { 
@@ -40,6 +44,8 @@
 ```
 [示例预览](./split.html)
 
+---
+
 ## 元素居中
 ```css
 .f-flex-center { 
@@ -48,6 +54,8 @@
 }
 ```
 [示例预览](./center.html)
+
+---
 
 ## 绝对底部
 ```css
@@ -61,6 +69,8 @@
 ```
 [示例预览](./footer.html)
 
+---
+
 ## 媒体对象
 ```css
 .f-flex-media { 
@@ -73,6 +83,8 @@
 ```
 [示例预览](./media.html)
 
+---
+
 ## form
 ```css
 .f-flex-ctrl .f-flex-ctrl-input { 
@@ -81,7 +93,10 @@
 ```
 [示例预览](./ctrl.html)
 
+---
+
 ## 等高
+
 ```css
 .f-flex-strength { 
   align-items: stretch; 
