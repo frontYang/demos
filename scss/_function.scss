@@ -6,7 +6,7 @@
 
   @each $item in $iconname {
     $var_width: nth($item, 2)+$px; // 宽度
-    $var_height: nth($item, 2)+$px; // 高度
+    $var_height: nth($item, 3)+$px; // 高度
     $path_name: nth($item, 1); // 图片全名（包括文件类型）
     $index: str-index($path_name, '.'); // 获取 . 的索引
     $var_name: $cls + '-' + str-slice($path_name, 0, $index - 1); // 截取图片名称

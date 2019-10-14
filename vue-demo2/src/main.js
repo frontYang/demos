@@ -28,7 +28,7 @@ Vue.prototype.$validate = validate
 // 开发环境下
 if(process.env.NODE_ENV == 'development') {
   // 开启mockjs
-  import('./mock/index')
+  require('./mock/index')
 }
 
 Vue.config.productionTip = false
