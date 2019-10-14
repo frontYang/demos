@@ -9,7 +9,7 @@ export default {
   name: 'sys1',
   component: Sys1,
   meta: {
-    title: 'Sys1'
+    title: '系统一'
   },
   children: [
     Md1

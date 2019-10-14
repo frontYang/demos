@@ -184,10 +184,10 @@ import XLSX from 'xlsx'
 
     methods: {
       // 页码改变
-      pageChange(index){
+      /* pageChange(index){
         this.$set(this.pager,'current', index)
         this.fetchCard()
-      },
+      }, */
 
       async fetchChildData(id){
         let res = await this.$request.getTableTreeChild({

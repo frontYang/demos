@@ -25,7 +25,9 @@
       // 数据
       list: {
         type: Array,
-        default: []
+        default() {
+          return []
+        }
       },
       // 索引
       index: {
@@ -91,8 +93,8 @@
       },
 
       // 全选
-		  checkAllChange(val){
-        this.checkedArr = val ? this.$utils.filterValue(this.list, this.value) : [];      
+      checkAllChange(val){
+        this.checkedArr = val ? this.$utils.filterValue(this.list, this.value) : [];
         this.isIndeterminate = false;
       },
 
