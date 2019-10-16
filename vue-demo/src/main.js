@@ -9,7 +9,7 @@ import './registerServiceWorker'
 // 相关工具函数
 import https from "./utils/https"
 import utils from "./utils/utils"
-import request from "./utils/request"
+import * as request from "./utils/request"
 import validate from "./utils/validate"
 
 // element
@@ -20,6 +20,7 @@ import 'element-ui/lib/theme-chalk/index.css' // 默认主题
 // swiper
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
+
 
 // 挂载全局
 Vue.prototype.$https = https

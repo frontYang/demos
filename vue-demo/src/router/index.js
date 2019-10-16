@@ -14,7 +14,6 @@ import Sys1 from "./modules/sys1"
 
 Vue.use(Router)
 
-let Loader = (view) => import(/* webpackChunkName: "chunk-[request][index]" */`@/views/${view}.vue`);
 
 export default new Router({
   mode: 'history',

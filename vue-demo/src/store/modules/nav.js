@@ -21,7 +21,7 @@ let state = {
       subNav: [
         {
           label: '模块一',
-          index: '/sys1/md1'
+          index: '/sys1/add'
         }
       ]
     },

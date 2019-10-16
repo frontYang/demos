@@ -2,7 +2,7 @@
 import Sys1 from "@/views/Sys1"
 
 // 子路由
-import Md1 from "./sys1/md1"
+import Add from "./sys1/add"
 
 export default {
   path: "/sys1/:id",
@@ -12,6 +12,6 @@ export default {
     title: '系统一'
   },
   children: [
-    Md1
+    Add
   ]
 }

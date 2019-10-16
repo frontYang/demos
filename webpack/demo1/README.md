@@ -18,25 +18,62 @@
 
 - 作用：当 webpack 处理应用程序时，它会递归地构建一个依赖关系图(dependency graph)，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 bundle。
 
+- 四个核心概念：
+- 	入口(entry)
+-   输出(output)
+-   loader
+-   插件(plugins)
+
+
+## 前提条件
+在开始之前，请确保安装了[ Node.js](https://nodejs.org/en/) 的最新版本。使用 Node.js 最新的长期支持版本(LTS - Long Term Support)，是理想的起步。使用旧版本，你可能遇到各种问题，因为它们可能缺少 webpack 功能以及/或者缺少相关 package 包。
+
+
+
 ## 安装&初始化项目
 
-
+初始化项目：
 ```
 # 创建文件夹
 mkdir demo1 && cd demo1
 
-# 初始化项目
-cnpm init -y
+# 初始化项目，会生成一个package.json文件
+npm init -y
 
 # 局部安装webpack
-cnpm i webpack webpack-cli -D
+npm i webpack webpack-cli -D
 ```
 
-## entry和output
-- entry: 入口文件，可以配置单个入口或多个入口
-- output: 告诉 webpack 在哪里输出它所创建的 bundles，以及如何命名这些文件
+配置npm脚本，首先简单配置一个webpack打包命令，在根目录直接运行npm run dev就可以查看打包的文件：
 
-- 单入口
+```js
+// package.json
+//..
+"scripts": {
+	"dev": "webpack --config webpack.config.js" // webpack.config.js为默认的配置文件名， --config webpack.config.js 可以省略，如果想要指定，即可放入指定的文件名
+}
+//..
+
+```
+
+主要目录如下:
+```
++-- dist(打包后的文件目录)
++-- src
+|		+-- index.html(展示html文件)
+|		+-- app.js(入口文件)
++-- webpack.config.js(配置文件)
++-- package.json
++-- package.lock.json
+```
+
+
+
+## entry和output
+- entry: 指示 webpack 应该使用哪个模块，来作为构建其内部依赖图的开始。可以配置单个入口或多个入口
+- output: 指示 webpack 在哪里输出它所创建的 bundles，以及如何命名这些文件
+
+- 单入口配置项
 
 ```js
 // webpack.config.js
@@ -52,7 +89,7 @@ module.exports = {
 }
 ```
 
-- 多入口
+- 多入口配置项
 
 ```js
 // webpack.config.js
@@ -74,7 +111,8 @@ module.exports = {
 
 
 ## loader
-> 用于对模块的源代码进行转换。让 webpack 能够去处理那些非 JavaScript 文件
+> loader用于对模块的源代码进行转换。让 webpack 能够去处理那些非 JavaScript之外的任何静态资源；
+> 下面将展示几个基本常用的loader配置，更多loader请查看[loaders](https://www.webpackjs.com/loaders//)
 
 
 ### 几种常用的loader
@@ -87,14 +125,14 @@ module.exports = {
 
 
 
-#### 样式
+#### 处理样式
 
+step1: 安装样式相关依赖
 ```
-// 安装
-cnpm i style-loader css-loader sass-loader node-sass -D
+npm i style-loader css-loader sass-loader node-sass -D
 ```
 
-
+step2: 添加loader配置项，loader执行顺序是从右往左，从上往下
 ```js
 // webpack.config.js
 module: {
@@ -114,20 +152,25 @@ module: {
     ]
   },
 }
+```
 
+step3: 在入口文件引入css文件
+```
 // index.js
 import './index.css';
 ```
 
+step4: 执行命令 `npm run dev`
 
 
-#### 图片
+#### 处理图片
+step1: 安装file-loader
 
 ```
-// 安装
-cnpm i file-loader -D
+npm i file-loader -D
 ```
 
+step2: 增加loader配置项
 ```js
 // webpack.config.js
 module: {
@@ -143,16 +186,16 @@ module: {
   ]
 }
 ```
+step3: 执行命令 `npm run dev`
 
 
-
-#### babel-loader
-
+#### 处理es6
+step1: 安装依赖
 ```
-// 安装
-cnpm i babel-loader @babel/core @babel/preset-env -D
+npm i babel-loader @babel/core @babel/preset-env -D
 ```
 
+step2: 增加loader配置项
 ```js
 // webpack.config.js
 module: {
@@ -165,25 +208,31 @@ module: {
     }
   },
 }
+```
 
+step3: 在更目录增加babel配置项
+```js
 // .babelrc
 {
   "presets": ["@babel/preset-env"]
 }
+
 ```
+step4: 执行命令 `npm run dev`
 
 
-
-## [插件](https://www.webpackjs.com/plugins/)
-> 用来处理各种各样的任务
+## 插件
+> 插件用来处理各种各样的任务, plugins 选项用于以各种方式自定义 webpack 构建过程。webpack 附带了各种内置插件，可以通过 webpack.[plugin-name] 访问这些插件。下面是几个基本常用插件的是用方式，更多插件请查看[plugins](https://www.webpackjs.com/plugins/)
 
 
 ### HTML模板
+
+step1: 安装依赖
 ```
-// 安装
-cnpm i -D html-webpack-plugin clean-webpack-plugin
+npm i -D html-webpack-plugin clean-webpack-plugin
 ```
 
+step2: 在plugins中增加HtmlWebpackPlugin
 ```js
 // webpack.config.js
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -202,14 +251,16 @@ plugins: [
 //...
 ```
 
+step4: 执行命令 `npm run dev`
+
 
 ### 开启本地服务器
-
+step1：安装依赖
 ```
-// 安装
-cnpm i -D webpack-dev-server
+npm i -D webpack-dev-server
 ```
 
+step2: 增加devServer配置项
 ```js
 // webpack.config.js
 //..
@@ -219,14 +270,23 @@ devServer: {
 //..
 ```
 
+step3: 在package.json中增加脚本命令
+```js
+//..
+"scripts": {
+	"serve": "webpack-dev-server --open"
+}
+//..
+
 ```
-// 命令行
-webpack-dev-server --open
-```
+
+step4: 执行 `npm run serve` 即可启动服务器
 
 
 ### 模块热替换(HMR)
-- HRM功能会在应用程序运行过程中，替换、添加或删除 模块，而无需重新加载整个页面
+- HRM功能会在应用程序运行过程中，替换、添加或删除 模块，而无需重新加载整个页面，这个功能能大大提高开发效率
+
+step1: 在配置文件中增加plugins配置：
 
 ```js
 // webpack.config.js
@@ -234,7 +294,7 @@ const webpack = require('webpack');
 //..
 devServer: {
   contentBase: './dist',
-  hot: true
+  hot: true,
 },
 plugins: [
   //..
@@ -242,3 +302,8 @@ plugins: [
   new webpack.HotModuleReplacementPlugin() // 启用热替换模块
 ]//..
 ```
+
+step2: 执行 `npm run serve` 查看效果，修改样式不会刷新浏览器，直接改变界面
+
+更多配置项请查看[官方文档](https://www.webpackjs.com/)
+

@@ -26,5 +26,11 @@ export let CONFIG =  {
     cascader1: '/api/cascader1',
     cascader2: '/api/cascader2',
     cascade3r: '/api/cascader3',
+
+    get_account: '/api/get_account', // 获取账户信息
+    get_appid: '/api/get_appid', // 获取应用id
+    get_channel_package: '/api/get_channel_package', // 渠道包
+    get_promot_plan: '/api/get_promot_plan', // 推广计划
+    get_direct_package: '/api/get_direct_package', // 定向包
   }
 }
