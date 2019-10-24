@@ -1,9 +1,16 @@
-function component() {
-  var element = document.createElement('div');
+import './index.css';
+import './index1.scss';
 
-  element.innerHTML = 'hel0o'
+console.log('watch')
 
-  return element;
-}
+console.log('hello webpack')
 
-document.body.appendChild(component());
+console.log('HMR111')
+
+const a = 1
+console.log(`
+
+test
+${a}
+
+`)
