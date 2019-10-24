@@ -1,0 +1,126 @@
+{
+	"pages": [
+		{
+			"path": "pages/package/api/api",
+			"style": {
+				"navigationBarTitleText": "api"
+			}
+		},{
+			"path": "pages/package/ui/ui",
+			"style": {
+				"navigationBarTitleText": "ui"
+			}
+		}
+    ],
+  "subPackages":[
+    {
+      "root":"pages/api",
+      "pages": [
+        {
+          "path":"userinfo/userinfo",
+          "style": {
+            "navigationBarTitleText": "userinfo"
+          }
+        },
+        {
+          "path":"formid/formid",
+          "style": {
+            "navigationBarTitleText": "formid"
+          }
+        },
+        {
+          "path":"upload/upload",
+          "style": {
+            "navigationBarTitleText": "upload"
+          }
+        },
+        {
+          "path":"load/load",
+          "style": {
+            "navigationBarTitleText": "load",
+            "enablePullDownRefresh": true
+          }
+        }
+      ]
+    },
+    {
+      "root":"pages/ui",   
+      "pages": [
+        {
+          "path": "arrow/arrow",
+          "style": {
+            "navigationBarTitleText": "arrow"
+          }
+        },
+        {
+          "path": "charts/charts",
+          "style": {
+            "navigationBarTitleText": "charts"
+          }
+        },
+        {
+          "path": "date/date",
+          "style": {
+            "navigationBarTitleText": "date"
+          }
+        },
+        {
+          "path": "calendar/calendar",
+          "style": {
+            "navigationBarTitleText": "calendar"
+          }
+        },
+        {
+          "path": "editor/editor",
+          "style": {
+            "navigationBarTitleText": "editor"
+          }
+        },
+        {
+          "path": "native/native",
+          "style": {
+            "navigationBarTitleText": "native"
+          }
+        }
+      ]
+
+      
+    }
+  ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#007AFF",
+    "borderStyle": "black",
+    "backgroundColor": "#F8F8F8",
+    "list": [
+      {
+        "pagePath": "pages/package/api/api",
+        "iconPath": "",
+        "selectedIconPath": "",
+        "text": "api"
+      },
+      {
+        "pagePath": "pages/package/ui/ui",
+        "iconPath": "",
+        "selectedIconPath": "",
+        "text": "ui"
+      }
+    ]
+  },
+  "condition" : { 
+    "current": 1, 
+    "list": [
+      {
+        "name": "arrow", 
+        "path": "pages/ui/arrow/arrow",
+        "query": "" 
+      }
+    ]
+  }
+}

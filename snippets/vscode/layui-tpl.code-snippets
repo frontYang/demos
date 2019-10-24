@@ -1,0 +1,11 @@
+{
+	"Print to console": {
+		"scope": "html",
+		"prefix": "layui-fn",
+		"body": [		
+			"<script id=\"JadTpl\" type=\"text/html\">",
+			"</script>"
+		],
+		"description": "layui-fn"
+	}
+}

@@ -1,4 +1,6 @@
+[TOC]
 
+# sass
 
 ## sass常用命令行
 
@@ -9,11 +11,190 @@
 `sass --watch app/sass:public/stylesheets`
 
 四种输出格式:
-```
 
+```
 嵌套输出方式 nested
 展开输出方式 expanded
 紧凑输出方式 compact
 压缩输出方式 compressed
+```
 
+---
+
+## 常用mixin
+
+### 背景图片统一处理
+```scss
+$assect_path: '../images/'; // 图片路径
+$px: px; // 页面样式单位
+
+// 背景图片方法
+@mixin image($cls, $iconname) {
+  .#{$cls} {
+    display: inline-block;
+  }
+
+  @each $item in $iconname {
+    $var_width: nth($item, 2)+$px; // 宽度
+    $var_height: nth($item, 3)+$px; // 高度
+    $path_name: nth($item, 1); // 图片全名（包括文件类型）
+    $index: str-index($path_name, '.'); // 获取 . 的索引
+    $var_name: $cls + '-' + str-slice($path_name, 0, $index - 1); // 截取图片名称
+
+    .#{$var_name} {
+      width: $var_width;
+      height: $var_height;
+      background-image: url($assect_path + $path_name);
+      background-repeat: no-repeat;
+      background-size: $var_width $var_height;
+    }
+  }
+}
+```
+
+### 边框箭头
+```scss
+// 边框箭头 $width: 宽, $height：高, $color：边框颜色, $bd_width: 边框大小
+@mixin icon-arr-bd($width: 20$px, $height: 20$px, $color: #333, $bd_width: 2$px) {
+  .icon-arr-bd {
+    width: $width;
+    height: $height;
+    display: inline-block;
+    border-left: $bd_width solid $color;
+    border-top: $bd_width solid $color;
+
+    // 上
+    &.icon-arr-u {
+      transform: rotateZ(45deg);
+    }
+
+    // 右
+    &.icon-arr-r {
+      transform: rotateZ(135deg);
+    }
+
+    // 下
+    &.icon-arr-d {
+      transform: rotateZ(-135deg);
+    }
+
+    // 左
+    &.icon-arr-l {
+      transform: rotateZ(-45deg);
+    }
+  }
+}
+```
+
+### 实心箭头
+```scss
+@mixin icon-arr-pd($bd_width: 20$px, $color: #333) {
+  .icon-arr-pd {
+    width: 0;
+    height: 0;
+    display: inline-block;
+    border-width: 20+$px 20+$px 20+$px 20+$px;
+    border-style: solid;
+    border-color: transparent;
+
+    // 上
+    &.icon-arr-u {
+      border-bottom-color: $color;
+    }
+
+    // 右
+    &.icon-arr-r {
+      border-left-color: $color;
+    }
+
+    // 下
+    &.icon-arr-d {
+      border-top-color: $color;
+    }
+
+    // 左
+    &.icon-arr-l {
+      border-right-color: $color;
+    }
+  }
+}
+
+```
+
+### 清除浮动
+```scss
+@mixin clearfix() {
+  .clearfix {
+
+    &:before,
+    &:after {
+      content: "";
+      display: table;
+    }
+
+    &:after {
+      clear: both;
+    }
+  }
+}
+```
+
+### 跨浏览器透明度
+```scss
+@mixin opacity($opacity:0.5) {
+  .opacity {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie); //IE8
+  }
+}
+
+```
+
+### 文本溢出省略显示
+```scss
+@mixin text-ellis($num:1) {
+  .text-ellis-#{$num} {
+    @if ($num==1) {
+      white-space: nowrap;
+    }
+
+    @else {
+      display: -webkit-box;
+      -webkit-line-clamp: $num;
+      -webkit-box-orient: vertical;
+    }
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+```
+
+### 滚动条美化
+```scss
+@mixin scrollbar(){
+  /*定义滚动条高宽及背景
+  高宽分别对应横竖滚动条的尺寸*/
+  ::-webkit-scrollbar{
+    width:8px;
+    height:8px;
+    background-color:#F5F5F5;
+  }
+  /*定义滚动条轨道
+  内阴影+圆角*/
+  ::-webkit-scrollbar-track{
+    -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius:10px;
+    background-color:#F5F5F5;
+  }
+  /*定义滑块
+  内阴影+圆角*/
+  ::-webkit-scrollbar-thumb{
+    border-radius:10px;
+    -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,.3);
+    background-color:#bbb;
+  }
+}
 ```

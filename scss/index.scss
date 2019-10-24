@@ -1,6 +1,7 @@
 @import '_var.scss';
 @import '_function.scss';
 
+
 /* 图片 */
 @include image('icon', $icons);
 
@@ -19,3 +20,6 @@
 /* 文本省略号 */
 @include text-ellis(1);
 @include text-ellis(2);
+
+
+@include scrollbar();

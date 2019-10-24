@@ -1,0 +1,22 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	"Print to console": {		
+		"prefix": "yarnrc",
+		"body": [
+			"registry \"https://registry.npm.taobao.org\"",
+			"sass_binary_site \"https://npm.taobao.org/mirrors/node-sass/\"",
+			"phantomjs_cdnurl \"http://cnpmjs.org/downloads\"",
+			"electron_mirror \"https://npm.taobao.org/mirrors/electron/\"",
+			"sqlite3_binary_host_mirror \"https://foxgis.oss-cn-shanghai.aliyuncs.com/\"",
+			"profiler_binary_host_mirror \"https://npm.taobao.org/mirrors/node-inspector/\"",
+			"chromedriver_cdnurl \"https://cdn.npm.taobao.org/dist/chromedriver\"",
+		],
+		"description": "yarn 镜像局部指定"
+	}
+}

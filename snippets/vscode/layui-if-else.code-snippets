@@ -1,0 +1,14 @@
+{
+	"Print to console": {
+		"scope": "html",
+		"prefix": "layui-if-else",
+		"body": [
+			"{{#  if(true){ }}",
+				
+			"{{#  } else { }}",
+				
+			"{{#  } }}",
+		],
+		"description": "layui-if-else"
+	}
+}

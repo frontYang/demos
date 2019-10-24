@@ -1,0 +1,41 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	"Print to console": {
+		"scope": "javascript,typescript",
+		"prefix": "js-base",
+		"body": [
+			"var base = {",
+			"\tgetId(id) {",
+			"\t\treturn Object.prototype.toString.call(id) === '[object Object]' ? id : document.getElementById(id)",
+			"\t},",
+		"",
+			"\tqs(ele) {",
+			"\t\treturn ele ? document.querySelector(ele) : null",
+			"\t},",
+		"",
+			"\tqsAll(ele) {",
+			"\t\treturn ele ? document.querySelectorAll(ele) : null",
+			"\t},",
+		"",
+			"\thasCls(el, cls) {",
+			"\t\treturn el.classList && el.classList.contains(cls) || !!el.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));",
+			"\t},",
+		"",
+			"\taddCls(el, cls) {",
+			"\t\tel.classList ? el.classList.add(cls) : !hasCls(el, cls) && (el.className += (!el.className ? '' : ' ') + cls);",
+			"\t},",
+		"",
+			"\trmCls(el, cls) {",
+			"\t\tel.classList ? el.classList.remove(cls) : hasCls(el, cls) && (el.className = el.className.replace(new RegExp('(\\s|^)' + cls + '(\\s|$)'), ''));",
+			"\t},",
+			"}",
+		],
+		"description": "js => js常用基础方法"
+	}
+}

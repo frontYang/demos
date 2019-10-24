@@ -6,7 +6,7 @@
 
   @each $item in $iconname {
     $var_width: nth($item, 2)+$px; // 宽度
-    $var_height: nth($item, 2)+$px; // 高度
+    $var_height: nth($item, 3)+$px; // 高度
     $path_name: nth($item, 1); // 图片全名（包括文件类型）
     $index: str-index($path_name, '.'); // 获取 . 的索引
     $var_name: $cls + '-' + str-slice($path_name, 0, $index - 1); // 截取图片名称
@@ -126,3 +126,29 @@
     text-overflow: ellipsis;
   }
 }
+
+// 滚动条美化
+@mixin scrollbar(){
+  /*定义滚动条高宽及背景
+  高宽分别对应横竖滚动条的尺寸*/
+  ::-webkit-scrollbar{
+    width:8px;
+    height:8px;
+    background-color:#F5F5F5;
+  }
+  /*定义滚动条轨道
+  内阴影+圆角*/
+  ::-webkit-scrollbar-track{
+    -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius:10px;
+    background-color:#F5F5F5;
+  }
+  /*定义滑块
+  内阴影+圆角*/
+  ::-webkit-scrollbar-thumb{
+    border-radius:10px;
+    -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,.3);
+    background-color:#bbb;
+  }
+}
+

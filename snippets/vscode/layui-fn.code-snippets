@@ -1,0 +1,14 @@
+{
+	"Print to console": {
+		"scope": "html",
+		"prefix": "layui-fn",
+		"body": [		
+			"{{# " ,
+				"var fn = function(){",
+					"return '2017-08-18';",
+				"}; ",
+			"}}",
+		],
+		"description": "layui-fn"
+	}
+}

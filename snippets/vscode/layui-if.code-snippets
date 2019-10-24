@@ -1,0 +1,12 @@
+{
+	"Print to console": {
+		"scope": "html",
+		"prefix": "layui-if",
+		"body": [			
+			"{{#  if(d.list.length === 0){ }}",
+			
+			"{{#  } }}",			
+		],
+		"description": "layui-if"
+	}
+}

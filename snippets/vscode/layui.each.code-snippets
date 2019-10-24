@@ -1,0 +1,12 @@
+{
+	"Print to console": {
+		"scope": "html",
+		"prefix": "layui-each",
+		"body": [
+			"{{#  layui.each(d, function(index, item){ }}",
+
+			"{{#  }); }}",
+		],
+		"description": "layui-each"
+	}
+}
