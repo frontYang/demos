@@ -4,42 +4,21 @@
 ```
 +-- components(组件)
 |   +-- ui-test
-|       +-- ui-test.wxml
-|       +-- ui-test.wxss
-|       +-- ui-test.js
-|       +-- ui-test.json
 +-- pages(页面)
 |   +-- common(公用资源)
 |   +-- package(分包目录)
-|     +-- package(分包页面入口)
-|       +-- page1(分包页面入口一)
-|         +-- page1.wxml
-|         +-- page1.wxss
-|         +-- page1.json
-|         +-- page1.js
-|       +-- page2(分包页面入口二)
-|         +-- page2.wxml
-|         +-- page2.wxss
-|         +-- page2.json
-|         +-- page2.js
-|   +-- page1(对应page1分包各个子页面及静态资源)
-|     +-- res(静态资源)
-|     +-- subpage1(page1的子页面一)
-|     +-- subpage2(page1的子页面二)
-|   +-- page2(对应page2分包各个子页面及静态资源)
-|     +-- res(静态资源)
-|     +-- subpage1(page2的子页面一)
-|     +-- subpage2(page2的子页面二)
+|   +-- api(对应api分包各个子页面)
+|   +-- ui(对应ui分包各个子页面)
 +-- templates(模板)
-|   +-- tpl-test
-|       +-- tpl-test.wxml
-|       +-- tpl-test.wxss
 +-- test(测试文件)
-+-- img(本地图片资源，小程序送测时在project.config.json里面忽略该文件，并将图片资源更新到线上)
 +-- image(只支持相对定位的图片，例如tabBar图标)
 +-- utils
 |   +-- util.js(公用方法)
 |   +-- config.js(项目配置相关)
+|   +-- canvasApi.js(画图工具函数)
+|   +-- charts.js(基于f2的图标)
+|   +-- load_more.js(加载更多)
+|   +-- upload.js(上传图片)
 |   +-- sdk.js(用户日志统计API)
 +-- app.js
 +-- app.json
@@ -48,6 +27,27 @@
 +-- project.config.json
 
 ```
+
+---
+
+## pages
+- package (主包)
+  - api 
+  - ui
+- api (api分包)
+  - formid (收集formid结构)
+  - load (上拉加载更多&下拉刷新)
+  - upload (上传图片)
+  - userinfo (授权登录)
+- ui (ui分包)
+  - arrow (纯css箭头)
+  - calendar (每日做到小程序中的日历)
+  - charts (图表)
+  - date (获取日期范围)
+  - editor (富文本)
+  - native (原生表单组件样式更多)
+
+---
 
 ## components
 ### ui-calendar
@@ -64,6 +64,8 @@ uiCalendar.init(this.data.today, (curDay, current, index) => {
   console.log('日历回调', curDay, current, index)
 })
 ```
+
+---
 
 ### f2-canvas
 > 说明：基于f2的图表组件
@@ -94,5 +96,61 @@ weekChart.init((...arg) => {
 })
 
 ```
+
+---
+
+### ui-datepicker
+> 说明： 日期选择组件
+
+使用方法：
+```html
+<ui-datepicker
+  date-time="{{start_date}}"
+  bindchangeEvent="changeDateStart"
+  bindcolumnChangeEvent="changeDateStart"
+></ui-datepicker>
+```
+
+```js
+...
+changeDateStart(){
+  // 选择日期回调
+}
+...
+
+```
+
+---
+
+### ui-editor
+> 说明： 富文本组件
+
+使用方法：
+```html
+<ui-editor 
+  placeholder="请填写"
+  bindInputEvent="inputEditor"
+  html="{{html}}"
+>
+</ui-editor>
+```
+
+```js
+
+
+
+...
+
+data: {
+  html: '<p style="color:red;"></p>'
+},
+
+inputEditor(){
+  // 获取内容
+}
+...
+
+```
+
 
 ---
