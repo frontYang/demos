@@ -7,8 +7,8 @@
     <span @click="changePdfPage(1)" class="turn" :class="{grey: currentPage==pageCount}">Next</span>
     也不知道是啥原因，就是出不来。。。
     </p>
+    <a target="_blank" href="http://storage.xuetangx.com/public_assets/xuetangx/PDF/PlayerAPI_v1.0.6.pdf">a标签预览pdf</a>
     <pdf
-    
       :src="src" 
       :page="currentPage"
       @num-pages="pageCount=$event"
@@ -20,6 +20,7 @@
 
 <script>
 import pdf from 'vue-pdf'
+
 export default {
   data() {
     return {

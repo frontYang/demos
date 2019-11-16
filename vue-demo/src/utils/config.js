@@ -2,7 +2,7 @@
  *  项目配置信息
  */
 //  开发环境域名
-let DOMAIN_DEV = '//192.168.3.24:8082'
+let DOMAIN_DEV = '//localhost:8081'
 
 // 生产环境域名
 let DOMAIN_PROD = ''
