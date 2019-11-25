@@ -1,6 +1,6 @@
 <template>
 	<div class="page page-index">
-		
+
 		<!-- <a target="_blank" href="/commFileUpdateUrl/downloadpathId?id=37">下载</a> -->
 		<!-- <a @click="download()">下载</a> -->
 		欢迎！{{login.username}}
@@ -10,41 +10,40 @@
 </template>
 
 <script>
-	import { mapState, mapMutations, mapActions } from 'vuex';
+import { mapState } from 'vuex'
 
-	export default {
-		name: 'index',
-		data() {
-			return {
+export default {
+  name: 'index',
+  data() {
+    return {
 
-			}
-		},
-		components: {
-		
-		},
-		computed: {
-			...mapState([
-      	'login',
-			])
-		},
-		methods: {
-	
-		},
-		mounted() {
+    }
+  },
+  components: {
 
-		/* 	this.$https.post('/login', {
+  },
+  computed: {
+    ...mapState([
+      'login'
+    ])
+  },
+  methods: {
+
+  },
+  mounted() {
+
+    /* 	this.$https.post('/login', {
 				username: 'wuyuhua',
 				password: 'wuyuhua'
 			}).then(res  => {
 				console.log(res)
 				localStorage.setItem('token', res.data.token)
 			}) */
-		}
-	}
+  }
+}
 </script>
 
 <style lang="scss" scoped>
-
 
 </style>
 

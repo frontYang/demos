@@ -6,45 +6,44 @@
 </template>
 
 <script>
-	import Editor from '@/components/Editor';
-	export default {
-		name: 'index',
-		data() {
-			return {
+import Editor from '@/components/Editor'
+export default {
+  name: 'index',
+  data() {
+    return {
 
-			}
-		},
-		components: {
-			Editor
-		},
-		methods: {
-			// 保存
-			save(){
-				let content = this.$refs.editor.content
-        localStorage.setItem('content', content)
-        this.$message({
-          message: 'Save Success!',
-          type: 'success'
-        });
-			},
+    }
+  },
+  components: {
+    Editor
+  },
+  methods: {
+    // 保存
+    save() {
+      const content = this.$refs.editor.content
+      localStorage.setItem('content', content)
+      this.$message({
+        message: 'Save Success!',
+        type: 'success'
+      })
+    },
 
-			// 回显数据
-			echo(){
-				let content = localStorage.getItem('content')
-				this.$refs.editor.content = content || ''
-			}
-		},
-		computed: {
+    // 回显数据
+    echo() {
+      const content = localStorage.getItem('content')
+      this.$refs.editor.content = content || ''
+    }
+  },
+  computed: {
 
-		},
-		mounted() {
-			this.echo()
-		}
-	}
+  },
+  mounted() {
+    this.echo()
+  }
+}
 </script>
 
 <style lang="scss" scoped>
-
 
 </style>
 

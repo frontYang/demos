@@ -1,6 +1,6 @@
 
 // 数据
-let state = {
+const state = {
   toggle: false,
 
   // 当前头部导航
@@ -10,7 +10,7 @@ let state = {
   headerNav: [
     {
       label: '首页',
-      index: '/index',
+      index: '/index'
       // subNav: []
     },
 
@@ -34,7 +34,7 @@ let state = {
         {
           label: '表格',
           index: '/tpl/table',
-    
+
           // 对应子导航
           subNav: [
             {
@@ -43,16 +43,16 @@ let state = {
             },
             {
               label: '树形表格',
-              index: '/tpl/table/table_tree',
+              index: '/tpl/table/table_tree'
             },
             {
               label: '表格搜索/操作',
-              index: '/tpl/table/table_tool',
+              index: '/tpl/table/table_tool'
             },
             {
               label: '表格分类',
-              index: '/tpl/table/table_class',
-            },
+              index: '/tpl/table/table_class'
+            }
           ]
         },
         {
@@ -61,21 +61,26 @@ let state = {
           subNav: [
             {
               label: '富文本编辑器',
-              index: '/tpl/form/editor',
+              index: '/tpl/form/editor'
             },
             {
               label: '异步级联多选面板',
-              index: '/tpl/form/selector',
+              index: '/tpl/form/selector'
             },
             {
               label: '级联面板',
-              index: '/tpl/form/cascader',
-            },
+              index: '/tpl/form/cascader'
+            }
           ]
         },
         {
           label: '弹窗',
           index: '/tpl/dialog',
+          subNav: []
+        },
+        {
+          label: '日历',
+          index: '/tpl/calendar',
           subNav: []
         },
         {
@@ -89,21 +94,21 @@ let state = {
             {
               label: 'swiper',
               index: '/tpl/others/swiper'
-            },
+            }
           ]
-        },
+        }
       ]
     }
   ]
 }
 
 // store的计算属性
-let getters = {
+const getters = {
 
 }
 
 // 更改状态(同步)
-let mutations = {
+const mutations = {
   setToggle: (state, data) => {
     state.toggle = data
   },
@@ -113,8 +118,8 @@ let mutations = {
 }
 
 // 更改状态（异步）
-let actions = {
-  
+const actions = {
+
 }
 
 export default {

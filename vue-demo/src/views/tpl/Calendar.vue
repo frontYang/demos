@@ -1,33 +1,23 @@
 <template>
   <div class="page">
-    <p>表格栏目说明:XXXXXXXXXXXXXXXXXXXX</p>
-
-    <router-view/>
+    <Calendar v-model="dateList"/>
   </div>
 </template>
 
 <script>
-
+import Calendar from '@/components/Calendar'
 export default {
   data() {
     return {
-
+      dateList: {
+        '2019-11-25': 1
+      }
     }
   },
   components: {
-
+    Calendar
   },
-  computed: {
-  },
-
-  methods: {
-
-  },
-
-  mounted() {
-
-  }
-
+  mounted() {}
 }
 </script>
 

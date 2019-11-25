@@ -26,14 +26,14 @@ export default {
   data() {
     return {
       list: [
-        "http://dummyimage.com/851x465",
-        "http://dummyimage.com/851x465",
-        "http://dummyimage.com/851x465",
-        "http://dummyimage.com/851x465",
-        "http://dummyimage.com/851x465",
+        'http://dummyimage.com/851x465',
+        'http://dummyimage.com/851x465',
+        'http://dummyimage.com/851x465',
+        'http://dummyimage.com/851x465',
+        'http://dummyimage.com/851x465'
       ],
       swiperOption: {
-        loop : true,
+        loop: true,
         effect: 'coverflow',
         slidesPerView: 2,
         centeredSlides: true,
@@ -42,14 +42,14 @@ export default {
           stretch: 20,
           depth: 0,
           modifier: 3,
-          slideShadows : false
+          slideShadows: false
         },
-       
+
         navigation: {
           nextEl: '.icon-right',
           prevEl: '.icon-left'
-        } 
-      },
+        }
+      }
     }
   },
   components: {
@@ -114,12 +114,12 @@ export default {
     height: 132px;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0px 0 10px #fff;    
+    box-shadow: 0px 0 10px #fff;
   }
   .detail{
     padding-left: 32px;
   }
-  .detail-th{        
+  .detail-th{
     span{
       font-size: 55px;
       padding-right: 20px;

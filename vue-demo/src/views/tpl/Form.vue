@@ -2,7 +2,7 @@
   <div class="page">
     <p>表单栏目说明:XXXXXXXXXXXXXXXXXXXX</p>
 
-    <router-view/> 
+    <router-view/>
   </div>
 </template>
 
@@ -20,11 +20,11 @@ export default {
   },
 
   methods: {
-  
+
   },
 
-  mounted(){
-    
+  mounted() {
+
   }
 }
 </script>

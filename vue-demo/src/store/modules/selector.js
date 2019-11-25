@@ -1,17 +1,17 @@
 
 // 数据
-let state = {
+const state = {
   allData: [],
-  current: 0,
+  current: 0
 }
 
 // store的计算属性
-let getters = {
+const getters = {
 
 }
 
 // 更改状态(同步)
-let mutations = {
+const mutations = {
   setAllData: (state, data) => {
     state.allData = data.list
   },
@@ -21,8 +21,8 @@ let mutations = {
 }
 
 // 更改状态（异步）
-let actions = {
-  commitAllData(ctx){
+const actions = {
+  commitAllData(ctx) {
     ctx.commit('setAllData')
   }
 }

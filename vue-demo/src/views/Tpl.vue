@@ -1,6 +1,6 @@
 <template>
   <div class="page page-tpl">
-    <router-view/> 
+    <router-view/>
   </div>
 </template>
 
@@ -18,11 +18,11 @@ export default {
   },
 
   methods: {
-  
+
   },
 
-  mounted(){
-    
+  mounted() {
+
   }
 }
 </script>

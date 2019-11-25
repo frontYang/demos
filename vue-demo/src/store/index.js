@@ -6,13 +6,13 @@ import nav from './modules/nav'
 
 Vue.use(Vuex)
 
-let debug = process.env.NODE_ENV !== 'production'
+const debug = process.env.NODE_ENV !== 'production'
 
 export default new Vuex.Store({
   modules: {
     login,
     selector,
-    nav,
+    nav
   },
-  strict: debug,
+  strict: debug
 })

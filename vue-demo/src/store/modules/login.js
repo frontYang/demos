@@ -1,14 +1,14 @@
 
-let state = {
+const state = {
   username: null,
   avatar: null
 }
 
-let getters = {
-  
+const getters = {
+
 }
 
-let mutations = {
+const mutations = {
   setUser: (state, data) => {
     state.username = data.username
     state.avatar = data.avatar
@@ -20,8 +20,8 @@ let mutations = {
   }
 }
 
-let actions = {
-  
+const actions = {
+
 }
 
 export default {

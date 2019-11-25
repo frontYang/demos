@@ -8,61 +8,61 @@
 		</el-container>
 
 		<!-- 主体 -->
-		<el-container>	
+		<el-container>
 			<!-- 侧栏 -->
 			<el-aside :width="nav.toggle ? '65px' : '200px'">
 				<Aside></Aside>
 			</el-aside>
-	
+
 			<!-- 内容 -->
 			<el-main>
 				<Crumbs />
-				<router-view/> 
-			</el-main>	
+				<router-view/>
+			</el-main>
 		</el-container>
 	</div>
 </template>
 
 <script>
-	import Crumbs from '@/components/layout/Crumbs';	
-	import Header from '@/components/layout/Header';
-	import Aside from '@/components/layout/Aside';
-	import { mapState, mapMutations, mapActions } from 'vuex';
+import Crumbs from '@/components/layout/Crumbs'
+import Header from '@/components/layout/Header'
+import Aside from '@/components/layout/Aside'
+import { mapState, mapMutations } from 'vuex'
 
-	export default {
-		name: 'home',
-		data() {
-			return {
-			/* 	isCollapse: false, // 展开收起
+export default {
+  name: 'home',
+  data() {
+    return {
+      /* 	isCollapse: false, // 展开收起
 				activeIndex1: '0',
 				activeIndex2: '0',
 				router: true */
-			}
-		},
-		components: {
-			Header,
-			Aside,
-			Crumbs
-		},
-		methods: {
-			...mapMutations([
-				'setNavCurrent'
-			]),
-		},
-		watch: {
-			$route() {
-				this.setNavCurrent(this.$route.params.id || 0)
-			}
-		},
-		computed: {
-			...mapState([
-				'nav'
-			])
-		},
-		created() {
-			this.setNavCurrent(this.$route.params.id || 0)
-		}
-	}
+    }
+  },
+  components: {
+    Header,
+    Aside,
+    Crumbs
+  },
+  methods: {
+    ...mapMutations([
+      'setNavCurrent'
+    ])
+  },
+  watch: {
+    $route() {
+      this.setNavCurrent(this.$route.params.id || 0)
+    }
+  },
+  computed: {
+    ...mapState([
+      'nav'
+    ])
+  },
+  created() {
+    this.setNavCurrent(this.$route.params.id || 0)
+  }
+}
 </script>
 
 <style lang="scss" >

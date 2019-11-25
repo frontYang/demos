@@ -2,7 +2,7 @@
   <div class="page page-List">
       <div class="text item">
         <div class="tit">列表</div>
-         <Table 
+         <Table
           :list="tableData"
           :rowHeader="rowHeader"
           :pager="pager"
@@ -13,75 +13,72 @@
 </template>
 
 <script>
-  import Table from "@/components/Table";
-  import { mapState, mapMutations, mapActions } from 'vuex';
+import Table from '@/components/Table'
+import { mapState, mapMutations } from 'vuex'
 
-	export default {
-    name: 'list',
-		data() {
-			return {
-        curCardBag: {}, // 当前选中卡包
-        pager: { 
-          current: 1, // 当前页          
-          size: 10, // 每页显示条数 
-          count: 5, // 页码按钮数
-          total: 0, // 总条目数
-        },  
-        tableData: [],
-
-        // 表头数据
-        rowHeader: [
-          {
-            label: '日期',
-            prop: 'date',
-          },
-          {
-            label: '名字',
-            prop: 'name',
-          },
-          {
-            label: '地址',
-            prop: 'address',
-          },
-        ]
-			}
-		},
-		components: {
-      Table
-    },
-    computed: {
-      ...mapState([
-				'nav'
-			])
-    },
-		methods: {
-      ...mapMutations([
-				'setNavCurrent'
-      ]),
-      
-      // 获取数据
-      async fetchCard(){
-        let res = await this.$request.getList({
-          current: this.pager.current
-        })        
-        
-        let { list, total} = res.data
-        this.tableData = list
-        
-        this.$set(this.pager,'total', total)
+export default {
+  name: 'list',
+  data() {
+    return {
+      curCardBag: {}, // 当前选中卡包
+      pager: {
+        current: 1, // 当前页
+        size: 10, // 每页显示条数
+        count: 5, // 页码按钮数
+        total: 0 // 总条目数
       },
+      tableData: [],
 
-      next(){
-        this.fetchCard()
-      }
-		},
-		computed: {
-		
-		},
-		mounted() {
+      // 表头数据
+      rowHeader: [
+        {
+          label: '日期',
+          prop: 'date'
+        },
+        {
+          label: '名字',
+          prop: 'name'
+        },
+        {
+          label: '地址',
+          prop: 'address'
+        }
+      ]
+    }
+  },
+  components: {
+    Table
+  },
+  computed: {
+    ...mapState([
+      'nav'
+    ])
+  },
+  methods: {
+    ...mapMutations([
+      'setNavCurrent'
+    ]),
+
+    // 获取数据
+    async fetchCard() {
+      const res = await this.$request.getList({
+        current: this.pager.current
+      })
+
+      const { list, total } = res.data
+      this.tableData = list
+
+      this.$set(this.pager, 'total', total)
+    },
+
+    next() {
       this.fetchCard()
-		}
-	}
+    }
+  },
+  mounted() {
+    this.fetchCard()
+  }
+}
 </script>
 
 <style lang="scss" >
@@ -93,7 +90,7 @@
     font-size: 12px;
     padding: 0 0 17px;
   }
-  .el-table{    
+  .el-table{
     border: 1px solid #C0C0C0;
     td, th{
       text-align: center !important;
@@ -121,7 +118,7 @@
   .txt-disabled{
     color: #A3A3A3;
   }
-  
+
 }
 
 </style>

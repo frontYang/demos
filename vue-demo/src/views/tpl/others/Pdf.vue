@@ -9,10 +9,10 @@
     </p>
     <a target="_blank" href="http://storage.xuetangx.com/public_assets/xuetangx/PDF/PlayerAPI_v1.0.6.pdf">a标签预览pdf</a>
     <pdf
-      :src="src" 
+      :src="src"
       :page="currentPage"
       @num-pages="pageCount=$event"
-      @page-loaded="currentPage=$event" 
+      @page-loaded="currentPage=$event"
       @loaded="loadPdfHandler">
     </pdf>
   </div>
@@ -27,7 +27,7 @@ export default {
       currentPage: 0, // pdf文件页码
       pageCount: 0, // pdf文件总页数
       fileType: 'pdf', // 文件类型
-      src: '@/assets/tip.pdf', // pdf文件地址
+      src: '@/assets/tip.pdf' // pdf文件地址
     }
   },
   components: {
@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     // 改变PDF页码,val传过来区分上一页下一页的值,0上一页,1下一页
-    changePdfPage (val) {
+    changePdfPage(val) {
       // console.log(val)
       if (val === 0 && this.currentPage > 1) {
         this.currentPage--
@@ -48,11 +48,11 @@ export default {
     },
 
     // pdf加载时
-    loadPdfHandler (e) {
+    loadPdfHandler(e) {
       this.currentPage = 1 // 加载的时候先加载第一页
     }
   },
-  created(){
+  created() {
     // 有时PDF文件地址会出现跨域的情况,这里最好处理一下
     this.src = pdf.createLoadingTask(this.src)
   }

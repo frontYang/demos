@@ -47,7 +47,7 @@ export default {
               address: 'dsfasdf',
               name: '213123',
               type: 'input'
-            },
+            }
           ]
         },
         {
@@ -59,15 +59,15 @@ export default {
               name: '213123',
               type: 'input'
             },
-            {              
+            {
               date: 'dsafsd',
               address: 'dsfasdf',
               name: '213123',
               type: 'input'
-            },
+            }
           ]
-        },
-      ],      
+        }
+      ],
       rowHeader: [
         {
           label: '日期',
@@ -83,25 +83,25 @@ export default {
           label: '地址',
           prop: 'address',
           type: 'select'
-        },
-      ],
+        }
+      ]
     }
   },
   components: {
-    
+
   },
   methods: {
     // 获取表格数据
-    async fetchData(){
-      let res = await this.$request.getList()              
-      let { list} = res.data
+    async fetchData() {
+      const res = await this.$request.getList()
+      const { list } = res.data
       this.tableData = list
-    },
+    }
   },
 
-  mounted(){
+  mounted() {
     // this.fetchData()
-  }  
+  }
 }
 </script>
 

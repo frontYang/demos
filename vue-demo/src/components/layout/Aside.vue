@@ -1,19 +1,19 @@
 <template>
   <div :class="nav.headerNav[nav.current].subNav ? 'menu-open' : ''">
     <el-menu
-      :default-active="activeIndex" 
+      :default-active="activeIndex"
       :collapse="nav.toggle"
-      @open="handleOpen" 
+      @open="handleOpen"
       @close="handleClose"
       class="el-menu-aside"
-      mode="vertical" 
-      router="router" 
-      v-if="nav.current != -1"    
+      mode="vertical"
+      router="router"
+      v-if="nav.current != -1"
     >
-      <MenuItem 
-        v-for="item in nav.headerNav[nav.current].subNav" 
-        :key="item.index" 
-        :item="item" 
+      <MenuItem
+        v-for="item in nav.headerNav[nav.current].subNav"
+        :key="item.index"
+        :item="item"
         :toggle="nav.toggle"
       />
     </el-menu>
@@ -21,8 +21,8 @@
 </template>
 
 <script>
-import MenuItem from "@/components/layout/MenuItem";
-import { mapState, mapMutations, mapActions } from 'vuex';
+import MenuItem from '@/components/layout/MenuItem'
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   props: {
@@ -31,7 +31,7 @@ export default {
   data() {
     return {
       activeIndex: '0',
-      router: true,
+      router: true
     }
   },
   components: {
@@ -40,22 +40,22 @@ export default {
   computed: {
     ...mapState([
       'nav'
-    ]),
+    ])
   },
   methods: {
     ...mapMutations([
       'setToggle'
     ]),
 
-    handleClose(){
+    handleClose() {
 
     },
-    handleOpen(){
+    handleOpen() {
 
     }
   },
 
-  mounted(){
+  mounted() {
 
   }
 }

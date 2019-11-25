@@ -1,12 +1,12 @@
 
 import Mock from 'mockjs'
-const Random = Mock.Random;
+const Random = Mock.Random
 
 //  table tree 子数据
 Mock.mock(/\/api\/table_tree_child/, (req, res) => {
   console.log(req, res)
   var id = req.url.split('?id=')[1]
-  
+
   var data = Mock.mock({
     'list|1-10': [
       {
@@ -18,8 +18,8 @@ Mock.mock(/\/api\/table_tree_child/, (req, res) => {
     ]
   })
   return {
-    "code": 0,
-    "message": '',
-    "data": data
+    'code': 0,
+    'message': '',
+    'data': data
   }
 })

@@ -1,7 +1,6 @@
 
-
 import Mock from 'mockjs'
-const Random = Mock.Random;
+const Random = Mock.Random
 
 // 级联多选面板
 Mock.mock(/\/api\/cascader$/, (req, res) => {
@@ -17,7 +16,7 @@ Mock.mock(/\/api\/cascader$/, (req, res) => {
             'children|50': [
               {
                 'value|+1': 1,
-                'label|1-2': Random.region(),
+                'label|1-2': Random.region()
               }
             ]
           }
@@ -26,8 +25,8 @@ Mock.mock(/\/api\/cascader$/, (req, res) => {
     ]
   })
   return {
-    "code": 0,
-    "message": '',
-    "data": data
+    'code': 0,
+    'message': '',
+    'data': data
   }
 })

@@ -1,12 +1,10 @@
 
-
 import Mock from 'mockjs'
-const Random = Mock.Random;
+const Random = Mock.Random
 
 // table tree
 Mock.mock(/\/api\/table_tree$/, (req, res) => {
-
-  var data  = Mock.mock({
+  var data = Mock.mock({
     'list|20': [
       {
         'id|+1': 1,
@@ -14,12 +12,12 @@ Mock.mock(/\/api\/table_tree$/, (req, res) => {
         'name': Random.cname('@cname()'),
         'address': Random.region('@region()'),
         'hasChildren|1-2': true
-      },
+      }
     ]
   })
   return {
-    "code": 0,
-    "message": '',
-    "data": data
+    'code': 0,
+    'message': '',
+    'data': data
   }
 })

@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<transition name="fade" mode="out-in">			
+		<transition name="fade" mode="out-in">
 			<router-view></router-view>
 		</transition>
 	</div>
@@ -9,13 +9,13 @@
 <style lang="scss">
 	body {
 		margin: 0;
-		padding: 0;	
+		padding: 0;
 	}
 
 	#app {
 		font-family: 'Avenir', Helvetica, Arial, sans-serif;
 		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;		
+		-moz-osx-font-smoothing: grayscale;
 		color: #2c3e50;
 	}
 
@@ -25,23 +25,18 @@
 		&:active{
 			text-decoration: none;
 		}
-		
-	}
 
-	.page{
-		// width: 1120px;
-		// margin: 0 auto;
 	}
 
 	.box-card{
     min-height: 553px;
 	}
-	
+
   .tit{
     font-size: 12px;
     padding: 0 0 17px;
 	}
-	
+
 	.pop{
 		position: fixed;
 		top: 0;
@@ -62,11 +57,10 @@
 			position: absolute;
 			top: 50%;
 			left: 50%;
-			max-width: 1120px;			
+			max-width: 1120px;
 			transform: translate3d(-50%, -50%, 0);
 		}
 	}
-	
 
 	.el-dialog{
     width: 70%;
@@ -86,7 +80,7 @@
       }
 
       .content-th{
-        padding-bottom: 10px; 
+        padding-bottom: 10px;
       }
     }
 
@@ -102,12 +96,12 @@
 </style>
 
 <script>
-	// @ is an alias to /src
-	
-	export default {
-		name: 'app',
-		components: {
-			
-		}
-	}
+// @ is an alias to /src
+
+export default {
+  name: 'app',
+  components: {
+
+  }
+}
 </script>

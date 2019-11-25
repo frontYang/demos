@@ -5,11 +5,11 @@
         <el-breadcrumb-item v-if="item.path" :key="item.path" :to="item.path">{{item.meta.title}}</el-breadcrumb-item>
       </template>
     </el-breadcrumb>
-  </div>	
+  </div>
 </template>
 
 <script>
-import { mapState, mapMutations, mapActions } from 'vuex';
+import { mapState } from 'vuex'
 export default {
   props: {
 
@@ -33,32 +33,32 @@ export default {
       this.getBreadCrumb()
     }
   },
-  methods:{
-    getBreadCrumb(){
+  methods: {
+    getBreadCrumb() {
       let matched = this.$route.matched.filter(item => item.name)
-      const first = matched[0];
+      const first = matched[0]
       if (first && first.name.trim().toLocaleLowerCase() !== 'index'.toLocaleLowerCase()) {
-          matched = [{ path: '/index', meta: { title: '首页' }}].concat(matched)
+        matched = [{ path: '/index', meta: { title: '首页' }}].concat(matched)
       }
       matched.length > 0 && (matched[matched.length - 2].path = matched[matched.length - 2].path.replace(/\:id/, this.nav.current))
       this.levelList = [...matched]
     }
   },
-  
-  created(){
+
+  created() {
     this.getBreadCrumb()
-  },
+  }
 }
 </script>
 
 <style lang="scss">
-	.crumbs{  
+	.crumbs{
     font-size: 12px;
     padding: 20px 0;
     color: #3E3D3D;
 
     .el-breadcrumb__separator{
       color: #3E3D3D;
-    }    
+    }
 	}
 </style>
