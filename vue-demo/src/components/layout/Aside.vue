@@ -1,5 +1,5 @@
 <template>
-  <div :class="nav.headerNav[nav.current].subNav ? 'menu-open' : ''">
+  <div :class="navData[nav.current].subNav ? 'menu-open' : ''">
     <el-menu
       :default-active="activeIndex"
       :collapse="nav.toggle"
@@ -11,7 +11,7 @@
       v-if="nav.current != -1"
     >
       <MenuItem
-        v-for="item in nav.headerNav[nav.current].subNav"
+        v-for="item in navData[nav.current].subNav"
         :key="item.index"
         :item="item"
         :toggle="nav.toggle"
@@ -23,6 +23,7 @@
 <script>
 import MenuItem from '@/components/layout/MenuItem'
 import { mapState, mapMutations } from 'vuex'
+import { CONFIG } from '@/utils/config'
 
 export default {
   props: {
@@ -31,7 +32,8 @@ export default {
   data() {
     return {
       activeIndex: '0',
-      router: true
+      router: true,
+      navData: CONFIG.nav
     }
   },
   components: {

@@ -48,12 +48,12 @@
 
           <!-- 菜单 -->
           <el-menu
-            :default-active="nav.headerNav[nav.current].index  + '/' + nav.current"
+            :default-active="navData[nav.current].index  + '/' + nav.current"
             class="el-menu-header"
             mode="horizontal"
             router="router"
           >
-            <template v-for="(item, index) in nav.headerNav">
+            <template v-for="(item, index) in navData">
               <el-menu-item v-if="index == 0" :key="item.index" :index="item.index">{{item.label}}</el-menu-item>
               <el-menu-item v-else :key="item.index" :index="item.index + '/' + index">{{item.label}}</el-menu-item>
             </template>
@@ -88,6 +88,7 @@
 
 <script>
 import { mapState, mapMutations } from 'vuex'
+import { CONFIG } from '@/utils/config'
 
 export default {
   props: {
@@ -100,7 +101,8 @@ export default {
     return {
       activeIndex: '0',
       router: true,
-      isCollapse: false
+      isCollapse: false,
+      navData: CONFIG.nav
     }
   },
   computed: {

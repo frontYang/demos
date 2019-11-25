@@ -10,6 +10,8 @@ const DOMAIN_PROD = ''
 // 判断环境
 const IS_DEV = process.env.NODE_ENV === 'development'
 
+import nav from '@/utils/nav'
+
 // 接口域名
 export const DOMAIN = IS_DEV ? DOMAIN_DEV : DOMAIN_PROD
 
@@ -32,5 +34,8 @@ export const CONFIG = {
     get_channel_package: '/api/get_channel_package', // 渠道包
     get_promot_plan: '/api/get_promot_plan', // 推广计划
     get_direct_package: '/api/get_direct_package' // 定向包
-  }
+  },
+
+  nav
+
 }
