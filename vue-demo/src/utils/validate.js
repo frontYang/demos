@@ -1,16 +1,16 @@
 
 const trim = (str) => {
-  return str.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+  return str.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '')
 }
 
 const isEmpty = (val) => {
-  return trim(val).length == 0 ? true : false
+  return trim(val).length === 0
 }
 
 const validateEmpty = (rule, value, callback) => {
-  if (isEmpty(value)){
+  if (isEmpty(value)) {
     callback(new Error('不能为空！'))
-  }else {
+  } else {
     callback()
   }
 }
@@ -18,3 +18,4 @@ const validateEmpty = (rule, value, callback) => {
 export default {
   validateEmpty
 }
+

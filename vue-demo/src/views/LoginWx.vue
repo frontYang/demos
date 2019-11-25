@@ -5,34 +5,35 @@
 </template>
 
 <script>
-	export default {
-		name: 'login',
-		data() {
-			return {
+export default {
+  name: 'login',
+  data() {
+    return {
 
-			}
-		},
-		components: {
+    }
+  },
+  components: {
 
-		},
-		methods: {
-			initCode(){
-				var obj = new WxLogin({
-					self_redirect:true,
-					id:"login_container", 
-					appid: "your wechat app id", 
-					scope: "snsapi_login", 
-					redirect_uri: "get_web_open_id  intf",
-					state: "",
-					style: "",
-					href: ""
-				})
-			}
-		},
-		mounted() {
-			this.initCode()
-		}
-	}
+  },
+  methods: {
+    initCode() {
+      /* eslint-disable */
+      var obj = new WxLogin({
+        self_redirect: true,
+        id: 'login_container',
+        appid: 'your wechat app id',
+        scope: 'snsapi_login',
+        redirect_uri: 'get_web_open_id  intf',
+        state: '',
+        style: '',
+        href: ''
+      })
+    }
+  },
+  mounted() {
+    this.initCode()
+  }
+}
 </script>
 
 <style lang="scss" scoped>

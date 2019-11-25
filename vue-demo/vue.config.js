@@ -9,5 +9,10 @@ module.exports = {
         } // 这里重写路径
       }
     }
+  },
+  chainWebpack: config => {
+    config
+      .plugin('webpack-bundle-analyzer')
+      .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)
   }
 }

@@ -1,6 +1,6 @@
 
 import Mock from 'mockjs'
-const Random = Mock.Random;
+const Random = Mock.Random
 
 // 异步级联多选1
 Mock.mock(/\/api\/cascader1$/, (req, res) => {
@@ -15,8 +15,8 @@ Mock.mock(/\/api\/cascader1$/, (req, res) => {
     ]
   })
   return {
-    "code": 0,
-    "message": '',
-    "data": data
+    'code': 0,
+    'message': '',
+    'data': data
   }
 })

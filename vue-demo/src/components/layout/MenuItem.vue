@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations, mapActions } from 'vuex';
+import { mapState } from 'vuex'
 
 export default {
   name: 'MenuItem',
@@ -56,7 +56,7 @@ export default {
       default: 'index'
     },
 
-    // 
+    //
     toggle: {
       type: Boolean,
       default: false
@@ -65,10 +65,10 @@ export default {
   computed: {
     ...mapState([
       'nav'
-    ]),
+    ])
   },
   methods: {
-    
+
   }
 }
 </script>
